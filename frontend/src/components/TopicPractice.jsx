@@ -363,7 +363,7 @@ const TopicPractice = ({ topicId, onBack }) => {
                           </p>
                           <p className={`text-xs font-medium ${
                             selectedAnswer === currentQuestion.correctAnswer 
-                              ? 'text-blue-600' 
+                              ? 'text-teal-600' 
                               : 'text-red-600'
                           }`}>
                             Correct: Option {String.fromCharCode(65 + currentQuestion.correctAnswer)}
