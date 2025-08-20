@@ -263,7 +263,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
                   <Button 
                     onClick={handleSubmitAnswer} 
                     disabled={selectedAnswer === null}
-                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 shadow-lg rounded-xl"
+                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 transition-all duration-300 shadow-lg rounded-xl"
                   >
                     <CheckCircle className="h-4 w-4 mr-2" />
                     Submit Answer
