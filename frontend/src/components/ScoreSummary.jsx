@@ -1,232 +1,256 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { Progress } from './ui/progress';
 import { 
-  Trophy, 
+  ArrowLeft, 
+  TrendingUp, 
   Target, 
-  Clock,
-  TrendingUp,
-  ArrowRight,
-  RotateCcw,
-  ArrowLeft,
+  Clock, 
   CheckCircle,
   XCircle,
-  Award
+  RotateCcw,
+  Share,
+  Download,
+  Award,
+  Brain,
+  BarChart3
 } from 'lucide-react';
 
-const ScoreSummary = ({ topicId, onNavigate, onBack }) => {
-  // Mock data for the summary - in real app this would come from user's session
-  const mockResults = {
-    totalQuestions: 10,
-    correctAnswers: 7,
-    accuracy: 70,
-    timeSpent: '12:34',
-    averageTime: '1:15',
-    difficulty: {
-      easy: { correct: 4, total: 4 },
-      medium: { correct: 2, total: 4 }, 
-      hard: { correct: 1, total: 2 }
-    }
+const ScoreSummary = ({ onNavigate, onBack }) => {
+  const [selectedCategory, setSelectedCategory] = useState('overall');
+
+  // Mock score data
+  const scoreData = {
+    overall: {
+      score: 78,
+      totalQuestions: 25,
+      correct: 19,
+      incorrect: 6,
+      timeSpent: '23:45',
+      accuracy: 76,
+      rank: 'Above Average'
+    },
+    categories: [
+      {
+        name: 'Quantitative Aptitude',
+        score: 82,
+        questions: 10,
+        correct: 8,
+        progress: 82,
+        color: 'emerald'
+      },
+      {
+        name: 'Logical Reasoning',
+        score: 75,
+        questions: 8,
+        correct: 6,
+        progress: 75,
+        color: 'teal'
+      },
+      {
+        name: 'Verbal Reasoning',
+        score: 70,
+        questions: 7,
+        correct: 5,
+        progress: 70,
+        color: 'cyan'
+      }
+    ]
   };
 
-  const topicNames = {
-    'percentages': 'Percentages',
-    'number-systems': 'Number Systems', 
-    'time-work': 'Time & Work'
-  };
-
-  const getPerformanceColor = (accuracy) => {
-    if (accuracy >= 80) return 'text-green-600';
-    if (accuracy >= 60) return 'text-yellow-600';
-    return 'text-red-600';
-  };
-
-  const getPerformanceMessage = (accuracy) => {
-    if (accuracy >= 80) return 'Excellent Performance!';
-    if (accuracy >= 60) return 'Good Job!';
-    return 'Keep Practicing!';
-  };
-
-  const topicName = topicNames[topicId];
+  const achievements = [
+    { icon: Target, label: 'High Accuracy', description: '76% correct answers' },
+    { icon: Clock, label: 'Good Time Management', description: 'Completed within time limit' },
+    { icon: TrendingUp, label: 'Above Average', description: 'Better than 68% of test takers' }
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
       {/* Header */}
-      <div className="bg-white/90 backdrop-blur-sm border-b border-slate-200 shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-6">
+      <div className="bg-white/70 backdrop-blur-sm shadow-sm sticky top-0 z-10">
+        <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button 
-                variant="outline" 
+                variant="ghost" 
+                size="sm"
                 onClick={onBack}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold border-2 hover:scale-105 transition-all duration-300"
+                className="hover:bg-emerald-100"
               >
-                <ArrowLeft className="h-4 w-4" />
-                Back to Questions
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Practice
               </Button>
-              
+              <div className="h-6 w-px bg-slate-300"></div>
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Practice Complete!
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                  Test Results
                 </h1>
-                <p className="text-slate-600">
-                  Your performance summary for {topicName}
-                </p>
+                <p className="text-sm text-slate-600">Quantitative Aptitude Practice Test</p>
               </div>
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" className="border-emerald-200 text-emerald-700 hover:bg-emerald-50">
+                <Share className="h-4 w-4 mr-2" />
+                Share
+              </Button>
+              <Button variant="outline" size="sm" className="border-teal-200 text-teal-700 hover:bg-teal-50">
+                <Download className="h-4 w-4 mr-2" />
+                Export
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-6 py-8">
         
-        {/* Main Results Card */}
-        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl mb-8 overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-1">
-            <div className="bg-white rounded-lg">
-              <CardContent className="p-12 text-center">
-                <div className="relative mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-20"></div>
-                  <div className="relative w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto">
-                    <Trophy className="h-12 w-12 text-white" />
+        {/* Overall Score Card */}
+        <div className="mb-8">
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-1">
+            <Card className="bg-white m-0">
+              <CardContent className="p-8 text-center">
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full blur-3xl opacity-20"></div>
+                  <div className="relative w-24 h-24 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto">
+                    <span className="text-3xl font-bold text-white">{scoreData.overall.score}%</span>
                   </div>
                 </div>
                 
-                <h2 className={`text-4xl font-bold mb-4 ${getPerformanceColor(mockResults.accuracy)}`}>
-                  {getPerformanceMessage(mockResults.accuracy)}
-                </h2>
+                <h2 className="text-3xl font-bold text-slate-800 mb-2">Great Job!</h2>
+                <p className="text-slate-600 mb-6">You scored {scoreData.overall.score}% - {scoreData.overall.rank}</p>
                 
-                <p className="text-xl text-slate-600 mb-8">
-                  You scored {mockResults.correctAnswers} out of {mockResults.totalQuestions} questions correctly
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div className="grid grid-cols-3 gap-6 mb-6">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <Target className="h-8 w-8 text-white" />
-                    </div>
-                    <p className="text-3xl font-bold text-slate-800">{mockResults.accuracy}%</p>
-                    <p className="text-sm text-slate-600">Accuracy</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <CheckCircle className="h-8 w-8 text-white" />
                     </div>
-                    <p className="text-3xl font-bold text-slate-800">{mockResults.correctAnswers}</p>
+                    <p className="text-2xl font-bold text-emerald-600">{scoreData.overall.correct}</p>
                     <p className="text-sm text-slate-600">Correct</p>
                   </div>
-                  
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <XCircle className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-2xl font-bold text-red-600">{scoreData.overall.incorrect}</p>
+                    <p className="text-sm text-slate-600">Incorrect</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                       <Clock className="h-8 w-8 text-white" />
                     </div>
-                    <p className="text-3xl font-bold text-slate-800">{mockResults.timeSpent}</p>
-                    <p className="text-sm text-slate-600">Total Time</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <TrendingUp className="h-8 w-8 text-white" />
-                    </div>
-                    <p className="text-3xl font-bold text-slate-800">{mockResults.averageTime}</p>
-                    <p className="text-sm text-slate-600">Avg/Question</p>
+                    <p className="text-2xl font-bold text-purple-600">{scoreData.overall.timeSpent}</p>
+                    <p className="text-sm text-slate-600">Time Spent</p>
                   </div>
                 </div>
               </CardContent>
-            </div>
+            </Card>
           </div>
-        </Card>
+        </div>
 
-        {/* Difficulty Breakdown */}
-        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl mb-8">
+        {/* Category Breakdown */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {scoreData.categories.map((category, index) => (
+            <Card key={index} className="bg-white/90 backdrop-blur-sm border-0 shadow-md hover:shadow-lg transition-all duration-300">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-bold text-slate-800 flex items-center justify-between">
+                  {category.name}
+                  <Badge className={`bg-gradient-to-r from-${category.color}-500 to-${category.color}-600 text-white`}>
+                    {category.score}%
+                  </Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <Progress 
+                    value={category.progress} 
+                    className="h-3"
+                  />
+                  <div className="flex justify-between text-sm text-slate-600">
+                    <span>{category.correct}/{category.questions} correct</span>
+                    <span>{category.score}% accuracy</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Achievements */}
+        <Card className="mb-8 bg-white/90 backdrop-blur-sm border-0 shadow-md">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-              <Award className="h-6 w-6 text-teal-500" />
-              Performance by Difficulty
+            <CardTitle className="text-xl font-bold text-slate-800 flex items-center gap-2">
+              <Award className="h-6 w-6 text-emerald-600" />
+              Achievements
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              <div className="text-center p-6 bg-green-50 rounded-xl border border-green-200">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-bold text-green-800 mb-2">Easy Questions</h3>
-                <p className="text-2xl font-bold text-green-700">
-                  {mockResults.difficulty.easy.correct}/{mockResults.difficulty.easy.total}
-                </p>
-                <Badge className="bg-green-100 text-green-700 mt-2">
-                  {Math.round((mockResults.difficulty.easy.correct / mockResults.difficulty.easy.total) * 100)}% Accuracy
-                </Badge>
-              </div>
-
-              <div className="text-center p-6 bg-yellow-50 rounded-xl border border-yellow-200">
-                <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-bold text-yellow-800 mb-2">Medium Questions</h3>
-                <p className="text-2xl font-bold text-yellow-700">
-                  {mockResults.difficulty.medium.correct}/{mockResults.difficulty.medium.total}
-                </p>
-                <Badge className="bg-yellow-100 text-yellow-700 mt-2">
-                  {Math.round((mockResults.difficulty.medium.correct / mockResults.difficulty.medium.total) * 100)}% Accuracy
-                </Badge>
-              </div>
-
-              <div className="text-center p-6 bg-red-50 rounded-xl border border-red-200">
-                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <XCircle className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-bold text-red-800 mb-2">Hard Questions</h3>
-                <p className="text-2xl font-bold text-red-700">
-                  {mockResults.difficulty.hard.correct}/{mockResults.difficulty.hard.total}
-                </p>
-                <Badge className="bg-red-100 text-red-700 mt-2">
-                  {Math.round((mockResults.difficulty.hard.correct / mockResults.difficulty.hard.total) * 100)}% Accuracy
-                </Badge>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {achievements.map((achievement, index) => {
+                const Icon = achievement.icon;
+                return (
+                  <div key={index} className="flex items-center gap-3 p-4 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg border border-emerald-100">
+                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-800">{achievement.label}</p>
+                      <p className="text-sm text-slate-600">{achievement.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Button 
-            onClick={() => onNavigate('questions-list', topicId)}
-            className="h-16 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold text-lg rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            onClick={() => onNavigate('topic-practice')}
+            className="h-16 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-lg rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            <RotateCcw className="h-5 w-5 mr-3" />
-            Practice Again
+            <RotateCcw className="h-6 w-6 mr-2" />
+            Try Another Test
           </Button>
-          
-          <Button 
-            onClick={() => onNavigate('quantitative-landing')}
+          <Button
+            onClick={() => onNavigate('dashboard')}
             variant="outline"
-            className="h-16 border-2 font-semibold text-lg rounded-xl hover:scale-105 transition-all duration-300"
+            className="h-16 border-2 border-emerald-200 text-emerald-700 font-semibold text-lg rounded-xl hover:bg-emerald-50 transition-all duration-300"
           >
-            <ArrowLeft className="h-5 w-5 mr-3" />
-            Try Another Topic
+            <BarChart3 className="h-6 w-6 mr-2" />
+            View Detailed Analytics
           </Button>
         </div>
 
-        {/* Premium Dashboard CTA */}
-        <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-2xl">
-          <CardContent className="p-12 text-center">
-            <h3 className="text-3xl font-bold mb-4">Unlock Your Full Performance Report</h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Get detailed analytics, time-based insights, comparison with other learners, and personalized recommendations to improve your performance
+        {/* Premium Upsell */}
+        <Card className="mt-12 bg-gradient-to-r from-emerald-500 to-teal-600 text-white border-0 shadow-2xl">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Brain className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="text-3xl font-bold mb-4">Want Deeper Insights?</h3>
+            <p className="text-emerald-100 mb-6 max-w-2xl mx-auto text-lg">
+              Unlock detailed question-wise analysis, personalized improvement recommendations, 
+              and advanced performance tracking with Premium.
             </p>
-            <Button
-              onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-teal-600 hover:bg-teal-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
-            >
-              <ArrowRight className="h-5 w-5 mr-2" />
-              View Premium Analytics
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => onNavigate('premium-dashboard')}
+                className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+              >
+                <Award className="h-5 w-5 mr-2" />
+                Upgrade to Premium
+              </Button>
+              <Button
+                onClick={() => onNavigate('dashboard')}
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+              >
+                Continue Free
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </main>
