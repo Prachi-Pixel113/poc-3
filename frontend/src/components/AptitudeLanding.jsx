@@ -71,7 +71,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
                 variant="ghost" 
                 size="sm"
                 onClick={onBack}
-                className="hover:bg-emerald-100"
+                className="hover:bg-blue-100"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
