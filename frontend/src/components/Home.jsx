@@ -232,66 +232,66 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Main Categories */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
             Choose Your Learning Path
           </h2>
-          <p className="text-center text-slate-600 mb-8">
+          <p className="text-center text-slate-600 mb-6 text-sm">
             Dive deep into structured learning with comprehensive topic coverage
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {mainCategories.map((category) => {
               const Icon = category.icon;
               
               return (
                 <Card 
                   key={category.id}
-                  className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-105 hover:-translate-y-4 cursor-pointer group overflow-hidden relative"
+                  className="bg-white/90 backdrop-blur-sm border-0 shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden relative"
                   onClick={() => category.id === 'aptitude' ? onNavigate('aptitude-landing') : null}
                 >
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5">
-                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-gradient-to-br from-current to-transparent rounded-full"></div>
-                    <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-gradient-to-tr from-current to-transparent rounded-full"></div>
+                    <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-current to-transparent rounded-full"></div>
+                    <div className="absolute -left-4 -bottom-4 w-20 h-20 bg-gradient-to-tr from-current to-transparent rounded-full"></div>
                   </div>
 
-                  <CardHeader className="pb-6 relative">
-                    <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                      <Icon className="h-10 w-10 text-white" />
+                  <CardHeader className="pb-4 relative">
+                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 shadow-lg`}>
+                      <Icon className="h-6 w-6 text-white" />
                     </div>
                     
-                    <CardTitle className="text-3xl font-bold text-slate-800 mb-4 group-hover:text-slate-900 transition-colors">
+                    <CardTitle className="text-xl font-bold text-slate-800 mb-3">
                       {category.title}
                     </CardTitle>
                     
-                    <p className="text-slate-600 text-lg leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {category.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="pt-0 relative">
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                       
                       {/* Stats */}
-                      <div className="bg-slate-50 rounded-2xl p-6">
-                        <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div className="bg-slate-50 rounded-lg p-4">
+                        <div className="grid grid-cols-2 gap-3 mb-3">
                           <div className="text-center">
-                            <p className="text-2xl font-bold text-slate-800">{category.topics}</p>
-                            <p className="text-sm text-slate-600">Topics</p>
+                            <p className="text-lg font-bold text-slate-800">{category.topics}</p>
+                            <p className="text-xs text-slate-600">Topics</p>
                           </div>
                           <div className="text-center">
-                            <p className="text-2xl font-bold text-slate-800">{category.questions}+</p>
-                            <p className="text-sm text-slate-600">Questions</p>
+                            <p className="text-lg font-bold text-slate-800">{category.questions}+</p>
+                            <p className="text-xs text-slate-600">Questions</p>
                           </div>
                         </div>
                         
-                        <div className="flex gap-2 justify-center">
+                        <div className="flex gap-1 justify-center">
                           {category.difficulty.map((level, index) => (
                             <Badge 
                               key={index}
                               variant="secondary" 
-                              className="bg-white text-slate-600 text-xs"
+                              className="bg-white text-slate-600 text-xs px-2 py-1"
                             >
                               {level}
                             </Badge>
@@ -301,10 +301,10 @@ const Home = ({ onNavigate }) => {
 
                       {/* Action Button */}
                       <Button 
-                        className={`w-full bg-gradient-to-r ${category.color} text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 py-4 rounded-xl font-semibold text-lg`}
+                        className={`w-full bg-gradient-to-r ${category.color} text-white border-0 shadow-md transition-all duration-300 py-3 rounded-lg font-semibold text-sm`}
                       >
                         <span className="mr-2">Explore {category.title}</span>
-                        <ArrowRight className="h-5 w-5" />
+                        <ArrowRight className="h-4 w-4" />
                       </Button>
                     </div>
                   </CardContent>
