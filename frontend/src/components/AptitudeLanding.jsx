@@ -204,7 +204,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
         </div>
 
         {/* Call to Action */}
-        <Card className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white border-0 shadow-2xl">
+        <Card className="bg-gradient-to-r from-blue-500 to-teal-600 text-white border-0 shadow-2xl">
           <CardContent className="p-8 text-center">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Target className="h-8 w-8 text-white" />
