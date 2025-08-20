@@ -151,6 +151,13 @@ function App() {
         />
       )}
 
+      {currentView === 'question-practice' && (
+        <QuestionPractice 
+          onNavigate={handleNavigate}
+          onBack={handleBack}
+        />
+      )}
+
       {/* Authentication pages */}
       {!currentUser && currentView === 'login' && (
         <Login 
