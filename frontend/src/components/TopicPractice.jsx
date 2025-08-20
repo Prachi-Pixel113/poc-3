@@ -9,7 +9,12 @@ import {
   XCircle, 
   Lightbulb,
   SkipForward,
-  RotateCcw
+  RotateCcw,
+  Trophy,
+  Target,
+  Clock,
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
 import { mockQuestions, mockTopics } from '../data/mock';
 
@@ -66,28 +71,73 @@ const TopicPractice = ({ topicId, onBack }) => {
 
   if (!currentQuestion) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-emerald-50 p-6">
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-white shadow-lg">
-            <CardContent className="p-8 text-center">
-              <CheckCircle className="h-16 w-16 text-emerald-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-slate-800 mb-2">
-                Practice Complete!
-              </h2>
-              <p className="text-slate-600 mb-6">
-                Final Accuracy: {accuracy.toFixed(1)}% ({correctAnswers}/{answeredQuestions.size} correct)
-              </p>
-              <div className="flex gap-4 justify-center">
-                <Button onClick={onBack} variant="outline">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Dashboard
-                </Button>
-                <Button onClick={resetPractice}>
-                  <RotateCcw className="h-4 w-4 mr-2" />
-                  Practice Again
-                </Button>
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-3xl overflow-hidden">
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-1">
+              <div className="bg-white rounded-lg">
+                <CardContent className="p-12 text-center">
+                  <div className="relative mb-8">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full blur-3xl opacity-20"></div>
+                    <div className="relative w-24 h-24 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto">
+                      <Trophy className="h-12 w-12 text-white" />
+                    </div>
+                  </div>
+                  
+                  <h2 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
+                    Practice Complete!
+                  </h2>
+                  
+                  <p className="text-xl text-slate-600 mb-8">
+                    Excellent work! You've completed all questions in this topic.
+                  </p>
+
+                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                          <Target className="h-6 w-6 text-white" />
+                        </div>
+                        <p className="text-3xl font-bold text-slate-800">{accuracy.toFixed(1)}%</p>
+                        <p className="text-sm text-slate-600">Final Accuracy</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                          <CheckCircle className="h-6 w-6 text-white" />
+                        </div>
+                        <p className="text-3xl font-bold text-slate-800">{correctAnswers}</p>
+                        <p className="text-sm text-slate-600">Correct Answers</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                          <BookOpen className="h-6 w-6 text-white" />
+                        </div>
+                        <p className="text-3xl font-bold text-slate-800">{answeredQuestions.size}</p>
+                        <p className="text-sm text-slate-600">Total Attempted</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4 justify-center">
+                    <Button 
+                      onClick={onBack} 
+                      variant="outline"
+                      className="px-8 py-3 rounded-xl font-semibold border-2 hover:scale-105 transition-all duration-300"
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2" />
+                      Back to Dashboard
+                    </Button>
+                    <Button 
+                      onClick={resetPractice}
+                      className="px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 hover:scale-105 transition-all duration-300 shadow-lg"
+                    >
+                      <RotateCcw className="h-4 w-4 mr-2" />
+                      Practice Again
+                    </Button>
+                  </div>
+                </CardContent>
               </div>
-            </CardContent>
+            </div>
           </Card>
         </div>
       </div>
@@ -95,184 +145,230 @@ const TopicPractice = ({ topicId, onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={onBack}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Dashboard
-            </Button>
-            <div>
-              <h1 className="text-2xl font-bold text-slate-800">{topic?.title}</h1>
-              <p className="text-slate-600">
-                Question {currentQuestionIndex + 1} of {questions.length}
-              </p>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Enhanced Header */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-6">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={onBack}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 hover:scale-105 transition-all duration-300"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                Dashboard
+              </Button>
+              
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  {topic?.title}
+                </h1>
+                <p className="text-slate-600 font-medium">
+                  Question {currentQuestionIndex + 1} of {questions.length}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <Badge className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-0 px-4 py-2 text-sm font-semibold rounded-xl">
+                <Target className="h-4 w-4 mr-1" />
+                {accuracy.toFixed(1)}% Accuracy
+              </Badge>
+              <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0 px-4 py-2 text-sm font-semibold rounded-xl">
+                <CheckCircle className="h-4 w-4 mr-1" />
+                {correctAnswers} Correct
+              </Badge>
             </div>
           </div>
-          
-          <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="bg-slate-100 text-slate-700">
-              {accuracy.toFixed(1)}% Accuracy
-            </Badge>
-            <Badge variant="secondary" className="bg-emerald-100 text-emerald-700">
-              {correctAnswers} Correct
-            </Badge>
-          </div>
+
+          {/* Enhanced Progress Bar */}
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="h-5 w-5 text-indigo-500" />
+                  <span className="text-lg font-semibold text-slate-700">Progress</span>
+                </div>
+                <span className="text-lg font-bold text-slate-600">
+                  {Math.round(progressPercentage)}%
+                </span>
+              </div>
+              <Progress value={progressPercentage} className="h-4" />
+            </CardContent>
+          </Card>
         </div>
 
-        {/* Progress Bar */}
-        <Card className="mb-6 bg-white shadow-lg">
-          <CardContent className="p-4">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-700">Progress</span>
-              <span className="text-sm text-slate-500">
-                {Math.round(progressPercentage)}%
-              </span>
-            </div>
-            <Progress value={progressPercentage} className="h-2" />
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+          {/* Enhanced Question Panel */}
+          <div className="xl:col-span-2">
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-2xl overflow-hidden">
+              <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-1">
+                <div className="bg-white rounded-lg">
+                  <CardHeader className="pb-6">
+                    <CardTitle className="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center">
+                        <span className="text-white font-bold">{currentQuestionIndex + 1}</span>
+                      </div>
+                      Question {currentQuestionIndex + 1}
+                    </CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="px-8 pb-8">
+                    <div className="bg-gradient-to-r from-slate-50 to-indigo-50 rounded-2xl p-8 mb-8">
+                      <p className="text-xl text-slate-700 leading-relaxed font-medium">
+                        {currentQuestion.question}
+                      </p>
+                    </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Question Panel */}
-          <div className="lg:col-span-2">
-            <Card className="bg-white shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-lg text-slate-800">
-                  Question {currentQuestionIndex + 1}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  {currentQuestion.question}
-                </p>
+                    <div className="space-y-4 mb-8">
+                      {currentQuestion.options.map((option, index) => {
+                        let bgColor = 'bg-white hover:bg-slate-50';
+                        let borderColor = 'border-slate-200 hover:border-slate-300';
+                        let textColor = 'text-slate-700';
+                        let shadowClass = 'hover:shadow-lg';
 
-                <div className="space-y-3">
-                  {currentQuestion.options.map((option, index) => {
-                    let bgColor = 'bg-slate-50 hover:bg-slate-100';
-                    let borderColor = 'border-slate-200';
-                    let textColor = 'text-slate-700';
+                        if (showExplanation) {
+                          if (index === currentQuestion.correctAnswer) {
+                            bgColor = 'bg-gradient-to-r from-emerald-50 to-teal-50';
+                            borderColor = 'border-emerald-300';
+                            textColor = 'text-emerald-800';
+                            shadowClass = 'shadow-xl shadow-emerald-100';
+                          } else if (index === selectedAnswer && index !== currentQuestion.correctAnswer) {
+                            bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
+                            borderColor = 'border-red-300';
+                            textColor = 'text-red-800';
+                            shadowClass = 'shadow-xl shadow-red-100';
+                          }
+                        } else if (selectedAnswer === index) {
+                          bgColor = 'bg-gradient-to-r from-blue-50 to-indigo-50';
+                          borderColor = 'border-blue-400';
+                          textColor = 'text-blue-800';
+                          shadowClass = 'shadow-xl shadow-blue-100';
+                        }
 
-                    if (showExplanation) {
-                      if (index === currentQuestion.correctAnswer) {
-                        bgColor = 'bg-emerald-50';
-                        borderColor = 'border-emerald-300';
-                        textColor = 'text-emerald-800';
-                      } else if (index === selectedAnswer && index !== currentQuestion.correctAnswer) {
-                        bgColor = 'bg-red-50';
-                        borderColor = 'border-red-300';
-                        textColor = 'text-red-800';
-                      }
-                    } else if (selectedAnswer === index) {
-                      bgColor = 'bg-blue-50';
-                      borderColor = 'border-blue-300';
-                      textColor = 'text-blue-800';
-                    }
+                        return (
+                          <button
+                            key={index}
+                            onClick={() => handleAnswerSelect(index)}
+                            className={`w-full p-6 text-left border-2 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] ${bgColor} ${borderColor} ${textColor} ${shadowClass}`}
+                            disabled={showExplanation}
+                          >
+                            <div className="flex items-center gap-4">
+                              <span className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 border-2 border-white flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                {String.fromCharCode(65 + index)}
+                              </span>
+                              <span className="flex-1 text-lg font-medium">{option}</span>
+                              {showExplanation && index === currentQuestion.correctAnswer && (
+                                <div className="p-2 bg-emerald-500 rounded-xl">
+                                  <CheckCircle className="h-6 w-6 text-white" />
+                                </div>
+                              )}
+                              {showExplanation && index === selectedAnswer && index !== currentQuestion.correctAnswer && (
+                                <div className="p-2 bg-red-500 rounded-xl">
+                                  <XCircle className="h-6 w-6 text-white" />
+                                </div>
+                              )}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
 
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => handleAnswerSelect(index)}
-                        className={`w-full p-4 text-left border-2 rounded-lg transition-all duration-200 ${bgColor} ${borderColor} ${textColor}`}
-                        disabled={showExplanation}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-white border-2 flex items-center justify-center text-sm font-medium">
-                            {String.fromCharCode(65 + index)}
-                          </span>
-                          <span className="flex-1">{option}</span>
-                          {showExplanation && index === currentQuestion.correctAnswer && (
-                            <CheckCircle className="h-5 w-5 text-emerald-600" />
-                          )}
-                          {showExplanation && index === selectedAnswer && index !== currentQuestion.correctAnswer && (
-                            <XCircle className="h-5 w-5 text-red-600" />
-                          )}
-                        </div>
-                      </button>
-                    );
-                  })}
+                    <div className="flex gap-4">
+                      {!showExplanation ? (
+                        <>
+                          <Button 
+                            onClick={handleSubmitAnswer} 
+                            disabled={selectedAnswer === null}
+                            className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 hover:scale-105 transition-all duration-300 shadow-lg rounded-xl"
+                          >
+                            Submit Answer
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            onClick={handleSkipQuestion}
+                            className="px-8 py-4 text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 rounded-xl"
+                          >
+                            <SkipForward className="h-5 w-5 mr-2" />
+                            Skip
+                          </Button>
+                        </>
+                      ) : (
+                        <Button 
+                          onClick={handleNextQuestion}
+                          disabled={currentQuestionIndex >= questions.length - 1}
+                          className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 hover:scale-105 transition-all duration-300 shadow-lg rounded-xl"
+                        >
+                          Next Question
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
                 </div>
-
-                <div className="flex gap-3 mt-6">
-                  {!showExplanation ? (
-                    <>
-                      <Button 
-                        onClick={handleSubmitAnswer} 
-                        disabled={selectedAnswer === null}
-                        className="bg-emerald-600 hover:bg-emerald-700"
-                      >
-                        Submit Answer
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        onClick={handleSkipQuestion}
-                      >
-                        <SkipForward className="h-4 w-4 mr-2" />
-                        Skip
-                      </Button>
-                    </>
-                  ) : (
-                    <Button 
-                      onClick={handleNextQuestion}
-                      disabled={currentQuestionIndex >= questions.length - 1}
-                      className="bg-blue-600 hover:bg-blue-700"
-                    >
-                      Next Question
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
+              </div>
             </Card>
           </div>
 
-          {/* Explanation Panel */}
+          {/* Enhanced Explanation Panel */}
           <div>
-            <Card className="bg-white shadow-lg">
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-2xl sticky top-6">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
-                  <Lightbulb className="h-5 w-5 text-amber-500" />
+                <CardTitle className="flex items-center gap-3 text-2xl font-bold text-slate-800">
+                  <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+                    <Lightbulb className="h-6 w-6 text-white" />
+                  </div>
                   Explanation
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {showExplanation ? (
-                  <div className="space-y-4">
-                    <div className={`p-3 rounded-lg ${
+                  <div className="space-y-6">
+                    <div className={`p-6 rounded-2xl border-2 ${
                       selectedAnswer === currentQuestion.correctAnswer 
-                        ? 'bg-emerald-50 border border-emerald-200' 
-                        : 'bg-red-50 border border-red-200'
+                        ? 'bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200' 
+                        : 'bg-gradient-to-r from-red-50 to-pink-50 border-red-200'
                     }`}>
+                      <div className="flex items-center gap-3 mb-3">
+                        {selectedAnswer === currentQuestion.correctAnswer ? (
+                          <CheckCircle className="h-6 w-6 text-emerald-600" />
+                        ) : (
+                          <XCircle className="h-6 w-6 text-red-600" />
+                        )}
+                        <p className={`text-xl font-bold ${
+                          selectedAnswer === currentQuestion.correctAnswer 
+                            ? 'text-emerald-800' 
+                            : 'text-red-800'
+                        }`}>
+                          {selectedAnswer === currentQuestion.correctAnswer ? 'Correct!' : 'Incorrect'}
+                        </p>
+                      </div>
                       <p className={`font-medium ${
                         selectedAnswer === currentQuestion.correctAnswer 
-                          ? 'text-emerald-800' 
-                          : 'text-red-800'
-                      }`}>
-                        {selectedAnswer === currentQuestion.correctAnswer ? 'Correct!' : 'Incorrect'}
-                      </p>
-                      <p className={`text-sm ${
-                        selectedAnswer === currentQuestion.correctAnswer 
-                          ? 'text-emerald-600' 
-                          : 'text-red-600'
+                          ? 'text-emerald-700' 
+                          : 'text-red-700'
                       }`}>
                         Correct answer: {String.fromCharCode(65 + currentQuestion.correctAnswer)}
                       </p>
                     </div>
                     
-                    <div className="text-slate-700 leading-relaxed">
-                      {currentQuestion.explanation}
+                    <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-6">
+                      <h4 className="font-bold text-slate-800 mb-3 text-lg">Detailed Explanation:</h4>
+                      <div className="text-slate-700 leading-relaxed text-base">
+                        {currentQuestion.explanation}
+                      </div>
                     </div>
                   </div>
                 ) : (
-                  <p className="text-slate-500 italic">
-                    Answer the question to see the explanation
-                  </p>
+                  <div className="text-center py-12">
+                    <div className="w-20 h-20 bg-gradient-to-r from-slate-100 to-slate-200 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                      <Clock className="h-10 w-10 text-slate-400" />
+                    </div>
+                    <p className="text-slate-500 italic text-lg">
+                      Answer the question to see the detailed explanation
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
