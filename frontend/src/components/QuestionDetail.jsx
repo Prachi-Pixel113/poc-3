@@ -132,7 +132,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
               <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
                 {question.difficulty}
               </Badge>
-              <Badge className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 py-1 text-xs">
+              <Badge className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-3 py-1 text-xs">
                 <Clock className="h-3 w-3 mr-1" />
                 {formatTime(timeSpent)}
               </Badge>
