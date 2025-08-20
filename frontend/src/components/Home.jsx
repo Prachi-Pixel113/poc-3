@@ -397,24 +397,26 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Premium Teaser */}
-        <Card className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white border-0 shadow-lg overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-600/50 to-cyan-600/50"></div>
-          <CardContent className="p-6 text-center relative">
-            <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
-              <Sparkles className="h-5 w-5 text-white" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Ready for Advanced Analytics?</h3>
-            <p className="text-sm text-teal-100 mb-4 max-w-xl mx-auto">
-              Unlock detailed performance insights, personalized learning paths, and advanced AI feedback
-            </p>
-            <Button
-              onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-teal-600 hover:bg-teal-50 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300"
-            >
-              See Premium Features
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="mt-16">
+          <Card className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white border-0 shadow-lg overflow-hidden relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-600/50 to-cyan-600/50"></div>
+            <CardContent className="p-8 text-center relative">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Ready for Advanced Analytics?</h3>
+              <p className="text-teal-100 mb-6 max-w-2xl mx-auto">
+                Unlock detailed performance insights, personalized learning paths, and advanced AI feedback to accelerate your growth
+              </p>
+              <Button
+                onClick={() => onNavigate('premium-dashboard')}
+                className="bg-white text-teal-600 hover:bg-teal-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+              >
+                See Premium Features
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
       </main>
     </div>
   );
