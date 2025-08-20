@@ -61,7 +61,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50">
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-sm shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 py-4">
