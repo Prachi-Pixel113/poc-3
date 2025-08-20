@@ -201,7 +201,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
             </p>
             <Button
               onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300"
+              className="bg-white text-teal-600 hover:bg-teal-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300"
             >
               View Analytics Dashboard
             </Button>
