@@ -61,26 +61,26 @@ const Home = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50">
-      <main className="max-w-7xl mx-auto px-6 py-16">
+      <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center p-2 bg-gradient-to-r from-blue-100 to-teal-100 rounded-full mb-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center p-2 bg-gradient-to-r from-blue-100 to-teal-100 rounded-full mb-6">
             <Badge className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 text-sm">
               🎯 New Features Available
             </Badge>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-5 leading-tight">
             Master Your Career with
             <span className="block mt-2">Smart Learning</span>
           </h1>
           
-          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-600 mb-6 max-w-3xl mx-auto leading-relaxed">
             Unlock your potential with AI-powered learning, comprehensive assessments, and personalized feedback. 
             Join thousands of successful learners on their journey to career excellence.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
               onClick={() => onNavigate('ai-interview')}
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg text-lg"
@@ -115,7 +115,7 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Stats Section - Clean without cards */}
-        <div className="mb-32">
+        <div className="mb-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {featuredStats.map((stat, index) => (
               <div key={index} className="text-center group">
