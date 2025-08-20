@@ -125,7 +125,7 @@ const AIInterview = ({ onBack, onNavigate }) => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div className="text-center p-6 bg-blue-50 rounded-xl">
-                      <MessageCircle className="h-8 w-8 text-blue-500 mx-auto mb-3" />
+                      <MessageCircle className="h-8 w-8 text-teal-500 mx-auto mb-3" />
                       <h3 className="font-semibold text-slate-800 mb-2">Behavioral Questions</h3>
                       <p className="text-sm text-slate-600">Practice common interview questions</p>
                     </div>
