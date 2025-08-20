@@ -164,22 +164,22 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
           <div className="space-y-6">
             
             {/* Question Header */}
-            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg p-4">
+            <div className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-lg p-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
                   <Target className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <div className="text-lg font-bold">Question {currentIndex + 1}</div>
-                  <div className="text-blue-100 text-sm">{question.topic}</div>
+                  <div className="text-teal-100 text-sm">{question.topic}</div>
                 </div>
               </div>
             </div>
 
             {/* Question Text */}
-            <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
+            <div className="bg-gradient-to-r from-slate-50 to-teal-50 rounded-xl p-6 border border-slate-200">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
                   <BookOpen className="h-4 w-4 text-white" />
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed font-medium">
@@ -191,7 +191,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
             {/* Answer Options */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-                <Target className="h-5 w-5 text-blue-500" />
+                <Target className="h-5 w-5 text-teal-500" />
                 Choose your answer:
               </h3>
               
