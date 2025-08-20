@@ -129,14 +129,14 @@ const Home = ({ onNavigate }) => {
       <main className="max-w-7xl mx-auto px-6 py-12">
         
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="relative mb-8">
+        <div className="text-center mb-12">
+          <div className="relative mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
             <div className="relative">
-              <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent mb-4">
                 Master Your Skills
               </h1>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
                 Comprehensive practice platform for aptitude tests, technical interviews, and career preparation. 
                 Learn from curated questions with detailed explanations and AI-powered insights.
               </p>
@@ -145,17 +145,17 @@ const Home = ({ onNavigate }) => {
               <div className="flex justify-center gap-4">
                 <Button
                   onClick={() => onNavigate('ai-interview')}
-                  className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="px-6 py-3 font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
                 >
-                  <Bot className="h-5 w-5 mr-2" />
+                  <Bot className="h-4 w-4 mr-2" />
                   Start AI Mock Interview
                 </Button>
                 <Button
                   onClick={() => onNavigate('aptitude-landing')}
                   variant="outline"
-                  className="px-8 py-4 text-lg font-semibold border-2 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="px-6 py-3 font-semibold border-2 rounded-xl hover:scale-105 transition-all duration-300"
                 >
-                  <BookOpen className="h-5 w-5 mr-2" />
+                  <BookOpen className="h-4 w-4 mr-2" />
                   Browse Topics
                 </Button>
               </div>
@@ -164,15 +164,15 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {featuredStats.map((stat, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
-                  <stat.icon className="h-6 w-6 text-white" />
+            <Card key={index} className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-4 text-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:rotate-6 transition-transform duration-300">
+                  <stat.icon className="h-5 w-5 text-white" />
                 </div>
-                <p className="text-3xl font-bold text-slate-800 mb-1">{stat.value}</p>
-                <p className="text-sm text-slate-600">{stat.label}</p>
+                <p className="text-2xl font-bold text-slate-800 mb-1">{stat.value}</p>
+                <p className="text-xs text-slate-600">{stat.label}</p>
               </CardContent>
             </Card>
           ))}
