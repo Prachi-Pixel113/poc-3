@@ -165,7 +165,7 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Stats Section - Clean without cards */}
-        <div className="mb-16">
+        <div className="mb-24">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {featuredStats.map((stat, index) => (
               <div key={index} className="text-center group">
