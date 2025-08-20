@@ -350,7 +350,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
                 </div>
                 
                 {/* Detailed Explanation */}
-                <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
+                <div className="bg-gradient-to-r from-slate-50 to-teal-50 rounded-xl p-6 border border-slate-200">
                   <div className="flex items-center gap-2 mb-4">
                     <BookOpen className="h-4 w-4 text-slate-600" />
                     <h4 className="font-bold text-slate-800">Solution Steps:</h4>
