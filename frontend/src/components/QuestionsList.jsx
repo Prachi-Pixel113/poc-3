@@ -161,7 +161,7 @@ const QuestionsList = ({ topicId, onNavigate, onBack }) => {
                   )}
                 </div>
                 
-                <CardTitle className="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-lg font-bold text-slate-800 group-hover:text-teal-600 transition-colors">
                   Question {index + 1}
                 </CardTitle>
               </CardHeader>
