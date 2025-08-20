@@ -29,7 +29,7 @@ const Home = ({ onNavigate }) => {
       title: 'Aptitude',
       description: 'Master quantitative reasoning, logical thinking, and verbal skills',
       icon: Brain,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-teal-500 to-cyan-600',
       topics: 15,
       questions: 500,
       difficulty: ['Easy', 'Medium', 'Hard']
@@ -39,7 +39,7 @@ const Home = ({ onNavigate }) => {
       title: 'Technical',
       description: 'Programming languages, algorithms, and system design concepts',
       icon: Code,
-      color: 'from-indigo-500 to-purple-600',
+      color: 'from-cyan-500 to-teal-600',
       topics: 20,
       questions: 800,
       difficulty: ['Beginner', 'Intermediate', 'Advanced']
@@ -49,7 +49,7 @@ const Home = ({ onNavigate }) => {
       title: 'Interview Prep',
       description: 'Behavioral questions, HR rounds, and communication skills',
       icon: Users,
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-teal-500 to-emerald-600',
       topics: 12,
       questions: 300,
       difficulty: ['Basic', 'Professional', 'Leadership']
