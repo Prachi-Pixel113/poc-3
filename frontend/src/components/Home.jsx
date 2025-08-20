@@ -127,36 +127,36 @@ const Home = ({ onNavigate }) => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-6 py-16">
         
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <div className="relative mb-6">
+        <div className="text-center mb-20">
+          <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-cyan-600/20 rounded-3xl blur-3xl"></div>
             <div className="relative">
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-800 via-cyan-700 to-teal-800 bg-clip-text text-transparent mb-4">
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-teal-800 via-cyan-700 to-teal-800 bg-clip-text text-transparent mb-6">
                 Master Your Skills
               </h1>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
                 Comprehensive practice platform for aptitude tests, technical interviews, and career preparation. 
                 Learn from curated questions with detailed explanations and AI-powered insights.
               </p>
               
               {/* AI Mock Interview CTA */}
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-6 mb-8">
                 <Button
                   onClick={() => onNavigate('ai-interview')}
-                  className="px-6 py-3 font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="px-8 py-4 font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg text-lg"
                 >
-                  <Bot className="h-4 w-4 mr-2" />
+                  <Bot className="h-5 w-5 mr-3" />
                   Start AI Mock Interview
                 </Button>
                 <Button
                   onClick={() => onNavigate('aptitude-landing')}
                   variant="outline"
-                  className="px-6 py-3 font-semibold border-2 rounded-xl hover:scale-105 transition-all duration-300"
+                  className="px-8 py-4 font-semibold border-2 rounded-xl hover:scale-105 transition-all duration-300 text-lg"
                 >
-                  <BookOpen className="h-4 w-4 mr-2" />
+                  <BookOpen className="h-5 w-5 mr-3" />
                   Browse Topics
                 </Button>
               </div>
