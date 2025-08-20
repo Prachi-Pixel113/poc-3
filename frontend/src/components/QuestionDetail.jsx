@@ -379,14 +379,14 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
 
         {/* Premium CTA */}
         {showExplanation && (
-          <div className="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-lg rounded-lg p-4 text-center">
+          <div className="mt-6 bg-gradient-to-r from-teal-500 to-cyan-600 text-white border-0 shadow-lg rounded-lg p-4 text-center">
             <h3 className="text-lg font-bold mb-2">Want to know how you compare?</h3>
-            <p className="text-blue-100 mb-3 text-sm">
+            <p className="text-teal-100 mb-3 text-sm">
               See your full analytics and performance insights!
             </p>
             <Button
               onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 font-semibold rounded-lg transition-all duration-300"
+              className="bg-white text-teal-600 hover:bg-teal-50 px-4 py-2 font-semibold rounded-lg transition-all duration-300"
             >
               See Your Full Analytics
             </Button>
