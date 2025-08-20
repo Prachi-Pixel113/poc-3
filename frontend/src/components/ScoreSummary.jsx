@@ -222,7 +222,7 @@ const ScoreSummary = ({ topicId, onNavigate, onBack }) => {
             </p>
             <Button
               onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
+              className="bg-white text-teal-600 hover:bg-teal-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
             >
               <ArrowRight className="h-5 w-5 mr-2" />
               View Premium Analytics
