@@ -94,7 +94,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {featuredStats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
                   <stat.icon className="h-6 w-6 text-white" />
                 </div>
                 <p className="text-2xl font-bold text-slate-800 mb-1">{stat.value}</p>
