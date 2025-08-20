@@ -132,9 +132,9 @@ const Home = ({ onNavigate }) => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="relative mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-cyan-600/20 rounded-3xl blur-3xl"></div>
             <div className="relative">
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-800 via-cyan-700 to-teal-800 bg-clip-text text-transparent mb-4">
                 Master Your Skills
               </h1>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6">
@@ -146,7 +146,7 @@ const Home = ({ onNavigate }) => {
               <div className="flex justify-center gap-4">
                 <Button
                   onClick={() => onNavigate('ai-interview')}
-                  className="px-6 py-3 font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
+                  className="px-6 py-3 font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   <Bot className="h-4 w-4 mr-2" />
                   Start AI Mock Interview
