@@ -274,7 +274,7 @@ const Home = ({ onNavigate }) => {
         {/* Main Categories - Smaller */}
         <div className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-3">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-3">
               Choose Your Learning Path
             </h2>
             <p className="text-slate-600 mb-6 max-w-xl mx-auto">
