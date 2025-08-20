@@ -102,7 +102,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50">
       
       {/* Header */}
       <div className="bg-white/90 backdrop-blur-sm border-b border-slate-200 shadow-lg">
