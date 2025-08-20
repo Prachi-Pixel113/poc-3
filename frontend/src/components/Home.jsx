@@ -315,19 +315,19 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Premium Teaser */}
-        <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-2xl overflow-hidden relative">
+        <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-lg overflow-hidden relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-purple-600/50"></div>
-          <CardContent className="p-12 text-center relative">
-            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6">
-              <Sparkles className="h-8 w-8 text-white" />
+          <CardContent className="p-6 text-center relative">
+            <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
+              <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <h3 className="text-3xl font-bold mb-4">Ready for Advanced Analytics?</h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold mb-2">Ready for Advanced Analytics?</h3>
+            <p className="text-sm text-blue-100 mb-4 max-w-xl mx-auto">
               Unlock detailed performance insights, personalized learning paths, and advanced AI feedback
             </p>
             <Button
               onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300"
+              className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300"
             >
               See Premium Features
             </Button>
