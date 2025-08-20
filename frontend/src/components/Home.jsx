@@ -25,7 +25,7 @@ const Home = ({ onNavigate }) => {
       title: 'Aptitude Tests',
       description: 'Master quantitative, logical, and verbal reasoning with comprehensive practice questions',
       icon: Calculator,
-      color: 'from-emerald-500 to-teal-600',
+      color: 'from-blue-500 to-teal-600',
       topics: 45,
       questions: 1200,
       difficulty: ['Easy', 'Medium', 'Hard']
@@ -60,17 +60,17 @@ const Home = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50">
       <main className="max-w-7xl mx-auto px-6 py-16">
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center p-2 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full mb-8">
-            <Badge className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 text-sm">
+          <div className="inline-flex items-center justify-center p-2 bg-gradient-to-r from-blue-100 to-teal-100 rounded-full mb-8">
+            <Badge className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 text-sm">
               🎯 New Features Available
             </Badge>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent mb-6 leading-tight">
             Master Your Career with
             <span className="block mt-2">Smart Learning</span>
           </h1>
@@ -83,7 +83,7 @@ const Home = ({ onNavigate }) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               onClick={() => onNavigate('ai-interview')}
-              className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg text-lg"
+              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg text-lg"
             >
               <Bot className="h-5 w-5 mr-3" />
               Start AI Mock Interview
@@ -100,15 +100,15 @@ const Home = ({ onNavigate }) => {
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-emerald-500" />
+              <CheckCircle className="h-5 w-5 text-blue-500" />
               <span>No Credit Card Required</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-emerald-500" />
+              <CheckCircle className="h-5 w-5 text-blue-500" />
               <span>Instant Access</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-emerald-500" />
+              <CheckCircle className="h-5 w-5 text-blue-500" />
               <span>Free Practice Questions</span>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Home = ({ onNavigate }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {featuredStats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
                   <stat.icon className="h-8 w-8 text-white" />
                 </div>
                 <p className="text-3xl font-bold text-slate-800 mb-2">{stat.value}</p>
@@ -132,7 +132,7 @@ const Home = ({ onNavigate }) => {
         {/* Why Choose EduMaster Pro - Smaller & More Structured */}
         <div className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-3">
               Why Choose EduMaster Pro?
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
@@ -144,9 +144,9 @@ const Home = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* AI-Powered Learning */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-6 border border-blue-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Brain className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -155,17 +155,17 @@ const Home = ({ onNavigate }) => {
                     Get personalized recommendations and intelligent feedback systems that adapt to your learning style.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Smart Recommendations</span>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Adaptive Difficulty</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Smart Recommendations</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Adaptive Difficulty</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Detailed Analytics */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-6 border border-blue-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <BarChart3 className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -174,17 +174,17 @@ const Home = ({ onNavigate }) => {
                     Track your progress with comprehensive performance insights and detailed progress reports.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Performance Tracking</span>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Progress Reports</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Performance Tracking</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Progress Reports</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Expert Explanations */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-6 border border-blue-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Target className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -193,17 +193,17 @@ const Home = ({ onNavigate }) => {
                     Learn from detailed step-by-step solutions crafted by subject matter experts.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Step-by-step</span>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Expert Tips</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Step-by-step</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Expert Tips</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Community Driven */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-6 border border-blue-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -212,8 +212,8 @@ const Home = ({ onNavigate }) => {
                     Join a vibrant community of 50K+ active learners and participate in engaging discussions.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">50K+ Users</span>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Peer Support</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">50K+ Users</span>
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Peer Support</span>
                   </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@ const Home = ({ onNavigate }) => {
         {/* Main Categories - Smaller */}
         <div className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-3">
               Choose Your Learning Path
             </h2>
             <p className="text-slate-600 mb-6 max-w-xl mx-auto">
@@ -307,19 +307,19 @@ const Home = ({ onNavigate }) => {
 
         {/* Premium Teaser */}
         <div className="mt-16">
-          <Card className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white border-0 shadow-lg overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/50 to-teal-600/50"></div>
+          <Card className="bg-gradient-to-r from-blue-500 to-teal-600 text-white border-0 shadow-lg overflow-hidden relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-teal-600/50"></div>
             <CardContent className="p-8 text-center relative">
               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Ready for Advanced Analytics?</h3>
-              <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                 Unlock detailed performance insights, personalized learning paths, and advanced AI feedback to accelerate your growth
               </p>
               <Button
                 onClick={() => onNavigate('premium-dashboard')}
-                className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 See Premium Features
               </Button>
