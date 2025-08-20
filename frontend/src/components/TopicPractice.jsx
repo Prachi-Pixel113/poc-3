@@ -220,7 +220,7 @@ const TopicPractice = ({ topicId, onBack }) => {
                 {/* Answer Options */}
                 <div className="flex-1 mb-4">
                   <h3 className="text-sm font-semibold text-slate-800 mb-3 flex items-center gap-2">
-                    <Target className="h-4 w-4 text-blue-500" />
+                    <Target className="h-4 w-4 text-teal-500" />
                     Answer Options
                   </h3>
                   
