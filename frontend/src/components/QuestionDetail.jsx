@@ -379,20 +379,18 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
 
         {/* Premium CTA */}
         {showExplanation && (
-          <Card className="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-xl">
-            <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">Want to know how you compare?</h3>
-              <p className="text-blue-100 mb-4 text-sm">
-                See your full analytics and performance insights!
-              </p>
-              <Button
-                onClick={() => onNavigate('premium-dashboard')}
-                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-2 font-semibold rounded-xl hover:scale-105 transition-all duration-300"
-              >
-                See Your Full Analytics
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 shadow-lg rounded-lg p-4 text-center">
+            <h3 className="text-lg font-bold mb-2">Want to know how you compare?</h3>
+            <p className="text-blue-100 mb-3 text-sm">
+              See your full analytics and performance insights!
+            </p>
+            <Button
+              onClick={() => onNavigate('premium-dashboard')}
+              className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 font-semibold rounded-lg transition-all duration-300"
+            >
+              See Your Full Analytics
+            </Button>
+          </div>
         )}
       </main>
     </div>
