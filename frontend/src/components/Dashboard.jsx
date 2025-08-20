@@ -26,18 +26,18 @@ const iconMap = {
 
 const Dashboard = ({ onSelectTopic }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header with enhanced design */}
         <div className="mb-12 text-center relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-cyan-600/10 rounded-3xl blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl blur-3xl"></div>
           <div className="relative">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-2xl shadow-lg">
+              <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg">
                 <Sparkles className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-800 via-purple-700 to-cyan-800 bg-clip-text text-transparent mb-4">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent mb-4">
               Aptitude Mastery Hub
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -48,7 +48,7 @@ const Dashboard = ({ onSelectTopic }) => {
 
         {/* Enhanced Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
             <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
@@ -56,16 +56,16 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.completedQuestions}/{mockUserProgress.totalQuestions}
                   </p>
-                  <p className="text-xs text-emerald-600 font-medium">Questions Completed</p>
+                  <p className="text-xs text-blue-600 font-medium">Questions Completed</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                <div className="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Target className="h-7 w-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
             <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
@@ -73,16 +73,16 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.overallAccuracy}%
                   </p>
-                  <p className="text-xs text-blue-600 font-medium">Overall Score</p>
+                  <p className="text-xs text-indigo-600 font-medium">Overall Score</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                <div className="p-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <TrendingUp className="h-7 w-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
             <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
@@ -90,16 +90,16 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.timeSpent}
                   </p>
-                  <p className="text-xs text-amber-600 font-medium">Total Investment</p>
+                  <p className="text-xs text-purple-600 font-medium">Total Investment</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                <div className="p-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Clock className="h-7 w-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
             <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
@@ -107,9 +107,9 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.streak}
                   </p>
-                  <p className="text-xs text-purple-600 font-medium">Days Active</p>
+                  <p className="text-xs text-blue-600 font-medium">Days Active</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                <div className="p-4 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Award className="h-7 w-7 text-white" />
                 </div>
               </div>
@@ -119,9 +119,16 @@ const Dashboard = ({ onSelectTopic }) => {
 
         {/* Enhanced Topics Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {mockTopics.map((topic) => {
+          {mockTopics.map((topic, index) => {
             const Icon = iconMap[topic.icon];
             const progressPercentage = (topic.completedQuestions / topic.totalQuestions) * 100;
+            
+            // Uniform blue to purple gradient colors
+            const colors = [
+              'from-blue-500 to-blue-600',
+              'from-indigo-500 to-indigo-600', 
+              'from-purple-500 to-purple-600'
+            ];
 
             return (
               <Card 
@@ -136,7 +143,7 @@ const Dashboard = ({ onSelectTopic }) => {
                 </div>
 
                 <CardHeader className="pb-6 relative">
-                  <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${topic.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                  <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${colors[index]} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   
@@ -173,7 +180,7 @@ const Dashboard = ({ onSelectTopic }) => {
                       </div>
                       
                       <Button 
-                        className={`bg-gradient-to-r ${topic.color} text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 px-6 py-3 rounded-xl font-semibold`}
+                        className={`bg-gradient-to-r ${colors[index]} text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 px-6 py-3 rounded-xl font-semibold`}
                       >
                         <Play className="h-4 w-4 mr-2" />
                         Start Practice
@@ -190,7 +197,7 @@ const Dashboard = ({ onSelectTopic }) => {
         <Card className="mt-12 bg-gradient-to-r from-white/80 to-slate-50/80 backdrop-blur-sm border-0 shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl">
+              <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
                 <Zap className="h-5 w-5 text-white" />
               </div>
               Recent Activity
@@ -198,7 +205,7 @@ const Dashboard = ({ onSelectTopic }) => {
           </CardHeader>
           <CardContent className="pb-8">
             <div className="flex items-center gap-4 p-6 bg-white/60 rounded-2xl">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center">
                 <Clock className="h-6 w-6 text-white" />
               </div>
               <div>
