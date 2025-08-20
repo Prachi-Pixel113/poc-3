@@ -281,7 +281,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
                 <>
                   <Button 
                     onClick={handleNextQuestion}
-                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 shadow-lg rounded-xl"
+                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-cyan-500 to-teal-500 transition-all duration-300 shadow-lg rounded-xl"
                   >
                     {currentIndex >= totalQuestions - 1 ? 'View Results' : 'Next Question'}
                     <ArrowRight className="h-4 w-4 ml-2" />
