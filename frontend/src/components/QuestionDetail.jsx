@@ -218,11 +218,11 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
                       iconBg = 'bg-red-600';
                     }
                   } else if (selectedAnswer === index) {
-                    bgColor = 'bg-gradient-to-r from-blue-50 to-indigo-50';
-                    borderColor = 'border-blue-400';
-                    textColor = 'text-blue-800';
-                    shadowClass = 'shadow-md shadow-blue-100';
-                    iconBg = 'bg-blue-600';
+                    bgColor = 'bg-gradient-to-r from-teal-50 to-cyan-50';
+                    borderColor = 'border-teal-400';
+                    textColor = 'text-teal-800';
+                    shadowClass = 'shadow-md shadow-teal-100';
+                    iconBg = 'bg-teal-600';
                   }
 
                   return (
