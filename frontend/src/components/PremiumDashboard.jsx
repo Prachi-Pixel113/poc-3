@@ -280,7 +280,7 @@ const PremiumDashboard = ({ onBack }) => {
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl">
             <CardHeader>
               <CardTitle className="text-xl font-bold text-slate-800 flex items-center gap-3">
-                <Clock className="h-6 w-6 text-blue-500" />
+                <Clock className="h-6 w-6 text-teal-500" />
                 Time Spent per Question
               </CardTitle>
             </CardHeader>
