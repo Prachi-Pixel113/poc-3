@@ -10,6 +10,7 @@ import AptitudeLanding from './components/AptitudeLanding';
 import QuantitativeLanding from './components/QuantitativeLanding';
 import QuestionsList from './components/QuestionsList';
 import QuestionDetail from './components/QuestionDetail';
+import QuestionPractice from './components/QuestionPractice';
 import ScoreSummary from './components/ScoreSummary';
 import PremiumDashboard from './components/PremiumDashboard';
 import AIInterview from './components/AIInterview';
