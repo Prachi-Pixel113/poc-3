@@ -56,7 +56,7 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.completedQuestions}/{mockUserProgress.totalQuestions}
                   </p>
-                  <p className="text-xs text-blue-600 font-medium">Questions Completed</p>
+                  <p className="text-xs text-teal-600 font-medium">Questions Completed</p>
                 </div>
                 <div className="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Target className="h-7 w-7 text-white" />
