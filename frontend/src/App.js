@@ -70,6 +70,8 @@ function App() {
     } else if (currentView === 'questions-list') {
       setCurrentView('quantitative-landing');
       setSelectedTopic(null);
+    } else if (currentView === 'question-practice') {
+      setCurrentView('aptitude-landing');
     } else if (currentView === 'quantitative-landing') {
       setCurrentView('aptitude-landing');
     } else if (currentView === 'aptitude-landing') {
