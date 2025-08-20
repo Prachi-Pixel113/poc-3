@@ -253,7 +253,7 @@ const Home = ({ onNavigate }) => {
             {/* Community Driven */}
             <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl p-6 border border-teal-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <div>
