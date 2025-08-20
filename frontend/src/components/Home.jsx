@@ -179,133 +179,92 @@ const Home = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Why Choose EduMaster Pro - Restructured */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+        {/* Why Choose EduMaster Pro - Smaller & More Structured */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-3">
               Why Choose EduMaster Pro?
             </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              The most comprehensive and intelligent learning platform designed for your career success. 
-              Experience the difference with our advanced features and proven results.
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              The most comprehensive and intelligent learning platform designed for your career success
             </p>
           </div>
           
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* Features Grid - Compact */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* AI-Powered Learning */}
-            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-2xl p-8 border border-teal-100/50 shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Brain className="h-8 w-8 text-white" />
+            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl p-6 border border-teal-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Brain className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">AI-Powered Learning</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Get personalized recommendations and intelligent feedback systems that adapt to your learning style and pace.
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">AI-Powered Learning</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">
+                    Get personalized recommendations and intelligent feedback systems that adapt to your learning style.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Smart question recommendations
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Adaptive difficulty levels
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Real-time feedback
-                    </li>
-                  </ul>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Smart Recommendations</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Adaptive Difficulty</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Detailed Analytics */}
-            <div className="bg-gradient-to-br from-white to-cyan-50/30 rounded-2xl p-8 border border-cyan-100/50 shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <BarChart3 className="h-8 w-8 text-white" />
+            <div className="bg-gradient-to-br from-white to-cyan-50/30 rounded-xl p-6 border border-cyan-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <BarChart3 className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Detailed Analytics</h3>
-                  <p className="text-slate-600 leading-relaxed">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Detailed Analytics</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">
                     Track your progress with comprehensive performance insights and detailed progress reports.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
-                      Performance tracking
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
-                      Weakness identification
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
-                      Progress visualization
-                    </li>
-                  </ul>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">Performance Tracking</span>
+                    <span className="bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">Progress Reports</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Expert Explanations */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-2xl p-8 border border-emerald-100/50 shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Target className="h-8 w-8 text-white" />
+            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Target className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Expert Explanations</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Learn from detailed step-by-step solutions crafted by subject matter experts for every question.
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Expert Explanations</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">
+                    Learn from detailed step-by-step solutions crafted by subject matter experts.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                      Step-by-step solutions
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                      Multiple approaches
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                      Expert tips & tricks
-                    </li>
-                  </ul>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Step-by-step</span>
+                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Expert Tips</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Community Driven */}
-            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-2xl p-8 border border-teal-100/50 shadow-sm hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Users className="h-8 w-8 text-white" />
+            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl p-6 border border-teal-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Users className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Community Driven</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Join a vibrant community of 50K+ active learners and participate in engaging discussion forums.
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Community Driven</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">
+                    Join a vibrant community of 50K+ active learners and participate in engaging discussions.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Active discussion forums
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Peer learning support
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
-                      Expert mentorship
-                    </li>
-                  </ul>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">50K+ Users</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Peer Support</span>
+                  </div>
                 </div>
               </div>
             </div>
