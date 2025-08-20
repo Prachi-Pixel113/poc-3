@@ -232,9 +232,9 @@ const Home = ({ onNavigate }) => {
             </div>
 
             {/* Expert Explanations */}
-            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-xl p-6 border border-emerald-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl p-6 border border-teal-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Target className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -243,8 +243,8 @@ const Home = ({ onNavigate }) => {
                     Learn from detailed step-by-step solutions crafted by subject matter experts.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Step-by-step</span>
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Expert Tips</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Step-by-step</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Expert Tips</span>
                   </div>
                 </div>
               </div>
