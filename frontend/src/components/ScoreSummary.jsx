@@ -144,7 +144,7 @@ const ScoreSummary = ({ topicId, onNavigate, onBack }) => {
         <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl mb-8">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-              <Award className="h-6 w-6 text-blue-500" />
+              <Award className="h-6 w-6 text-teal-500" />
               Performance by Difficulty
             </CardTitle>
           </CardHeader>
