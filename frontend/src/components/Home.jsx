@@ -313,13 +313,15 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Main Categories */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-            Choose Your Learning Path
-          </h2>
-          <p className="text-center text-slate-600 mb-6 text-sm">
-            Dive deep into structured learning with comprehensive topic coverage
-          </p>
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+              Choose Your Learning Path
+            </h2>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Dive deep into structured learning with comprehensive topic coverage designed for your success
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {mainCategories.map((category) => {
