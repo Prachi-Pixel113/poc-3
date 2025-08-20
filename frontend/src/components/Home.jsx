@@ -178,13 +178,65 @@ const Home = ({ onNavigate }) => {
           ))}
         </div>
 
+        {/* Why Choose EduMaster Pro */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            Why Choose EduMaster Pro?
+          </h2>
+          <p className="text-center text-slate-600 mb-8">
+            The most comprehensive and intelligent learning platform for career success
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Brain className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">AI-Powered Learning</h3>
+                <p className="text-sm text-slate-600">Personalized recommendations and intelligent feedback systems</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Detailed Analytics</h3>
+                <p className="text-sm text-slate-600">Track progress with comprehensive performance insights</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Expert Explanations</h3>
+                <p className="text-sm text-slate-600">Detailed step-by-step solutions for every question</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Community Driven</h3>
+                <p className="text-sm text-slate-600">Learn with 50K+ active users and discussion forums</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         {/* Main Categories */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
             Choose Your Learning Path
           </h2>
-          <p className="text-center text-slate-600 mb-12 text-lg">
-            Dive deep into structured learning with our comprehensive topic coverage
+          <p className="text-center text-slate-600 mb-8">
+            Dive deep into structured learning with comprehensive topic coverage
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
