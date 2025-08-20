@@ -107,7 +107,7 @@ const Dashboard = ({ onSelectTopic }) => {
                   <p className="text-3xl font-bold text-slate-800 mb-1">
                     {mockUserProgress.streak}
                   </p>
-                  <p className="text-xs text-blue-600 font-medium">Days Active</p>
+                  <p className="text-xs text-teal-600 font-medium">Days Active</p>
                 </div>
                 <div className="p-4 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Award className="h-7 w-7 text-white" />
