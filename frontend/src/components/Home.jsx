@@ -213,9 +213,9 @@ const Home = ({ onNavigate }) => {
             </div>
 
             {/* Detailed Analytics */}
-            <div className="bg-gradient-to-br from-white to-cyan-50/30 rounded-xl p-6 border border-cyan-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-gradient-to-br from-white to-teal-50/30 rounded-xl p-6 border border-teal-100/50 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
                   <BarChart3 className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -224,8 +224,8 @@ const Home = ({ onNavigate }) => {
                     Track your progress with comprehensive performance insights and detailed progress reports.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">Performance Tracking</span>
-                    <span className="bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">Progress Reports</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Performance Tracking</span>
+                    <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded-full">Progress Reports</span>
                   </div>
                 </div>
               </div>
