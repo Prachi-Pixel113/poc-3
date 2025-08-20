@@ -158,228 +158,222 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           
-          {/* Question Panel */}
-          <div className="xl:col-span-3">
-            <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl">
-              <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-t-lg">
-                <CardTitle className="text-xl font-bold flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                    <Target className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-lg">Question {currentIndex + 1}</div>
-                    <div className="text-blue-100 text-sm font-normal">{question.topic}</div>
-                  </div>
-                </CardTitle>
-              </CardHeader>
+          {/* Question Panel - Left Side */}
+          <div className="space-y-6">
+            
+            {/* Question Header */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                  <Target className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold">Question {currentIndex + 1}</div>
+                  <div className="text-blue-100 text-sm">{question.topic}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Question Text */}
+            <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <BookOpen className="h-4 w-4 text-white" />
+                </div>
+                <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                  {question.question}
+                </p>
+              </div>
+            </div>
+
+            {/* Answer Options */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                <Target className="h-5 w-5 text-blue-500" />
+                Choose your answer:
+              </h3>
               
-              <CardContent className="p-6">
-                
-                {/* Question Text */}
-                <div className="mb-6">
-                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                        <BookOpen className="h-4 w-4 text-white" />
-                      </div>
-                      <p className="text-lg text-slate-700 leading-relaxed font-medium">
-                        {question.question}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-3">
+                {question.options.map((option, index) => {
+                  let bgColor = 'bg-white hover:bg-slate-50';
+                  let borderColor = 'border-slate-200 hover:border-slate-300';
+                  let textColor = 'text-slate-700';
+                  let shadowClass = 'hover:shadow-md';
+                  let iconBg = 'bg-slate-600';
 
-                {/* Answer Options */}
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                    <Target className="h-5 w-5 text-blue-500" />
-                    Choose your answer:
-                  </h3>
-                  
-                  <div className="grid gap-3">
-                    {question.options.map((option, index) => {
-                      let bgColor = 'bg-white hover:bg-slate-50';
-                      let borderColor = 'border-slate-200 hover:border-slate-300';
-                      let textColor = 'text-slate-700';
-                      let shadowClass = 'hover:shadow-lg';
-                      let iconBg = 'bg-slate-600';
+                  if (showExplanation) {
+                    if (index === question.correctAnswer) {
+                      bgColor = 'bg-gradient-to-r from-green-50 to-emerald-50';
+                      borderColor = 'border-green-300';
+                      textColor = 'text-green-800';
+                      shadowClass = 'shadow-md shadow-green-100';
+                      iconBg = 'bg-green-600';
+                    } else if (index === selectedAnswer && index !== question.correctAnswer) {
+                      bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
+                      borderColor = 'border-red-300';
+                      textColor = 'text-red-800';
+                      shadowClass = 'shadow-md shadow-red-100';
+                      iconBg = 'bg-red-600';
+                    }
+                  } else if (selectedAnswer === index) {
+                    bgColor = 'bg-gradient-to-r from-blue-50 to-indigo-50';
+                    borderColor = 'border-blue-400';
+                    textColor = 'text-blue-800';
+                    shadowClass = 'shadow-md shadow-blue-100';
+                    iconBg = 'bg-blue-600';
+                  }
 
-                      if (showExplanation) {
-                        if (index === question.correctAnswer) {
-                          bgColor = 'bg-gradient-to-r from-green-50 to-emerald-50';
-                          borderColor = 'border-green-300';
-                          textColor = 'text-green-800';
-                          shadowClass = 'shadow-lg shadow-green-100';
-                          iconBg = 'bg-green-600';
-                        } else if (index === selectedAnswer && index !== question.correctAnswer) {
-                          bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
-                          borderColor = 'border-red-300';
-                          textColor = 'text-red-800';
-                          shadowClass = 'shadow-lg shadow-red-100';
-                          iconBg = 'bg-red-600';
-                        }
-                      } else if (selectedAnswer === index) {
-                        bgColor = 'bg-gradient-to-r from-blue-50 to-indigo-50';
-                        borderColor = 'border-blue-400';
-                        textColor = 'text-blue-800';
-                        shadowClass = 'shadow-lg shadow-blue-100';
-                        iconBg = 'bg-blue-600';
-                      }
-
-                      return (
-                        <button
-                          key={index}
-                          onClick={() => handleAnswerSelect(index)}
-                          className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 transform hover:scale-[1.01] ${bgColor} ${borderColor} ${textColor} ${shadowClass} relative group`}
-                          disabled={showExplanation}
-                        >
-                          <div className="flex items-center gap-4">
-                            <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                              {String.fromCharCode(65 + index)}
-                            </div>
-                            <span className="flex-1 font-medium">{option}</span>
-                            
-                            {/* Result Icons */}
-                            {showExplanation && index === question.correctAnswer && (
-                              <div className="w-8 h-8 bg-green-500 rounded-xl flex items-center justify-center">
-                                <CheckCircle className="h-5 w-5 text-white" />
-                              </div>
-                            )}
-                            {showExplanation && index === selectedAnswer && index !== question.correctAnswer && (
-                              <div className="w-8 h-8 bg-red-500 rounded-xl flex items-center justify-center">
-                                <XCircle className="h-5 w-5 text-white" />
-                              </div>
-                            )}
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => handleAnswerSelect(index)}
+                      className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${bgColor} ${borderColor} ${textColor} ${shadowClass}`}
+                      disabled={showExplanation}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center text-white font-bold shadow-md`}>
+                          {String.fromCharCode(65 + index)}
+                        </div>
+                        <span className="flex-1 font-medium">{option}</span>
+                        
+                        {/* Result Icons */}
+                        {showExplanation && index === question.correctAnswer && (
+                          <div className="w-8 h-8 bg-green-500 rounded-xl flex items-center justify-center">
+                            <CheckCircle className="h-5 w-5 text-white" />
                           </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
+                        )}
+                        {showExplanation && index === selectedAnswer && index !== question.correctAnswer && (
+                          <div className="w-8 h-8 bg-red-500 rounded-xl flex items-center justify-center">
+                            <XCircle className="h-5 w-5 text-white" />
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4 border-t border-slate-200">
-                  {!showExplanation ? (
-                    <>
-                      <Button 
-                        onClick={handleSubmitAnswer} 
-                        disabled={selectedAnswer === null}
-                        className="flex-1 py-3 font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 hover:scale-105 transition-all duration-300 shadow-lg rounded-xl"
-                      >
-                        <CheckCircle className="h-4 w-4 mr-2" />
-                        Submit Answer
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        onClick={resetQuestion}
-                        className="py-3 font-semibold border-2 hover:scale-105 transition-all duration-300 rounded-xl px-6"
-                      >
-                        <RotateCcw className="h-4 w-4 mr-2" />
-                        Reset
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button 
-                        onClick={handleNextQuestion}
-                        className="flex-1 py-3 font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 hover:scale-105 transition-all duration-300 shadow-lg rounded-xl"
-                      >
-                        {currentIndex >= totalQuestions - 1 ? 'View Results' : 'Next Question'}
-                        <ArrowRight className="h-4 w-4 ml-2" />
-                      </Button>
-                      <Button 
-                        variant="outline"
-                        className="py-3 font-semibold border-2 rounded-xl px-6 hover:bg-slate-50"
-                      >
-                        <MessageSquare className="h-4 w-4 mr-2" />
-                        Discuss
-                      </Button>
-                    </>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+            {/* Action Buttons */}
+            <div className="flex gap-3 pt-4 border-t border-slate-200">
+              {!showExplanation ? (
+                <>
+                  <Button 
+                    onClick={handleSubmitAnswer} 
+                    disabled={selectedAnswer === null}
+                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 shadow-lg rounded-xl"
+                  >
+                    <CheckCircle className="h-4 w-4 mr-2" />
+                    Submit Answer
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={resetQuestion}
+                    className="py-3 font-semibold border-2 transition-all duration-300 rounded-xl px-6"
+                  >
+                    <RotateCcw className="h-4 w-4 mr-2" />
+                    Reset
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button 
+                    onClick={handleNextQuestion}
+                    className="flex-1 py-3 font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 shadow-lg rounded-xl"
+                  >
+                    {currentIndex >= totalQuestions - 1 ? 'View Results' : 'Next Question'}
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="py-3 font-semibold border-2 rounded-xl px-6 hover:bg-slate-50"
+                  >
+                    <MessageSquare className="h-4 w-4 mr-2" />
+                    Discuss
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
 
-          {/* Explanation Panel */}
-          <div className="xl:col-span-1">
-            <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl sticky top-6">
-              <CardHeader className="bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-t-lg">
-                <CardTitle className="flex items-center gap-3 font-bold">
-                  <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                    <Lightbulb className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-base">Explanation</div>
-                    <div className="text-orange-100 text-xs font-normal">Solution & Insights</div>
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              
-              <CardContent className="p-4">
-                {showExplanation ? (
-                  <div className="space-y-4">
-                    
-                    {/* Result Status */}
-                    <div className={`p-4 rounded-xl border-2 ${
-                      selectedAnswer === question.correctAnswer 
-                        ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200' 
-                        : 'bg-gradient-to-r from-red-50 to-pink-50 border-red-200'
-                    }`}>
-                      <div className="flex items-center gap-2 mb-2">
-                        {selectedAnswer === question.correctAnswer ? (
-                          <CheckCircle className="h-6 w-6 text-green-600" />
-                        ) : (
-                          <XCircle className="h-6 w-6 text-red-600" />
-                        )}
-                        <div>
-                          <p className={`font-bold ${
-                            selectedAnswer === question.correctAnswer 
-                              ? 'text-green-800' 
-                              : 'text-red-800'
-                          }`}>
-                            {selectedAnswer === question.correctAnswer ? 'Correct!' : 'Incorrect'}
-                          </p>
-                          <p className={`text-xs ${
-                            selectedAnswer === question.correctAnswer 
-                              ? 'text-green-600' 
-                              : 'text-red-600'
-                          }`}>
-                            Answer: {String.fromCharCode(65 + question.correctAnswer)}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Detailed Explanation */}
-                    <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 border border-slate-200">
-                      <div className="flex items-center gap-2 mb-3">
-                        <BookOpen className="h-4 w-4 text-slate-600" />
-                        <h4 className="font-bold text-slate-800 text-sm">Solution Steps:</h4>
-                      </div>
-                      <div className="text-slate-700 leading-relaxed text-sm">
-                        {question.explanation}
-                      </div>
-                    </div>
-                    
-                  </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <Clock className="h-8 w-8 text-slate-400" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-slate-600 font-medium text-sm">Submit your answer</p>
-                      <p className="text-slate-500 text-xs">
-                        Select an option and submit to see the detailed explanation
+          {/* Explanation Panel - Right Side */}
+          <div className="space-y-6">
+            
+            {/* Explanation Header */}
+            <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                  <Lightbulb className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <div className="text-base font-bold">Explanation</div>
+                  <div className="text-orange-100 text-xs">Solution & Insights</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Explanation Content */}
+            {showExplanation ? (
+              <div className="space-y-4">
+                
+                {/* Result Status */}
+                <div className={`p-4 rounded-xl border-2 ${
+                  selectedAnswer === question.correctAnswer 
+                    ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200' 
+                    : 'bg-gradient-to-r from-red-50 to-pink-50 border-red-200'
+                }`}>
+                  <div className="flex items-center gap-2 mb-2">
+                    {selectedAnswer === question.correctAnswer ? (
+                      <CheckCircle className="h-6 w-6 text-green-600" />
+                    ) : (
+                      <XCircle className="h-6 w-6 text-red-600" />
+                    )}
+                    <div>
+                      <p className={`font-bold ${
+                        selectedAnswer === question.correctAnswer 
+                          ? 'text-green-800' 
+                          : 'text-red-800'
+                      }`}>
+                        {selectedAnswer === question.correctAnswer ? 'Correct!' : 'Incorrect'}
+                      </p>
+                      <p className={`text-xs ${
+                        selectedAnswer === question.correctAnswer 
+                          ? 'text-green-600' 
+                          : 'text-red-600'
+                      }`}>
+                        Correct Answer: {String.fromCharCode(65 + question.correctAnswer)}
                       </p>
                     </div>
                   </div>
-                )}
-              </CardContent>
-            </Card>
+                </div>
+                
+                {/* Detailed Explanation */}
+                <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200">
+                  <div className="flex items-center gap-2 mb-4">
+                    <BookOpen className="h-4 w-4 text-slate-600" />
+                    <h4 className="font-bold text-slate-800">Solution Steps:</h4>
+                  </div>
+                  <div className="text-slate-700 leading-relaxed">
+                    {question.explanation}
+                  </div>
+                </div>
+                
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-slate-400" />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-slate-600 font-medium">Submit your answer</p>
+                  <p className="text-slate-500 text-sm">
+                    Select an option and submit to see the detailed explanation
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
