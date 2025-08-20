@@ -90,7 +90,7 @@ const QuestionDetail = ({ topicId, questionId, onNavigate, onBack }) => {
 
   if (!question) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 flex items-center justify-center">
         <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl">
           <CardContent className="p-12 text-center">
             <h2 className="text-2xl font-bold text-slate-800 mb-4">Question Not Found</h2>
