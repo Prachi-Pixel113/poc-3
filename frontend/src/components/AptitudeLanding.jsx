@@ -106,7 +106,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
 
         {/* Main Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
             Choose Your Aptitude Domain
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
