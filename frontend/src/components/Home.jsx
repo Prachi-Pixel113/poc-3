@@ -16,7 +16,8 @@ import {
   Bot,
   TrendingUp,
   Target,
-  Clock
+  Clock,
+  BarChart3
 } from 'lucide-react';
 
 const Home = ({ onNavigate }) => {
