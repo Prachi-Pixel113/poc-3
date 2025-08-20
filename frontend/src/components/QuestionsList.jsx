@@ -222,7 +222,7 @@ const QuestionsList = ({ topicId, onNavigate, onBack }) => {
             </p>
             <Button
               onClick={() => onNavigate('premium-dashboard')}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 font-semibold rounded-xl hover:scale-105 transition-all duration-300"
+              className="bg-white text-teal-600 hover:bg-teal-50 px-6 py-3 font-semibold rounded-xl hover:scale-105 transition-all duration-300"
             >
               See Your Analytics
             </Button>
