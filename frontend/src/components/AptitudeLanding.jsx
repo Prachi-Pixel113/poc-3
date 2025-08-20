@@ -217,7 +217,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => onNavigate('quantitative-landing')}
-                className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Start Free Practice Test
               </Button>
