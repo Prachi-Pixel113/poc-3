@@ -78,7 +78,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
               </Button>
               <div className="h-6 w-px bg-slate-300"></div>
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
                   Aptitude Tests
                 </h1>
                 <p className="text-sm text-slate-600">Master quantitative, logical, and verbal reasoning</p>
