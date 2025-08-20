@@ -349,7 +349,7 @@ const TopicPractice = ({ topicId, onBack }) => {
                     }`}>
                       <div className="flex items-center gap-2 mb-2">
                         {selectedAnswer === currentQuestion.correctAnswer ? (
-                          <CheckCircle className="h-5 w-5 text-blue-600" />
+                          <CheckCircle className="h-5 w-5 text-teal-600" />
                         ) : (
                           <XCircle className="h-5 w-5 text-red-600" />
                         )}
