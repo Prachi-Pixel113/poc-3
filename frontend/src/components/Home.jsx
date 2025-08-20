@@ -66,18 +66,18 @@ const Home = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       
-      {/* Fixed Header */}
+      {/* Header */}
       <header className="bg-white/90 backdrop-blur-sm border-b border-slate-200 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl">
+              <div className="p-2 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-xl">
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
                   EduMaster Pro
                 </h1>
                 <p className="text-xs text-slate-500">Learn. Practice. Excel.</p>
@@ -103,21 +103,21 @@ const Home = ({ onNavigate }) => {
                 variant="ghost"
                 size="sm"
                 onClick={() => onNavigate('aptitude-landing')}
-                className="text-slate-600 hover:text-blue-600"
+                className="text-slate-600 hover:text-teal-600"
               >
                 Aptitude
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-slate-600 hover:text-indigo-600"
+                className="text-slate-600 hover:text-cyan-600"
               >
                 Technical
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-slate-600 hover:text-purple-600"
+                className="text-slate-600 hover:text-teal-600"
               >
                 Interview Prep
               </Button>
