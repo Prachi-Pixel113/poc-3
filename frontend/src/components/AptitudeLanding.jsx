@@ -20,7 +20,7 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
       title: 'Quantitative Aptitude',
       description: 'Master numerical reasoning, mathematical concepts, and problem-solving techniques',
       icon: Calculator,
-      color: 'from-emerald-500 to-teal-600',
+      color: 'from-blue-500 to-teal-600',
       subtopics: ['Number Systems', 'Percentages', 'Time & Work', 'Profit & Loss', 'Ratio & Proportion'],
       questions: 250,
       difficulty: 'Easy to Hard',
