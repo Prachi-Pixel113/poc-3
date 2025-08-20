@@ -164,17 +164,19 @@ const Home = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Stats Section - Remove Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {featuredStats.map((stat, index) => (
-            <div key={index} className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group rounded-lg p-4 text-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:rotate-6 transition-transform duration-300">
-                <stat.icon className="h-5 w-5 text-white" />
+        {/* Stats Section - Clean without cards */}
+        <div className="mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {featuredStats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
+                  <stat.icon className="h-8 w-8 text-white" />
+                </div>
+                <p className="text-3xl font-bold text-slate-800 mb-2">{stat.value}</p>
+                <p className="text-sm text-slate-600 font-medium">{stat.label}</p>
               </div>
-              <p className="text-2xl font-bold text-slate-800 mb-1">{stat.value}</p>
-              <p className="text-xs text-slate-600">{stat.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Why Choose EduMaster Pro */}
