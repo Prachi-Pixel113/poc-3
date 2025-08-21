@@ -55,6 +55,8 @@ function App() {
     
     if (view === 'dashboard') {
       setSelectedTopic(null);
+    } else if (view === 'practice') {
+      setSelectedTopic(param1); // param1 is the topic ID for practice
     } else if (view === 'questions-list') {
       setSelectedTopic(param1);
     } else if (view === 'question-detail') {
