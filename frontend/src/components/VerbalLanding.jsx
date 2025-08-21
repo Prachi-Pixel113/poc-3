@@ -112,7 +112,7 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
       id: 'verbal-reasoning',
       title: 'Verbal Reasoning',
       description: 'Logical relationships and verbal problem solving',
-      color: 'from-green-500 to-teal-500',
+      color: 'from-orange-500 to-red-500',
       icon: MessageCircle,
       topics: [
         {
