@@ -139,13 +139,6 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
     }
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeSpent(prev => prev + 1);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const handleAnswerSelect = (questionId, optionId) => {
     if (submittedAnswers.has(questionId)) return;
     setSelectedAnswers(prev => ({
