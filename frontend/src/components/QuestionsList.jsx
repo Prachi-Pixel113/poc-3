@@ -121,24 +121,35 @@ const QuestionsList = ({ topicId, onNavigate, onBack }) => {
         {/* Filter Section */}
         <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg mb-8">
           <CardContent className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Filter className="h-4 w-4 text-slate-600" />
-                <span className="text-sm font-medium text-slate-700">Filter by difficulty:</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <Filter className="h-4 w-4 text-slate-600" />
+                  <span className="text-sm font-medium text-slate-700">Filter by difficulty:</span>
+                </div>
+                <div className="flex gap-2">
+                  {difficulties.map((diff) => (
+                    <Button
+                      key={diff}
+                      variant={selectedDifficulty === diff ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedDifficulty(diff)}
+                      className={`text-xs ${selectedDifficulty === diff ? 'bg-gradient-to-r from-blue-500 to-purple-500' : ''}`}
+                    >
+                      {diff}
+                    </Button>
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-2">
-                {difficulties.map((diff) => (
-                  <Button
-                    key={diff}
-                    variant={selectedDifficulty === diff ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setSelectedDifficulty(diff)}
-                    className={`text-xs ${selectedDifficulty === diff ? 'bg-gradient-to-r from-blue-500 to-purple-500' : ''}`}
-                  >
-                    {diff}
-                  </Button>
-                ))}
-              </div>
+              
+              {/* Practice Mode Button */}
+              <Button
+                onClick={() => onNavigate('multi-question-practice', topicId)}
+                className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                <BookOpen className="h-4 w-4 mr-2" />
+                Start Practice Mode
+              </Button>
             </div>
           </CardContent>
         </Card>
