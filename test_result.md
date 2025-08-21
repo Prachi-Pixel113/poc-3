@@ -207,11 +207,11 @@ test_plan:
 
 test_plan:
   current_focus:
-    - "Test simplified QuantitativeLanding.jsx without subtopic organization and header stats"
-    - "Test simplified LogicalLanding.jsx without subtopic organization and header stats"
-    - "Test simplified VerbalLanding.jsx without subtopic organization and header stats"
-    - "Test scrollable questions format in QuestionsList.jsx"
-    - "Verify clean layouts and scrollable question functionality work correctly"
+    - "Test new MultiQuestionPractice.jsx component with Indiabix-style scrollable practice"
+    - "Test 'Start Practice Mode' button navigation from QuestionsList.jsx"
+    - "Verify individual question answering and immediate feedback functionality"
+    - "Test progress tracking and statistics in multi-question practice"
+    - "Verify routing and navigation flow between question list and practice modes"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
