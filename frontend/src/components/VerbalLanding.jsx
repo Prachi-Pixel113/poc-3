@@ -154,7 +154,7 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
       id: 'communication-skills',
       title: 'Communication Skills',
       description: 'Effective communication and language usage',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-orange-500 to-red-500',
       icon: Mic,
       topics: [
         {
