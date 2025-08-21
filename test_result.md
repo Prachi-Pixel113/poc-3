@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Remove the subtopics organization in the Quantitative aptitude section"
+user_problem_statement: "Convert the practice questions from single question view to multi question scrollable view (similar to Indiabix style)"
 
 frontend:
   - task: "Remove subtopics organization and header stats from QuantitativeLanding.jsx"
