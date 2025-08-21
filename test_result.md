@@ -105,7 +105,7 @@
 user_problem_statement: "Remove the subtopics organization in the Quantitative aptitude section"
 
 frontend:
-  - task: "Remove subtopics organization from QuantitativeLanding.jsx"
+  - task: "Remove subtopics organization and header stats from QuantitativeLanding.jsx"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/components/QuantitativeLanding.jsx"
@@ -115,9 +115,9 @@ frontend:
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified QuantitativeLanding.jsx by removing complex subtopics organization but keeping individual topic names. Changes: 1) Removed 5 main categories structure and their section headers (Mathematical Fundamentals, Arithmetic Applications, etc.), 2) Flattened to simple quantitativeTopics array with 11 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Number Systems, Percentages, Profit & Loss, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 11 topics (435+ questions) now display in simplified format with individual names but no complex organization."
+        comment: "✅ COMPLETED: Successfully simplified QuantitativeLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure and their section headers, 2) Flattened to simple quantitativeTopics array with 11 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section (Practice Questions, Students Enrolled, Topics Covered, Success Rate), 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 11 topics (435+ questions) now display in cleanest possible format."
 
-  - task: "Remove subtopics organization from LogicalLanding.jsx"
+  - task: "Remove subtopics organization and header stats from LogicalLanding.jsx"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/components/LogicalLanding.jsx"
@@ -127,9 +127,9 @@ frontend:
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified LogicalLanding.jsx by removing complex subtopics organization. Changes: 1) Removed 5 main categories structure (Sequences & Patterns, Coding & Decoding, etc.), 2) Flattened to simple logicalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Number Series, Blood Relations, Syllogism, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 15 topics (540+ questions) now display in simplified format."
+        comment: "✅ COMPLETED: Successfully simplified LogicalLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure, 2) Flattened to simple logicalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section, 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 15 topics (540+ questions) now display in cleanest possible format."
 
-  - task: "Remove subtopics organization from VerbalLanding.jsx"
+  - task: "Remove subtopics organization and header stats from VerbalLanding.jsx"
     implemented: true
     working: "NA"
     file: "/app/frontend/src/components/VerbalLanding.jsx"
@@ -139,7 +139,7 @@ frontend:
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified VerbalLanding.jsx by removing complex subtopics organization. Changes: 1) Removed 5 main categories structure (Language Skills, Reading & Comprehension, etc.), 2) Flattened to simple verbalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Grammar, Vocabulary, Reading Comprehension, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 15 topics (630+ questions) now display in simplified format."
+        comment: "✅ COMPLETED: Successfully simplified VerbalLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure, 2) Flattened to simple verbalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section, 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 15 topics (630+ questions) now display in cleanest possible format."
 
   - task: "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
     implemented: false
