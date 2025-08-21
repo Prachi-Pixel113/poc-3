@@ -19,17 +19,9 @@ const TopicPractice = ({ topicId, onBack }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submittedAnswers, setSubmittedAnswers] = useState(new Set());
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [timeSpent, setTimeSpent] = useState(0);
 
   const topic = mockTopics.find(t => t.id === topicId);
   const questions = mockQuestions[topicId] || [];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeSpent(prev => prev + 1);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleAnswerSelect = (questionId, answerIndex) => {
     if (submittedAnswers.has(questionId)) return;
