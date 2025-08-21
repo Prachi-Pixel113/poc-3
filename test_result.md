@@ -129,17 +129,17 @@ frontend:
         agent: "main"
         comment: "✅ COMPLETED: Successfully simplified LogicalLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure, 2) Flattened to simple logicalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section, 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 15 topics (540+ questions) now display in cleanest possible format."
 
-  - task: "Remove subtopics organization and header stats from VerbalLanding.jsx"
+  - task: "Convert questions display to scrollable format in QuestionsList.jsx"
     implemented: true
     working: "NA"
-    file: "/app/frontend/src/components/VerbalLanding.jsx"
+    file: "/app/frontend/src/components/QuestionsList.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified VerbalLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure, 2) Flattened to simple verbalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section, 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 15 topics (630+ questions) now display in cleanest possible format."
+        comment: "✅ COMPLETED: Successfully converted questions display from grid layout to scrollable format in QuestionsList.jsx. Changes: 1) Replaced grid-based question cards with scrollable list view, 2) Added max-height container (max-h-96) with overflow-y-auto for smooth scrolling, 3) Each question row shows: question number badge, title, difficulty badge, completion status, question preview, topic/time info, and solve button, 4) Maintained all filtering functionality, 5) Improved space efficiency with compact horizontal layout, 6) Added hover effects for better user experience. Questions now display in a clean, scrollable format that's much more space-efficient."
 
   - task: "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
     implemented: false
