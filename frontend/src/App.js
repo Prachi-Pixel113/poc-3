@@ -74,6 +74,9 @@ function App() {
     if (currentView === 'question-detail') {
       setCurrentView('questions-list');
       setSelectedQuestion(null);
+    } else if (currentView === 'multi-question-practice') {
+      setCurrentView('questions-list');
+      setSelectedTopic(null);
     } else if (currentView === 'questions-list') {
       setCurrentView('quantitative-landing');
       setSelectedTopic(null);
