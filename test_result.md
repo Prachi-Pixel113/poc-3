@@ -161,9 +161,9 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Final Color Consistency Testing"
-    - "Why Choose Section Size Verification"
-    - "Complete Teal Color Scheme Testing"
+    - "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
+    - "Create LogicalLanding.jsx for detailed logical reasoning subtopics"
+    - "Create VerbalLanding.jsx for detailed verbal reasoning subtopics"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
