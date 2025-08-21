@@ -70,7 +70,7 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
       id: 'reading-comprehension',
       title: 'Reading & Comprehension',
       description: 'Text analysis, understanding, and inference skills',
-      color: 'from-blue-500 to-indigo-500',
+      color: 'from-orange-500 to-red-500',
       icon: BookOpen,
       topics: [
         {
