@@ -20,8 +20,6 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submittedAnswers, setSubmittedAnswers] = useState(new Set());
   const [correctAnswers, setCorrectAnswers] = useState(new Set());
-  const [timeSpent, setTimeSpent] = useState(0);
-  const [questionStartTimes, setQuestionStartTimes] = useState({});
 
   const questions = getQuestionsByTopic(topicId);
   
@@ -30,13 +28,6 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
     'number-systems': 'Number Systems', 
     'time-work': 'Time & Work'
   };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeSpent(prev => prev + 1);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleAnswerSelect = (questionId, answerIndex) => {
     if (submittedAnswers.has(questionId)) return;
