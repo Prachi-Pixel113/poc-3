@@ -408,18 +408,6 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Submit All Button */}
-        <div className="text-center">
-          <Button
-            onClick={handleSubmitAll}
-            disabled={getAnsweredCount() === 0 || getAnsweredCount() === getSubmittedCount()}
-            className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-8 py-3 rounded-lg text-lg font-semibold"
-          >
-            <Trophy className="h-5 w-5 mr-2" />
-            Submit All Answers ({getAnsweredCount() - getSubmittedCount()} remaining)
-          </Button>
-        </div>
       </main>
     </div>
   );
