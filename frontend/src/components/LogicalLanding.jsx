@@ -70,7 +70,7 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
       id: 'coding-decoding',
       title: 'Coding & Decoding',
       description: 'Cipher techniques and code pattern analysis',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-purple-500 to-indigo-500',
       icon: Eye,
       topics: [
         {
