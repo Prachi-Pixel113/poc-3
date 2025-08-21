@@ -244,143 +244,89 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
           </p>
         </div>
 
-        {/* Categorized Topics Sections */}
-        <div className="space-y-12 mb-16">
-          {verbalCategories.map((category, categoryIndex) => {
-            const CategoryIcon = category.icon;
-            return (
-              <div key={category.id} className="space-y-6">
-                {/* Category Header */}
-                <div className="text-center">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r ${category.color} mb-4 mx-auto shadow-lg`}>
-                    <CategoryIcon className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className={`text-2xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent mb-2`}>
-                    {category.title}
-                  </h3>
-                  <p className="text-slate-600 max-w-2xl mx-auto">
-                    {category.description}
-                  </p>
+        {/* Topics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {verbalTopics.map((topic) => (
+            <Card 
+              key={topic.id}
+              className="bg-white/90 backdrop-blur-sm border-0 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden relative"
+              onClick={() => setSelectedTopic(topic)}
+            >
+              {/* Premium Badge */}
+              {topic.premium && (
+                <div className="absolute top-4 right-4 z-10">
+                  <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs">
+                    Premium
+                  </Badge>
                 </div>
+              )}
 
-                {/* Topics Grid for this category */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.topics.map((topic) => (
-                    <Card 
-                      key={topic.id}
-                      className="bg-white/90 backdrop-blur-sm border-0 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden relative"
-                      onClick={() => setSelectedTopic(topic)}
-                    >
-                      {/* Premium Badge */}
-                      {topic.premium && (
-                        <div className="absolute top-4 right-4 z-10">
-                          <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs">
-                            Premium
-                          </Badge>
-                        </div>
-                      )}
-
-                      {/* Background Pattern */}
-                      <div className="absolute inset-0 opacity-5">
-                        <div className={`absolute -right-3 -top-3 w-12 h-12 bg-gradient-to-br ${category.color} to-transparent rounded-full`}></div>
-                        <div className={`absolute -left-3 -bottom-3 w-16 h-16 bg-gradient-to-tr ${category.color} to-transparent rounded-full`}></div>
-                      </div>
-
-                      <CardHeader className="pb-3 relative">
-                        <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mb-3 shadow-md`}>
-                          <CategoryIcon className="h-5 w-5 text-white" />
-                        </div>
-                        
-                        <CardTitle className="text-lg font-bold text-slate-800 mb-2">
-                          {topic.title}
-                        </CardTitle>
-                        
-                        <p className="text-slate-600 text-sm leading-relaxed">
-                          {topic.description}
-                        </p>
-                      </CardHeader>
-
-                      <CardContent className="pt-0 relative space-y-3">
-                        {/* Subtopics */}
-                        <div className="space-y-2">
-                          <p className="text-xs font-semibold text-slate-700">Key Areas:</p>
-                          <div className="flex flex-wrap gap-1">
-                            {topic.subtopics.slice(0, 3).map((subtopic, index) => (
-                              <Badge 
-                                key={index}
-                                variant="secondary" 
-                                className="bg-slate-100 text-slate-600 text-xs px-2 py-0.5"
-                              >
-                                {subtopic}
-                              </Badge>
-                            ))}
-                            {topic.subtopics.length > 3 && (
-                              <Badge 
-                                variant="secondary" 
-                                className="bg-slate-100 text-slate-600 text-xs px-2 py-0.5"
-                              >
-                                +{topic.subtopics.length - 3}
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-3 text-center">
-                          <div className="bg-orange-50 rounded-lg p-2">
-                            <p className="text-sm font-bold text-orange-600">{topic.questions}</p>
-                            <p className="text-xs text-slate-600">Questions</p>
-                          </div>
-                          <div className="bg-red-50 rounded-lg p-2">
-                            <p className="text-sm font-bold text-red-600">{topic.successRate}</p>
-                            <p className="text-xs text-slate-600">Success Rate</p>
-                          </div>
-                        </div>
-
-                        {/* Additional Info */}
-                        <div className="flex justify-between text-xs text-slate-600 bg-slate-50 rounded-lg p-2">
-                          <span><Clock className="h-3 w-3 inline mr-1" />{topic.avgTime}</span>
-                          <span><Target className="h-3 w-3 inline mr-1" />{topic.difficulty}</span>
-                        </div>
-
-                        {/* Action Button */}
-                        <Button 
-                          className={`w-full bg-gradient-to-r ${category.color} hover:from-orange-600 hover:to-red-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm`}
-                          disabled={topic.premium}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (!topic.premium) {
-                              // Navigate to verbal-reasoning questions for all verbal topics
-                              onNavigate('practice', 'verbal-reasoning');
-                            }
-                          }}
-                        >
-                          {topic.premium ? (
-                            <>
-                              <Award className="h-3 w-3 mr-2" />
-                              Upgrade to Access
-                            </>
-                          ) : (
-                            <>
-                              <span className="mr-2">Start Practice</span>
-                              <ArrowRight className="h-3 w-3" />
-                            </>
-                          )}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                {/* Category Divider (except for last category) */}
-                {categoryIndex < verbalCategories.length - 1 && (
-                  <div className="flex justify-center py-6">
-                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                  </div>
-                )}
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute -right-3 -top-3 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 to-transparent rounded-full"></div>
+                <div className="absolute -left-3 -bottom-3 w-16 h-16 bg-gradient-to-tr from-orange-500 to-red-500 to-transparent rounded-full"></div>
               </div>
-            );
-          })}
+
+              <CardHeader className="pb-3 relative">
+                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <BookOpen className="h-5 w-5 text-white" />
+                </div>
+                
+                <CardTitle className="text-lg font-bold text-slate-800 mb-2">
+                  {topic.title}
+                </CardTitle>
+                
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {topic.description}
+                </p>
+              </CardHeader>
+
+              <CardContent className="pt-0 relative space-y-3">
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-3 text-center">
+                  <div className="bg-orange-50 rounded-lg p-2">
+                    <p className="text-sm font-bold text-orange-600">{topic.questions}</p>
+                    <p className="text-xs text-slate-600">Questions</p>
+                  </div>
+                  <div className="bg-red-50 rounded-lg p-2">
+                    <p className="text-sm font-bold text-red-600">{topic.successRate}</p>
+                    <p className="text-xs text-slate-600">Success Rate</p>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="flex justify-between text-xs text-slate-600 bg-slate-50 rounded-lg p-2">
+                  <span><Clock className="h-3 w-3 inline mr-1" />{topic.avgTime}</span>
+                  <span><Target className="h-3 w-3 inline mr-1" />{topic.difficulty}</span>
+                </div>
+
+                {/* Action Button */}
+                <Button 
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm"
+                  disabled={topic.premium}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (!topic.premium) {
+                      // Navigate to verbal-reasoning questions for all verbal topics
+                      onNavigate('practice', 'verbal-reasoning');
+                    }
+                  }}
+                >
+                  {topic.premium ? (
+                    <>
+                      <Award className="h-3 w-3 mr-2" />
+                      Upgrade to Access
+                    </>
+                  ) : (
+                    <>
+                      <span className="mr-2">Start Practice</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </>
+                  )}
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* Call to Action */}
