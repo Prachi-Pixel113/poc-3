@@ -218,21 +218,6 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
       </div>
 
       <main className="max-w-7xl mx-auto px-6 py-8">
-        {/* Stats Overview */}
-        <div className="mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {featuredStats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
-                  <stat.icon className="h-6 w-6 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-slate-800 mb-1">{stat.value}</p>
-                <p className="text-sm text-slate-600 font-medium">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Main Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
