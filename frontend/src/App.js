@@ -194,6 +194,13 @@ function App() {
         />
       )}
 
+      {currentView === 'practice' && selectedTopic && (
+        <TopicPractice 
+          topicId={selectedTopic}
+          onBack={handleBack}
+        />
+      )}
+
       {/* Authentication pages */}
       {!currentUser && currentView === 'login' && (
         <Login 
