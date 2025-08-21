@@ -7,9 +7,7 @@ import {
   CheckCircle, 
   XCircle, 
   Lightbulb,
-  Trophy,
   Target,
-  Clock,
   BookOpen,
   Award
 } from 'lucide-react';
