@@ -96,7 +96,7 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
       id: 'ratios-proportions',
       title: 'Ratios & Proportions',
       description: 'Relationships between quantities and their applications',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-emerald-500 to-teal-500',
       topics: [
         {
           id: 'ratio-proportion',
