@@ -60,6 +60,8 @@ function App() {
       setSelectedTopic(param1); // param1 is the topic ID for practice
     } else if (view === 'questions-list') {
       setSelectedTopic(param1);
+    } else if (view === 'multi-question-practice') {
+      setSelectedTopic(param1);
     } else if (view === 'question-detail') {
       setSelectedTopic(param1);
       setSelectedQuestion(param2);
