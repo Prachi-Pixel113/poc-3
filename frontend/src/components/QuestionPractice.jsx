@@ -10,7 +10,6 @@ import {
   Lightbulb,
   BookOpen,
   Target,
-  Trophy,
   Award
 } from 'lucide-react';
 
