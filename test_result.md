@@ -115,7 +115,7 @@ frontend:
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully created MultiQuestionPractice.jsx component with Indiabix-style multi-question scrollable practice. Features: 1) All questions visible in scrollable format, 2) Individual answer submission per question (no bulk submit), 3) Immediate feedback and explanations after each answer, 4) Progress tracking with statistics, 5) Clean card-based layout with proper visual feedback, 6) Maintains QuestionDetail.jsx for individual question review. Added 'Start Practice Mode' button to QuestionsList.jsx and updated App.js routing."
+        comment: "✅ COMPLETED: Successfully created MultiQuestionPractice.jsx component with Indiabix-style multi-question scrollable practice. Features: 1) All questions visible in scrollable format, 2) Individual answer submission per question (no bulk submit), 3) Immediate feedback and explanations after each answer, 4) Progress tracking with statistics, 5) Clean card-based layout with proper visual feedback, 6) Maintains QuestionDetail.jsx for individual question review. Added 'Start Practice Mode' button to QuestionsList.jsx and updated App.js routing. UPDATED: Removed timer functionality and submit all answers button as requested - cleaner focus on individual question practice."
 
   - task: "Update QuestionsList.jsx with 'Start Practice Mode' button"
     implemented: true
