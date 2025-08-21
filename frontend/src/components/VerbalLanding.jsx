@@ -196,7 +196,7 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
       id: 'advanced-verbal',
       title: 'Advanced Verbal Skills',
       description: 'Complex language patterns and advanced reasoning',
-      color: 'from-teal-500 to-cyan-500',
+      color: 'from-orange-500 to-red-500',
       icon: Search,
       topics: [
         {
