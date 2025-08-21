@@ -393,20 +393,14 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
                   </div>
 
                   {/* Additional Info */}
-                  <div className="space-y-2">
-                    <div className="bg-blue-50 rounded-lg p-2 border border-blue-100">
-                      <h5 className="font-semibold text-blue-800 mb-1 text-xs">Time</h5>
-                      <p className="text-blue-700 text-xs">{currentQ.explanation.timeComplexity}</p>
-                    </div>
-                    <div className="bg-teal-50 rounded-lg p-2 border border-teal-100">
-                      <h5 className="font-semibold text-teal-800 mb-1 text-xs">Similar Topics</h5>
-                      <div className="flex flex-wrap gap-1">
-                        {currentQ.explanation.similarTopics.map((topic, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs bg-teal-100 text-teal-700 px-2 py-0.5">
-                            {topic}
-                          </Badge>
-                        ))}
-                      </div>
+                  <div className="bg-teal-50 rounded-lg p-2 border border-teal-100">
+                    <h5 className="font-semibold text-teal-800 mb-1 text-xs">Similar Topics</h5>
+                    <div className="flex flex-wrap gap-1">
+                      {currentQ.explanation.similarTopics.map((topic, index) => (
+                        <Badge key={index} variant="secondary" className="text-xs bg-teal-100 text-teal-700 px-2 py-0.5">
+                          {topic}
+                        </Badge>
+                      ))}
                     </div>
                   </div>
                 </CardContent>
