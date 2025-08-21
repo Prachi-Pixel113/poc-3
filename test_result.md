@@ -115,7 +115,7 @@ frontend:
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified QuantitativeLanding.jsx by removing complex subtopics organization AND topic headlines. Changes: 1) Removed 5 main categories structure (Mathematical Fundamentals, Arithmetic Applications, etc.), 2) Flattened to simple quantitativeTopics array with 11 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED topic headlines/titles from all cards - now showing only descriptions, icons, and stats, 6) Maintained core functionality with ultra-clean minimal UI. All 11 topics (435+ questions) now display without any titles or complex organization."
+        comment: "✅ COMPLETED: Successfully simplified QuantitativeLanding.jsx by removing complex subtopics organization but keeping individual topic names. Changes: 1) Removed 5 main categories structure and their section headers (Mathematical Fundamentals, Arithmetic Applications, etc.), 2) Flattened to simple quantitativeTopics array with 11 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Number Systems, Percentages, Profit & Loss, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 11 topics (435+ questions) now display in simplified format with individual names but no complex organization."
 
   - task: "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
     implemented: false
