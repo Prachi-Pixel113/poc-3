@@ -219,27 +219,20 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
 
         {/* Completion Status */}
         {submittedAnswers.size === questions.length && (
-          <div className="mt-12 p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-white" />
-              </div>
+          <div className="mt-16 p-6 bg-green-50 rounded-lg border border-green-200 text-center">
+            <h3 className="text-xl font-bold text-green-800 mb-2">Practice Complete!</h3>
+            <p className="text-green-700 mb-4">You've answered all {questions.length} questions</p>
+            <div className="flex justify-center gap-6 text-center">
               <div>
-                <h3 className="text-2xl font-bold text-green-800">Practice Complete!</h3>
-                <p className="text-green-700">You've answered all {questions.length} questions</p>
-              </div>
-            </div>
-            <div className="flex justify-center gap-8 text-center max-w-md mx-auto">
-              <div>
-                <p className="text-3xl font-bold text-slate-800">{questions.length}</p>
-                <p className="text-green-700 text-sm">Total</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-green-600">{getCorrectCount()}</p>
+                <p className="text-2xl font-bold text-slate-800">{getCorrectCount()}</p>
                 <p className="text-green-700 text-sm">Correct</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-blue-600">{accuracy}%</p>
+                <p className="text-2xl font-bold text-slate-600">{submittedAnswers.size - getCorrectCount()}</p>
+                <p className="text-green-700 text-sm">Incorrect</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-blue-600">{accuracy}%</p>
                 <p className="text-green-700 text-sm">Accuracy</p>
               </div>
             </div>
