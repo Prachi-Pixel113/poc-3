@@ -410,6 +410,13 @@ const VerbalLanding = ({ onNavigate, onBack }) => {
                         <Button 
                           className={`w-full bg-gradient-to-r ${category.color} hover:from-orange-600 hover:to-red-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm`}
                           disabled={topic.premium}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!topic.premium) {
+                              // Navigate to verbal-reasoning questions for all verbal topics
+                              onNavigate('practice', 'verbal-reasoning');
+                            }
+                          }}
                         >
                           {topic.premium ? (
                             <>
