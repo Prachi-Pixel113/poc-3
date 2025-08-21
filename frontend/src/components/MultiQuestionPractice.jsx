@@ -8,7 +8,6 @@ import {
   CheckCircle, 
   XCircle, 
   Lightbulb,
-  Clock,
   Target,
   BookOpen,
   Award,
