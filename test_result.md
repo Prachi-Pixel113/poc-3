@@ -117,6 +117,30 @@ frontend:
         agent: "main"
         comment: "✅ COMPLETED: Successfully simplified QuantitativeLanding.jsx by removing complex subtopics organization but keeping individual topic names. Changes: 1) Removed 5 main categories structure and their section headers (Mathematical Fundamentals, Arithmetic Applications, etc.), 2) Flattened to simple quantitativeTopics array with 11 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Number Systems, Percentages, Profit & Loss, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 11 topics (435+ questions) now display in simplified format with individual names but no complex organization."
 
+  - task: "Remove subtopics organization from LogicalLanding.jsx"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/LogicalLanding.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "✅ COMPLETED: Successfully simplified LogicalLanding.jsx by removing complex subtopics organization. Changes: 1) Removed 5 main categories structure (Sequences & Patterns, Coding & Decoding, etc.), 2) Flattened to simple logicalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Number Series, Blood Relations, Syllogism, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 15 topics (540+ questions) now display in simplified format."
+
+  - task: "Remove subtopics organization from VerbalLanding.jsx"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/VerbalLanding.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "✅ COMPLETED: Successfully simplified VerbalLanding.jsx by removing complex subtopics organization. Changes: 1) Removed 5 main categories structure (Language Skills, Reading & Comprehension, etc.), 2) Flattened to simple verbalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) KEPT individual topic titles on cards (Grammar, Vocabulary, Reading Comprehension, etc.), 6) Clean 3-column grid with topic names, descriptions, and stats. All 15 topics (630+ questions) now display in simplified format."
+
   - task: "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
     implemented: false
     working: false
@@ -130,28 +154,28 @@ frontend:
         comment: "❌ REVERTED: Previous complex categorized subtopic structure has been removed as requested. The detailed 5-category organization with subtopic badges is no longer present."
 
   - task: "Create LogicalLanding.jsx for detailed logical reasoning subtopics"
-    implemented: true
-    working: true
+    implemented: false
+    working: false
     file: "/app/frontend/src/components/LogicalLanding.jsx"
     stuck_count: 0
-    priority: "high"
+    priority: "low"
     needs_retesting: false
     status_history:
-      - working: true
+      - working: false
         agent: "main"
-        comment: "✅ COMPLETED: Successfully created comprehensive LogicalLanding.jsx with 5 main categories: 1) Sequences & Patterns (Number Series, Letter Series, Figure Series), 2) Coding & Decoding (Letter, Number, Symbol coding), 3) Relationships & Classifications (Blood Relations, Analogies, Classification), 4) Spatial & Visual Reasoning (Direction Sense, Seating Arrangement, Mirror Images), 5) Logical Puzzles & Games (Syllogism, Logical Games, Input-Output). Total 15 topics with 540+ questions and detailed subtopic breakdowns. Navigation and visual design working perfectly."
+        comment: "❌ REVERTED: Previous complex categorized subtopic structure has been removed as requested. The detailed 5-category organization with subtopic badges is no longer present."
 
   - task: "Create VerbalLanding.jsx for detailed verbal reasoning subtopics"
-    implemented: true
-    working: true
+    implemented: false
+    working: false
     file: "/app/frontend/src/components/VerbalLanding.jsx"
     stuck_count: 0
-    priority: "high"
+    priority: "low"
     needs_retesting: false
     status_history:
-      - working: true
+      - working: false
         agent: "main"
-        comment: "✅ COMPLETED: Successfully created comprehensive VerbalLanding.jsx with 5 main categories: 1) Language Skills (Grammar, Vocabulary, Sentence Correction), 2) Reading & Comprehension (Reading Comprehension, Critical Reasoning, Para Completion), 3) Verbal Reasoning (Analogies, Classification, Logical Deduction), 4) Communication Skills (Letter Writing, Essay Writing, Precise Writing), 5) Advanced Verbal Skills (Word Formation, Figures of Speech, Advanced Verbal Logic). Total 15 topics with 630+ questions and detailed subtopic organization. All categories displaying perfectly with excellent visual hierarchy."
+        comment: "❌ REVERTED: Previous complex categorized subtopic structure has been removed as requested. The detailed 5-category organization with subtopic badges is no longer present."
 
   - task: "Update AptitudeLanding.jsx navigation to new subtopic pages"
     implemented: true
