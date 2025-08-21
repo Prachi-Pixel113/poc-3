@@ -267,33 +267,31 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
 
         {/* Completion Status */}
         {submittedAnswers.size === questions.length && (
-          <Card className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white border-0 shadow-lg mt-8">
-            <CardContent className="p-6 text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">Practice Complete!</h3>
-                  <p className="text-teal-100">You've answered all {questions.length} questions</p>
-                </div>
+          <div className="mt-12 p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                <TrendingUp className="h-6 w-6 text-white" />
               </div>
-              <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
-                <div>
-                  <p className="text-3xl font-bold">{questions.length}</p>
-                  <p className="text-teal-100 text-sm">Total</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-green-300">{getCorrectCount()}</p>
-                  <p className="text-teal-100 text-sm">Correct</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-orange-300">{accuracy}%</p>
-                  <p className="text-teal-100 text-sm">Accuracy</p>
-                </div>
+              <div>
+                <h3 className="text-2xl font-bold text-green-800">Practice Complete!</h3>
+                <p className="text-green-700">You've answered all {questions.length} questions</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+            <div className="flex justify-center gap-8 text-center max-w-md mx-auto">
+              <div>
+                <p className="text-3xl font-bold text-slate-800">{questions.length}</p>
+                <p className="text-green-700 text-sm">Total</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-green-600">{getCorrectCount()}</p>
+                <p className="text-green-700 text-sm">Correct</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-blue-600">{accuracy}%</p>
+                <p className="text-green-700 text-sm">Accuracy</p>
+              </div>
+            </div>
+          </div>
         )}
       </main>
     </div>
