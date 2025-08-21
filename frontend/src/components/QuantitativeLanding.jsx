@@ -156,7 +156,7 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
       id: 'geometry',
       title: 'Geometry & Mensuration',
       description: 'Shapes, areas, volumes and geometric properties',
-      color: 'from-teal-500 to-cyan-500',
+      color: 'from-emerald-500 to-teal-500',
       topics: [
         {
           id: 'geometry',
