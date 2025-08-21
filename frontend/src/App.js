@@ -76,6 +76,10 @@ function App() {
       setCurrentView('aptitude-landing');
     } else if (currentView === 'quantitative-landing') {
       setCurrentView('aptitude-landing');
+    } else if (currentView === 'logical-landing') {
+      setCurrentView('aptitude-landing');
+    } else if (currentView === 'verbal-landing') {
+      setCurrentView('aptitude-landing');
     } else if (currentView === 'aptitude-landing') {
       setCurrentView('home');
     } else if (currentView === 'score-summary') {
