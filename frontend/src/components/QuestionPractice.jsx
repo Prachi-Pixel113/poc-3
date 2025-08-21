@@ -167,15 +167,12 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
     }
   };
 
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
       setIsAnswered(false);
-    } else {
-      // Navigate to results
-      onNavigate('score-summary');
     }
   };
 
