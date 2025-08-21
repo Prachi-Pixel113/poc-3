@@ -410,6 +410,13 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
                         <Button 
                           className={`w-full bg-gradient-to-r ${category.color} hover:from-purple-600 hover:to-indigo-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm`}
                           disabled={topic.premium}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!topic.premium) {
+                              // Navigate to logical-reasoning questions for all logical topics
+                              onNavigate('practice', 'logical-reasoning');
+                            }
+                          }}
                         >
                           {topic.premium ? (
                             <>
