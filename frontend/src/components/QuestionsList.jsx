@@ -143,57 +143,63 @@ const QuestionsList = ({ topicId, onNavigate, onBack }) => {
           </CardContent>
         </Card>
 
-        {/* Questions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {filteredQuestions.map((question, index) => (
-            <Card 
-              key={question.id}
-              className="bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group"
-              onClick={() => onNavigate('question-detail', topicId, question.id)}
-            >
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-3">
-                  <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
-                    {question.difficulty}
-                  </Badge>
-                  {completedQuestions.has(question.id) && (
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                  )}
-                </div>
-                
-                <CardTitle className="text-lg font-bold text-slate-800 group-hover:text-teal-600 transition-colors">
-                  Question {index + 1}
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <div className="space-y-4">
-                  <p className="text-slate-700 leading-relaxed line-clamp-3">
-                    {question.question}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-sm text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <Target className="h-3 w-3" />
-                      {question.topic}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      ~3 min
-                    </span>
-                  </div>
-
-                  <Button 
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-xl"
+        {/* Questions Scrollable List */}
+        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg mb-12">
+          <CardContent className="p-0">
+            <div className="max-h-96 overflow-y-auto">
+              <div className="space-y-1">
+                {filteredQuestions.map((question, index) => (
+                  <div 
+                    key={question.id}
+                    className="flex items-center justify-between p-4 hover:bg-slate-50 border-b border-slate-100 last:border-b-0 cursor-pointer transition-colors duration-200"
+                    onClick={() => onNavigate('question-detail', topicId, question.id)}
                   >
-                    <span className="mr-2">Solve Question</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                    <div className="flex items-center gap-4 flex-1">
+                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        {index + 1}
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-1">
+                          <h4 className="font-semibold text-slate-800">Question {index + 1}</h4>
+                          <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
+                            {question.difficulty}
+                          </Badge>
+                          {completedQuestions.has(question.id) && (
+                            <CheckCircle className="h-4 w-4 text-green-500" />
+                          )}
+                        </div>
+                        
+                        <p className="text-sm text-slate-600 line-clamp-2">
+                          {question.question}
+                        </p>
+                        
+                        <div className="flex items-center gap-4 mt-2">
+                          <span className="text-xs text-slate-500 flex items-center gap-1">
+                            <Target className="h-3 w-3" />
+                            {question.topic}
+                          </span>
+                          <span className="text-xs text-slate-500 flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            ~3 min
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      size="sm"
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-lg"
+                    >
+                      <span className="mr-1">Solve</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Empty State */}
         {filteredQuestions.length === 0 && (
