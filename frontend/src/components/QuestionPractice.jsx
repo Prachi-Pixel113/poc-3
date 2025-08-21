@@ -313,33 +313,45 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3 justify-end flex-shrink-0 pt-4 border-t border-slate-200">
-                  {!isAnswered ? (
-                    <Button
-                      onClick={handleSubmitAnswer}
-                      disabled={!selectedAnswer}
-                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
-                    >
-                      Submit Answer
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={handleNextQuestion}
-                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
-                    >
-                      {currentQuestion < questions.length - 1 ? (
-                        <>
-                          Next Question
-                          <ArrowRight className="h-4 w-4 ml-2" />
-                        </>
-                      ) : (
-                        <>
-                          View Results
-                          <Target className="h-4 w-4 ml-2" />
-                        </>
-                      )}
-                    </Button>
-                  )}
+                <div className="flex gap-3 justify-between flex-shrink-0 pt-4 border-t border-slate-200">
+                  <Button
+                    onClick={handlePreviousQuestion}
+                    disabled={currentQuestion === 0}
+                    variant="outline"
+                    className="border-slate-300 text-slate-700 hover:bg-slate-50 px-4 py-2"
+                  >
+                    <ArrowLeft className="h-4 w-4 mr-2" />
+                    Previous
+                  </Button>
+                  
+                  <div className="flex gap-3">
+                    {!isAnswered ? (
+                      <Button
+                        onClick={handleSubmitAnswer}
+                        disabled={!selectedAnswer}
+                        className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
+                      >
+                        Submit Answer
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={handleNextQuestion}
+                        className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
+                      >
+                        {currentQuestion < questions.length - 1 ? (
+                          <>
+                            Next Question
+                            <ArrowRight className="h-4 w-4 ml-2" />
+                          </>
+                        ) : (
+                          <>
+                            View Results
+                            <Target className="h-4 w-4 ml-2" />
+                          </>
+                        )}
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>
