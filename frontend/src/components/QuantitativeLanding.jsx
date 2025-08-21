@@ -19,66 +19,168 @@ import {
 const QuantitativeLanding = ({ onNavigate, onBack }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
-  const quantitativeTopics = [
+  // Organized subtopics by categories for better structure
+  const quantitativeCategories = [
     {
-      id: 'number-systems',
-      title: 'Number Systems',
-      description: 'Learn about natural numbers, integers, rational numbers, and their properties',
-      questions: 45,
-      difficulty: 'Easy to Medium',
-      avgTime: '25 mins',
-      successRate: '85%',
-      premium: false
+      id: 'fundamentals',
+      title: 'Mathematical Fundamentals',
+      description: 'Core mathematical concepts and number theory',
+      color: 'from-emerald-500 to-teal-500',
+      topics: [
+        {
+          id: 'number-systems',
+          title: 'Number Systems',
+          description: 'Natural numbers, integers, rational & irrational numbers, properties and operations',
+          subtopics: ['Natural Numbers', 'Prime Numbers', 'HCF & LCM', 'Divisibility Rules', 'Number Properties'],
+          questions: 45,
+          difficulty: 'Easy to Medium',
+          avgTime: '25 mins',
+          successRate: '85%',
+          premium: false
+        },
+        {
+          id: 'squares-cubes',
+          title: 'Squares & Cubes',
+          description: 'Perfect squares, cubes, square roots, cube roots and their applications',
+          subtopics: ['Perfect Squares', 'Square Roots', 'Perfect Cubes', 'Cube Roots', 'Applications'],
+          questions: 30,
+          difficulty: 'Easy',
+          avgTime: '20 mins',
+          successRate: '88%',
+          premium: false
+        }
+      ]
     },
     {
-      id: 'percentages',
-      title: 'Percentages',
-      description: 'Master percentage calculations, profit-loss, and real-world applications',
-      questions: 60,
-      difficulty: 'Easy to Hard',
-      avgTime: '30 mins',
-      successRate: '78%',
-      premium: false
+      id: 'arithmetic',
+      title: 'Arithmetic Applications',
+      description: 'Practical mathematical applications in real-world scenarios',
+      color: 'from-blue-500 to-indigo-500',
+      topics: [
+        {
+          id: 'percentages',
+          title: 'Percentages',
+          description: 'Percentage calculations, increase/decrease, successive percentages',
+          subtopics: ['Basic Percentages', 'Percentage Change', 'Successive Percentages', 'Percentage Applications', 'Mixed Problems'],
+          questions: 60,
+          difficulty: 'Easy to Hard',
+          avgTime: '30 mins',
+          successRate: '78%',
+          premium: false
+        },
+        {
+          id: 'profit-loss',
+          title: 'Profit & Loss',
+          description: 'Cost price, selling price, profit, loss, discount calculations',
+          subtopics: ['Basic P&L', 'Discount & Markup', 'Successive Discounts', 'Partnership', 'False Weights'],
+          questions: 35,
+          difficulty: 'Medium',
+          avgTime: '28 mins',
+          successRate: '80%',
+          premium: false
+        },
+        {
+          id: 'simple-compound-interest',
+          title: 'Simple & Compound Interest',
+          description: 'Interest calculations, compound interest, installments',
+          subtopics: ['Simple Interest', 'Compound Interest', 'Difference of SI & CI', 'Installments', 'Applications'],
+          questions: 40,
+          difficulty: 'Medium',
+          avgTime: '32 mins',
+          successRate: '75%',
+          premium: true
+        }
+      ]
     },
     {
-      id: 'time-work',
-      title: 'Time & Work',
-      description: 'Solve problems related to work efficiency, pipes, and collaborative tasks',
-      questions: 40,
-      difficulty: 'Medium to Hard',
-      avgTime: '35 mins',
-      successRate: '72%',
-      premium: true
+      id: 'ratios-proportions',
+      title: 'Ratios & Proportions',
+      description: 'Relationships between quantities and their applications',
+      color: 'from-purple-500 to-pink-500',
+      topics: [
+        {
+          id: 'ratio-proportion',
+          title: 'Ratio & Proportion',
+          description: 'Basic ratios, proportions, direct & inverse variations',
+          subtopics: ['Basic Ratios', 'Proportion', 'Direct Variation', 'Inverse Variation', 'Compound Ratios'],
+          questions: 50,
+          difficulty: 'Easy to Medium',
+          avgTime: '22 mins',
+          successRate: '87%',
+          premium: false
+        },
+        {
+          id: 'mixtures-alligations',
+          title: 'Mixtures & Alligations',
+          description: 'Mixture problems, alligation rule, replacement of mixtures',
+          subtopics: ['Basic Mixtures', 'Alligation Rule', 'Replacement', 'Multiple Mixtures', 'Advanced Problems'],
+          questions: 25,
+          difficulty: 'Medium to Hard',
+          avgTime: '35 mins',
+          successRate: '65%',
+          premium: true
+        }
+      ]
     },
     {
-      id: 'profit-loss',
-      title: 'Profit & Loss',
-      description: 'Business mathematics including cost price, selling price, and profit calculations',
-      questions: 35,
-      difficulty: 'Medium',
-      avgTime: '28 mins',
-      successRate: '80%',
-      premium: false
-    },
-    {
-      id: 'ratio-proportion',
-      title: 'Ratio & Proportion',
-      description: 'Understand ratios, proportions, and their applications in various scenarios',
-      questions: 50,
-      difficulty: 'Easy to Medium',
-      avgTime: '22 mins',
-      successRate: '87%',
-      premium: false
+      id: 'work-time',
+      title: 'Work & Time',
+      description: 'Efficiency, work rates, and time-based problems',
+      color: 'from-orange-500 to-red-500',
+      topics: [
+        {
+          id: 'time-work',
+          title: 'Time & Work',
+          description: 'Work efficiency, group work, pipes & cisterns',
+          subtopics: ['Work Efficiency', 'Group Work', 'Pipes & Cisterns', 'Work & Wages', 'Alternate Working'],
+          questions: 40,
+          difficulty: 'Medium to Hard',
+          avgTime: '35 mins',
+          successRate: '72%',
+          premium: true
+        },
+        {
+          id: 'time-distance',
+          title: 'Time & Distance',
+          description: 'Speed, distance, relative motion, trains, boats & streams',
+          subtopics: ['Basic Speed-Distance', 'Relative Motion', 'Trains', 'Boats & Streams', 'Races'],
+          questions: 45,
+          difficulty: 'Medium',
+          avgTime: '30 mins',
+          successRate: '74%',
+          premium: false
+        }
+      ]
     },
     {
       id: 'geometry',
-      title: 'Geometry',
-      description: 'Area, perimeter, volume calculations for various geometric shapes',
-      questions: 30,
-      difficulty: 'Medium to Hard',
-      avgTime: '40 mins',
-      successRate: '68%',
-      premium: true
+      title: 'Geometry & Mensuration',
+      description: 'Shapes, areas, volumes and geometric properties',
+      color: 'from-teal-500 to-cyan-500',
+      topics: [
+        {
+          id: 'geometry',
+          title: 'Basic Geometry',
+          description: 'Lines, angles, triangles, quadrilaterals, circles',
+          subtopics: ['Lines & Angles', 'Triangles', 'Quadrilaterals', 'Circles', 'Coordinate Geometry'],
+          questions: 30,
+          difficulty: 'Medium to Hard',
+          avgTime: '40 mins',
+          successRate: '68%',
+          premium: true
+        },
+        {
+          id: 'mensuration',
+          title: 'Mensuration',
+          description: 'Area, perimeter, volume calculations for 2D and 3D shapes',
+          subtopics: ['2D Figures', '3D Figures', 'Surface Area', 'Volume', 'Combined Figures'],
+          questions: 35,
+          difficulty: 'Medium',
+          avgTime: '33 mins',
+          successRate: '70%',
+          premium: false
+        }
+      ]
     }
   ];
 
