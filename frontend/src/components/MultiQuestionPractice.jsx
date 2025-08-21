@@ -50,12 +50,6 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
     }
   };
 
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
   const getDifficultyColor = (difficulty) => {
     switch(difficulty) {
       case 'Easy': return 'bg-green-100 text-green-700 border-green-200';
