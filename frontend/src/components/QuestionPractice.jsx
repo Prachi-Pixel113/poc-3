@@ -199,10 +199,6 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-slate-500" />
-                <span className="font-mono text-sm font-semibold">{formatTime(timeSpent)}</span>
-              </div>
               <Badge className="bg-gradient-to-r from-blue-500 to-teal-500 text-white">
                 {getAnsweredCount()}/{questions.length} Answered
               </Badge>
