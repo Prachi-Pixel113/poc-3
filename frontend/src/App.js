@@ -74,6 +74,18 @@ function App() {
     } else if (currentView === 'questions-list') {
       setCurrentView('quantitative-landing');
       setSelectedTopic(null);
+    } else if (currentView === 'practice') {
+      // Navigate back to appropriate subtopic page based on the topic
+      if (selectedTopic === 'arithmetic-aptitude') {
+        setCurrentView('quantitative-landing');
+      } else if (selectedTopic === 'logical-reasoning') {
+        setCurrentView('logical-landing');
+      } else if (selectedTopic === 'verbal-reasoning') {
+        setCurrentView('verbal-landing');
+      } else {
+        setCurrentView('aptitude-landing');
+      }
+      setSelectedTopic(null);
     } else if (currentView === 'question-practice') {
       setCurrentView('aptitude-landing');
     } else if (currentView === 'quantitative-landing') {
