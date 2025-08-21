@@ -230,10 +230,6 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
                     <Calculator className="h-5 w-5 text-white" />
                   </div>
                   
-                  <CardTitle className="text-lg font-bold text-slate-800 mb-2">
-                    {topic.title}
-                  </CardTitle>
-                  
                   <p className="text-slate-600 text-sm leading-relaxed">
                     {topic.description}
                   </p>
