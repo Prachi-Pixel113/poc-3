@@ -129,17 +129,17 @@ frontend:
         agent: "main"
         comment: "✅ COMPLETED: Added 'Start Practice Mode' button to QuestionsList.jsx filter section. Button navigates to new multi-question practice mode while preserving individual question detail functionality for detailed review."
 
-  - task: "Convert questions display to scrollable format in QuestionsList.jsx"
+  - task: "Update App.js routing for multi-question practice"
     implemented: true
     working: "NA"
-    file: "/app/frontend/src/components/QuestionsList.jsx"
+    file: "/app/frontend/src/App.js"
     stuck_count: 0
     priority: "high"
     needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully converted questions display from grid layout to scrollable format in QuestionsList.jsx. Changes: 1) Replaced grid-based question cards with scrollable list view, 2) Added max-height container (max-h-96) with overflow-y-auto for smooth scrolling, 3) Each question row shows: question number badge, title, difficulty badge, completion status, question preview, topic/time info, and solve button, 4) Maintained all filtering functionality, 5) Improved space efficiency with compact horizontal layout, 6) Added hover effects for better user experience. Questions now display in a clean, scrollable format that's much more space-efficient."
+        comment: "✅ COMPLETED: Updated App.js to include routing for multi-question practice mode. Added import for MultiQuestionPractice component, updated handleNavigate and handleBack functions, and added component rendering for 'multi-question-practice' view. Navigation flow now supports both individual question review and multi-question practice modes."
 
   - task: "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
     implemented: false
