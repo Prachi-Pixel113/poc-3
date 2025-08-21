@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "make it smaller size of why choose section and structured and change color site from blue 500 to teal 500 and in hover blue 600 to teal 600"
+user_problem_statement: "Add subtopic section in aptitude test section - Option B (detailed subtopic views for each main category) and Option C (enhanced subtopic organization in existing pages)"
 
 frontend:
   - task: "Make Why Choose section smaller and more structured"
