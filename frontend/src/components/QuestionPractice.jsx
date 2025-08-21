@@ -18,7 +18,6 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submittedAnswers, setSubmittedAnswers] = useState(new Set());
   const [score, setScore] = useState({ correct: 0, total: 0 });
-  const [timeSpent, setTimeSpent] = useState(0);
 
   const questions = [
     {
