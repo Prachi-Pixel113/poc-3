@@ -77,10 +77,10 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-white/90 backdrop-blur-sm border-b border-slate-200 shadow-lg sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <div className="max-w-5xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button 
