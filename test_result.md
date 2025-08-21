@@ -117,17 +117,17 @@ frontend:
         agent: "main"
         comment: "✅ COMPLETED: Successfully created MultiQuestionPractice.jsx component with Indiabix-style multi-question scrollable practice. Features: 1) All questions visible in scrollable format, 2) Individual answer submission per question (no bulk submit), 3) Immediate feedback and explanations after each answer, 4) Progress tracking with statistics, 5) Clean card-based layout with proper visual feedback, 6) Maintains QuestionDetail.jsx for individual question review. Added 'Start Practice Mode' button to QuestionsList.jsx and updated App.js routing."
 
-  - task: "Remove subtopics organization and header stats from LogicalLanding.jsx"
+  - task: "Update QuestionsList.jsx with 'Start Practice Mode' button"
     implemented: true
     working: "NA"
-    file: "/app/frontend/src/components/LogicalLanding.jsx"
+    file: "/app/frontend/src/components/QuestionsList.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "✅ COMPLETED: Successfully simplified LogicalLanding.jsx by removing complex subtopics organization AND header stats. Changes: 1) Removed 5 main categories structure, 2) Flattened to simple logicalTopics array with 15 topics, 3) Removed subtopic badges and detailed subtopic displays, 4) Removed category headers, dividers, and categorized visual structure, 5) REMOVED stats overview section, 6) KEPT individual topic titles on cards, 7) Ultra-clean layout with just title, description, and topic cards. All 15 topics (540+ questions) now display in cleanest possible format."
+        comment: "✅ COMPLETED: Added 'Start Practice Mode' button to QuestionsList.jsx filter section. Button navigates to new multi-question practice mode while preserving individual question detail functionality for detailed review."
 
   - task: "Convert questions display to scrollable format in QuestionsList.jsx"
     implemented: true
