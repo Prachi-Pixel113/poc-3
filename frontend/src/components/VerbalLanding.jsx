@@ -22,8 +22,163 @@ import {
 const VerbalLanding = ({ onNavigate, onBack }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
-  // Organized verbal reasoning subtopics by categories for better structure
-  const verbalCategories = [
+  // Simplified verbal reasoning topics structure without categorized subtopics
+  const verbalTopics = [
+    {
+      id: 'grammar',
+      title: 'Grammar',
+      description: 'English grammar rules, tenses, parts of speech, and sentence structure',
+      questions: 65,
+      difficulty: 'Easy to Medium',
+      avgTime: '30 mins',
+      successRate: '84%',
+      premium: false
+    },
+    {
+      id: 'vocabulary',
+      title: 'Vocabulary',
+      description: 'Word meanings, synonyms, antonyms, and word usage',
+      questions: 80,
+      difficulty: 'Easy to Hard',
+      avgTime: '25 mins',
+      successRate: '88%',
+      premium: false
+    },
+    {
+      id: 'sentence-correction',
+      title: 'Sentence Correction',
+      description: 'Identify and correct grammatical errors in sentences',
+      questions: 55,
+      difficulty: 'Medium',
+      avgTime: '35 mins',
+      successRate: '76%',
+      premium: false
+    },
+    {
+      id: 'reading-comprehension',
+      title: 'Reading Comprehension',
+      description: 'Understand passages and answer based on content, tone, and inference',
+      questions: 70,
+      difficulty: 'Medium to Hard',
+      avgTime: '45 mins',
+      successRate: '72%',
+      premium: false
+    },
+    {
+      id: 'critical-reasoning',
+      title: 'Critical Reasoning',
+      description: 'Analyze arguments, assumptions, and logical conclusions',
+      questions: 40,
+      difficulty: 'Hard',
+      avgTime: '40 mins',
+      successRate: '68%',
+      premium: true
+    },
+    {
+      id: 'para-completion',
+      title: 'Para Completion',
+      description: 'Complete paragraphs with appropriate sentences or phrases',
+      questions: 35,
+      difficulty: 'Medium',
+      avgTime: '28 mins',
+      successRate: '78%',
+      premium: false
+    },
+    {
+      id: 'verbal-analogies',
+      title: 'Verbal Analogies',
+      description: 'Word relationships and logical connections between terms',
+      questions: 45,
+      difficulty: 'Easy to Medium',
+      avgTime: '22 mins',
+      successRate: '85%',
+      premium: false
+    },
+    {
+      id: 'verbal-classification',
+      title: 'Verbal Classification',
+      description: 'Group words based on common properties or meanings',
+      questions: 35,
+      difficulty: 'Easy to Medium',
+      avgTime: '20 mins',
+      successRate: '87%',
+      premium: false
+    },
+    {
+      id: 'logical-deduction',
+      title: 'Logical Deduction',
+      description: 'Draw conclusions from given statements and premises',
+      questions: 40,
+      difficulty: 'Medium to Hard',
+      avgTime: '32 mins',
+      successRate: '70%',
+      premium: true
+    },
+    {
+      id: 'letter-writing',
+      title: 'Letter Writing',
+      description: 'Formal and informal letter writing techniques',
+      questions: 25,
+      difficulty: 'Easy to Medium',
+      avgTime: '30 mins',
+      successRate: '82%',
+      premium: true
+    },
+    {
+      id: 'essay-writing',
+      title: 'Essay Writing',
+      description: 'Structured essay composition and argumentative writing',
+      questions: 20,
+      difficulty: 'Medium',
+      avgTime: '45 mins',
+      successRate: '75%',
+      premium: true
+    },
+    {
+      id: 'precise-writing',
+      title: 'Precise Writing',
+      description: 'Summarization and concise expression of ideas',
+      questions: 30,
+      difficulty: 'Medium',
+      avgTime: '35 mins',
+      successRate: '77%',
+      premium: true
+    },
+    {
+      id: 'word-formation',
+      title: 'Word Formation',
+      description: 'Prefixes, suffixes, root words, and word building',
+      questions: 30,
+      difficulty: 'Medium',
+      avgTime: '25 mins',
+      successRate: '81%',
+      premium: true
+    },
+    {
+      id: 'figures-of-speech',
+      title: 'Figures of Speech',
+      description: 'Literary devices and rhetorical expressions',
+      questions: 25,
+      difficulty: 'Medium to Hard',
+      avgTime: '28 mins',
+      successRate: '73%',
+      premium: true
+    },
+    {
+      id: 'advanced-verbal-logic',
+      title: 'Advanced Verbal Logic',
+      description: 'Complex verbal reasoning and abstract thinking',
+      questions: 35,
+      difficulty: 'Hard',
+      avgTime: '38 mins',
+      successRate: '65%',
+      premium: true
+    }
+  ];
+
+  // Calculate total stats from all topics
+  const totalQuestions = verbalTopics.reduce((total, topic) => total + topic.questions, 0);
+  const totalTopics = verbalTopics.length;
     {
       id: 'language-skills',
       title: 'Language Skills',
