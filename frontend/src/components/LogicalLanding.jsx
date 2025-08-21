@@ -154,7 +154,7 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
       id: 'spatial-reasoning',
       title: 'Spatial & Visual Reasoning',
       description: 'Direction sense, spatial arrangements, and visual logic',
-      color: 'from-orange-500 to-red-500',
+      color: 'from-purple-500 to-indigo-500',
       icon: Lightbulb,
       topics: [
         {
