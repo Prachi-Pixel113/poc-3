@@ -177,144 +177,141 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
             const isWrong = isSubmitted && !isCorrect;
 
             return (
-              <Card key={question.id} className="bg-white/90 backdrop-blur-sm border-0 shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold ${
-                        isCorrect ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
-                        isWrong ? 'bg-gradient-to-r from-red-500 to-pink-500' :
-                        'bg-gradient-to-r from-teal-500 to-cyan-500'
-                      }`}>
-                        {index + 1}
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg font-bold text-slate-800">
-                          Question {index + 1}
-                        </CardTitle>
-                        <p className="text-sm text-slate-600">{question.topic}</p>
-                      </div>
+              <div key={question.id} className="space-y-6">
+                {/* Question Header */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold ${
+                      isCorrect ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
+                      isWrong ? 'bg-gradient-to-r from-red-500 to-pink-500' :
+                      'bg-gradient-to-r from-teal-500 to-cyan-500'
+                    }`}>
+                      {index + 1}
                     </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
-                        {question.difficulty}
-                      </Badge>
-                      {isSubmitted && isCorrect && (
-                        <CheckCircle className="h-6 w-6 text-green-500" />
-                      )}
-                      {isSubmitted && isWrong && (
-                        <XCircle className="h-6 w-6 text-red-500" />
-                      )}
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-800">
+                        Question {index + 1}
+                      </h3>
+                      <p className="text-sm text-slate-600">{question.topic}</p>
                     </div>
                   </div>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  {/* Question Text */}
-                  <div className="bg-gradient-to-r from-slate-50 to-teal-50 rounded-xl p-6 border border-slate-200">
-                    <p className="text-lg text-slate-700 leading-relaxed font-medium">
-                      {question.question}
-                    </p>
-                  </div>
-
-                  {/* Answer Options */}
-                  <div className="space-y-3">
-                    {question.options.map((option, optionIndex) => {
-                      let bgColor = 'bg-white hover:bg-slate-50';
-                      let borderColor = 'border-slate-200 hover:border-slate-300';
-                      let textColor = 'text-slate-700';
-
-                      if (isSubmitted) {
-                        if (optionIndex === question.correctAnswer) {
-                          bgColor = 'bg-gradient-to-r from-green-50 to-emerald-50';
-                          borderColor = 'border-green-300';
-                          textColor = 'text-green-800';
-                        } else if (optionIndex === selectedIndex && optionIndex !== question.correctAnswer) {
-                          bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
-                          borderColor = 'border-red-300';
-                          textColor = 'text-red-800';
-                        }
-                      } else if (selectedIndex === optionIndex) {
-                        bgColor = 'bg-gradient-to-r from-teal-50 to-cyan-50';
-                        borderColor = 'border-teal-400';
-                        textColor = 'text-teal-800';
-                      }
-
-                      return (
-                        <button
-                          key={optionIndex}
-                          onClick={() => handleAnswerSelect(question.id, optionIndex)}
-                          disabled={isSubmitted}
-                          className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${bgColor} ${borderColor} ${textColor}`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold text-sm ${
-                              isSubmitted && optionIndex === question.correctAnswer ? 'bg-green-600' :
-                              isSubmitted && optionIndex === selectedIndex && optionIndex !== question.correctAnswer ? 'bg-red-600' :
-                              selectedIndex === optionIndex ? 'bg-teal-600' : 'bg-slate-600'
-                            }`}>
-                              {String.fromCharCode(65 + optionIndex)}
-                            </div>
-                            <span className="flex-1 font-medium">{option}</span>
-                            
-                            {/* Result Icons */}
-                            {isSubmitted && optionIndex === question.correctAnswer && (
-                              <CheckCircle className="h-5 w-5 text-green-600" />
-                            )}
-                            {isSubmitted && optionIndex === selectedIndex && selectedIndex !== question.correctAnswer && (
-                              <XCircle className="h-5 w-5 text-red-600" />
-                            )}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="flex justify-center pt-4">
-                    {!isSubmitted && selectedIndex !== undefined ? (
-                      <Button
-                        onClick={() => handleSubmitAnswer(question.id)}
-                        className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2 rounded-xl font-semibold"
-                      >
-                        <CheckCircle className="h-4 w-4 mr-2" />
-                        Submit Answer
-                      </Button>
-                    ) : !isSubmitted ? (
-                      <Button
-                        disabled
-                        variant="outline"
-                        className="px-6 py-2 rounded-xl opacity-50"
-                      >
-                        Select an answer to submit
-                      </Button>
-                    ) : (
-                      <Badge className={`px-4 py-2 text-sm ${
-                        isCorrect 
-                          ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
-                          : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
-                      }`}>
-                        <CheckCircle className="h-4 w-4 mr-1" />
-                        {isCorrect ? 'Correct!' : 'Incorrect'}
-                      </Badge>
+                  
+                  <div className="flex items-center gap-2">
+                    <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
+                      {question.difficulty}
+                    </Badge>
+                    {isSubmitted && isCorrect && (
+                      <CheckCircle className="h-6 w-6 text-green-500" />
+                    )}
+                    {isSubmitted && isWrong && (
+                      <XCircle className="h-6 w-6 text-red-500" />
                     )}
                   </div>
+                </div>
+                
+                {/* Question Text */}
+                <div className="bg-gradient-to-r from-slate-50 to-teal-50 rounded-xl p-6 border border-slate-200">
+                  <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                    {question.question}
+                  </p>
+                </div>
 
-                  {/* Explanation (show only after submission) */}
-                  {isSubmitted && question.explanation && (
-                    <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Lightbulb className="h-5 w-5 text-amber-600" />
-                        <h4 className="font-bold text-slate-800">Explanation</h4>
-                      </div>
-                      <div className="text-slate-700 leading-relaxed">
-                        {question.explanation}
-                      </div>
-                    </div>
+                {/* Answer Options */}
+                <div className="space-y-3">
+                  {question.options.map((option, optionIndex) => {
+                    let bgColor = 'bg-white hover:bg-slate-50';
+                    let borderColor = 'border-slate-200 hover:border-slate-300';
+                    let textColor = 'text-slate-700';
+
+                    if (isSubmitted) {
+                      if (optionIndex === question.correctAnswer) {
+                        bgColor = 'bg-gradient-to-r from-green-50 to-emerald-50';
+                        borderColor = 'border-green-300';
+                        textColor = 'text-green-800';
+                      } else if (optionIndex === selectedIndex && optionIndex !== question.correctAnswer) {
+                        bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
+                        borderColor = 'border-red-300';
+                        textColor = 'text-red-800';
+                      }
+                    } else if (selectedIndex === optionIndex) {
+                      bgColor = 'bg-gradient-to-r from-teal-50 to-cyan-50';
+                      borderColor = 'border-teal-400';
+                      textColor = 'text-teal-800';
+                    }
+
+                    return (
+                      <button
+                        key={optionIndex}
+                        onClick={() => handleAnswerSelect(question.id, optionIndex)}
+                        disabled={isSubmitted}
+                        className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${bgColor} ${borderColor} ${textColor}`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold text-sm ${
+                            isSubmitted && optionIndex === question.correctAnswer ? 'bg-green-600' :
+                            isSubmitted && optionIndex === selectedIndex && optionIndex !== question.correctAnswer ? 'bg-red-600' :
+                            selectedIndex === optionIndex ? 'bg-teal-600' : 'bg-slate-600'
+                          }`}>
+                            {String.fromCharCode(65 + optionIndex)}
+                          </div>
+                          <span className="flex-1 font-medium">{option}</span>
+                          
+                          {/* Result Icons */}
+                          {isSubmitted && optionIndex === question.correctAnswer && (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          )}
+                          {isSubmitted && optionIndex === selectedIndex && selectedIndex !== question.correctAnswer && (
+                            <XCircle className="h-5 w-5 text-red-600" />
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Submit Button */}
+                <div className="flex justify-center pt-4">
+                  {!isSubmitted && selectedIndex !== undefined ? (
+                    <Button
+                      onClick={() => handleSubmitAnswer(question.id)}
+                      className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2 rounded-xl font-semibold"
+                    >
+                      <CheckCircle className="h-4 w-4 mr-2" />
+                      Submit Answer
+                    </Button>
+                  ) : !isSubmitted ? (
+                    <Button
+                      disabled
+                      variant="outline"
+                      className="px-6 py-2 rounded-xl opacity-50"
+                    >
+                      Select an answer to submit
+                    </Button>
+                  ) : (
+                    <Badge className={`px-4 py-2 text-sm ${
+                      isCorrect 
+                        ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
+                        : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
+                    }`}>
+                      <CheckCircle className="h-4 w-4 mr-1" />
+                      {isCorrect ? 'Correct!' : 'Incorrect'}
+                    </Badge>
                   )}
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Explanation (show only after submission) */}
+                {isSubmitted && question.explanation && (
+                  <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Lightbulb className="h-5 w-5 text-amber-600" />
+                      <h4 className="font-bold text-slate-800">Explanation</h4>
+                    </div>
+                    <div className="text-slate-700 leading-relaxed">
+                      {question.explanation}
+                    </div>
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>
