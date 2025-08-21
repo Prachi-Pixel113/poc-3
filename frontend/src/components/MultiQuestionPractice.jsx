@@ -122,54 +122,9 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
       </div>
 
       <main className="max-w-5xl mx-auto px-6 py-6">
-        
-        {/* Progress Summary */}
-        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg mb-6">
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-2">
-                  <BookOpen className="h-6 w-6 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-slate-800">{questions.length}</p>
-                <p className="text-sm text-slate-600">Total Questions</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-2">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-slate-800">{getAnsweredCount()}</p>
-                <p className="text-sm text-slate-600">Answered</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-2">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-slate-800">{getCorrectCount()}</p>
-                <p className="text-sm text-slate-600">Correct</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-2">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <p className="text-2xl font-bold text-slate-800">{accuracy}%</p>
-                <p className="text-sm text-slate-600">Accuracy</p>
-              </div>
-            </div>
-            
-            {/* Progress Bar */}
-            <div className="mt-6">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-slate-700">Overall Progress</span>
-                <span className="text-sm text-slate-500">{Math.round(progressPercentage)}%</span>
-              </div>
-              <Progress value={progressPercentage} className="h-2" />
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Scrollable Questions */}
-        <div className="space-y-8">
+        <div className="space-y-12">
           {questions.map((question, index) => {
             const isSubmitted = submittedAnswers.has(question.id);
             const selectedIndex = selectedAnswers[question.id];
@@ -177,66 +132,70 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
             const isWrong = isSubmitted && !isCorrect;
 
             return (
-              <div key={question.id} className="space-y-6">
+              <div key={question.id} className="space-y-4 pb-8 border-b border-slate-200 last:border-b-0">
                 {/* Question Header */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold ${
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg ${
                       isCorrect ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
                       isWrong ? 'bg-gradient-to-r from-red-500 to-pink-500' :
-                      'bg-gradient-to-r from-teal-500 to-cyan-500'
+                      'bg-gradient-to-r from-blue-500 to-indigo-500'
                     }`}>
                       {index + 1}
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-800">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-slate-900 mb-1">
                         Question {index + 1}
                       </h3>
-                      <p className="text-sm text-slate-600">{question.topic}</p>
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm text-slate-600">{question.topic}</span>
+                        <Badge className={`text-xs ${getDifficultyColor(question.difficulty)}`}>
+                          {question.difficulty}
+                        </Badge>
+                      </div>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    <Badge className={`text-xs border ${getDifficultyColor(question.difficulty)}`}>
-                      {question.difficulty}
-                    </Badge>
                     {isSubmitted && isCorrect && (
-                      <CheckCircle className="h-6 w-6 text-green-500" />
+                      <div className="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                        <CheckCircle className="h-4 w-4" />
+                        <span className="text-xs font-medium">Correct</span>
+                      </div>
                     )}
                     {isSubmitted && isWrong && (
-                      <XCircle className="h-6 w-6 text-red-500" />
+                      <div className="flex items-center gap-1 text-red-600 bg-red-50 px-2 py-1 rounded-full">
+                        <XCircle className="h-4 w-4" />
+                        <span className="text-xs font-medium">Incorrect</span>
+                      </div>
                     )}
                   </div>
                 </div>
                 
                 {/* Question Text */}
-                <div className="bg-gradient-to-r from-slate-50 to-teal-50 rounded-xl p-6 border border-slate-200">
-                  <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                <div className="ml-16 mb-6">
+                  <p className="text-lg text-slate-800 leading-relaxed">
                     {question.question}
                   </p>
                 </div>
 
                 {/* Answer Options */}
-                <div className="space-y-3">
+                <div className="ml-16 space-y-3 mb-6">
                   {question.options.map((option, optionIndex) => {
-                    let bgColor = 'bg-white hover:bg-slate-50';
-                    let borderColor = 'border-slate-200 hover:border-slate-300';
-                    let textColor = 'text-slate-700';
-
+                    let buttonClass = 'w-full p-4 text-left border-2 rounded-lg transition-all duration-200 ';
+                    
                     if (isSubmitted) {
                       if (optionIndex === question.correctAnswer) {
-                        bgColor = 'bg-gradient-to-r from-green-50 to-emerald-50';
-                        borderColor = 'border-green-300';
-                        textColor = 'text-green-800';
+                        buttonClass += 'border-green-400 bg-green-50 text-green-800';
                       } else if (optionIndex === selectedIndex && optionIndex !== question.correctAnswer) {
-                        bgColor = 'bg-gradient-to-r from-red-50 to-pink-50';
-                        borderColor = 'border-red-300';
-                        textColor = 'text-red-800';
+                        buttonClass += 'border-red-400 bg-red-50 text-red-800';
+                      } else {
+                        buttonClass += 'border-gray-200 bg-gray-50 text-gray-600';
                       }
                     } else if (selectedIndex === optionIndex) {
-                      bgColor = 'bg-gradient-to-r from-teal-50 to-cyan-50';
-                      borderColor = 'border-teal-400';
-                      textColor = 'text-teal-800';
+                      buttonClass += 'border-blue-400 bg-blue-50 text-blue-800';
+                    } else {
+                      buttonClass += 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50 text-slate-700';
                     }
 
                     return (
@@ -244,13 +203,13 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
                         key={optionIndex}
                         onClick={() => handleAnswerSelect(question.id, optionIndex)}
                         disabled={isSubmitted}
-                        className={`w-full p-4 text-left border-2 rounded-xl transition-all duration-300 ${bgColor} ${borderColor} ${textColor}`}
+                        className={buttonClass}
                       >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold text-sm ${
+                        <div className="flex items-center gap-4">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
                             isSubmitted && optionIndex === question.correctAnswer ? 'bg-green-600' :
                             isSubmitted && optionIndex === selectedIndex && optionIndex !== question.correctAnswer ? 'bg-red-600' :
-                            selectedIndex === optionIndex ? 'bg-teal-600' : 'bg-slate-600'
+                            selectedIndex === optionIndex ? 'bg-blue-600' : 'bg-gray-400'
                           }`}>
                             {String.fromCharCode(65 + optionIndex)}
                           </div>
@@ -270,41 +229,31 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-center pt-4">
+                <div className="ml-16 mb-6">
                   {!isSubmitted && selectedIndex !== undefined ? (
                     <Button
                       onClick={() => handleSubmitAnswer(question.id)}
-                      className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2 rounded-xl font-semibold"
+                      className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-6 py-2 rounded-lg font-medium"
                     >
-                      <CheckCircle className="h-4 w-4 mr-2" />
                       Submit Answer
                     </Button>
                   ) : !isSubmitted ? (
                     <Button
                       disabled
                       variant="outline"
-                      className="px-6 py-2 rounded-xl opacity-50"
+                      className="px-6 py-2 rounded-lg opacity-50 cursor-not-allowed"
                     >
                       Select an answer to submit
                     </Button>
-                  ) : (
-                    <Badge className={`px-4 py-2 text-sm ${
-                      isCorrect 
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
-                        : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
-                    }`}>
-                      <CheckCircle className="h-4 w-4 mr-1" />
-                      {isCorrect ? 'Correct!' : 'Incorrect'}
-                    </Badge>
-                  )}
+                  ) : null}
                 </div>
 
                 {/* Explanation (show only after submission) */}
                 {isSubmitted && question.explanation && (
-                  <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200">
-                    <div className="flex items-center gap-2 mb-3">
+                  <div className="ml-16 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <div className="flex items-center gap-2 mb-2">
                       <Lightbulb className="h-5 w-5 text-amber-600" />
-                      <h4 className="font-bold text-slate-800">Explanation</h4>
+                      <h4 className="font-semibold text-slate-800">Explanation</h4>
                     </div>
                     <div className="text-slate-700 leading-relaxed">
                       {question.explanation}
