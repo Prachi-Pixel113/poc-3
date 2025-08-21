@@ -126,7 +126,7 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
       id: 'work-time',
       title: 'Work & Time',
       description: 'Efficiency, work rates, and time-based problems',
-      color: 'from-orange-500 to-red-500',
+      color: 'from-emerald-500 to-teal-500',
       topics: [
         {
           id: 'time-work',
