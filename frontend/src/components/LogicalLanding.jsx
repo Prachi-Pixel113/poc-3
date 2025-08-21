@@ -22,226 +22,163 @@ import {
 const LogicalLanding = ({ onNavigate, onBack }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
-  // Organized logical reasoning subtopics by categories for better structure
-  const logicalCategories = [
+  // Simplified logical reasoning topics structure without categorized subtopics
+  const logicalTopics = [
     {
-      id: 'sequences-patterns',
-      title: 'Sequences & Patterns',
-      description: 'Number series, letter series, and pattern recognition',
-      color: 'from-purple-500 to-indigo-500',
-      icon: Network,
-      topics: [
-        {
-          id: 'number-series',
-          title: 'Number Series',
-          description: 'Complete numerical sequences using arithmetic, geometric, and special patterns',
-          subtopics: ['Arithmetic Series', 'Geometric Series', 'Square Series', 'Cube Series', 'Mixed Patterns'],
-          questions: 45,
-          difficulty: 'Easy to Medium',
-          avgTime: '25 mins',
-          successRate: '82%',
-          premium: false
-        },
-        {
-          id: 'letter-series',
-          title: 'Letter Series',
-          description: 'Alphabetical patterns and letter sequence completions',
-          subtopics: ['Forward Series', 'Backward Series', 'Skip Letters', 'Mixed Series', 'Reverse Patterns'],
-          questions: 35,
-          difficulty: 'Easy to Medium',
-          avgTime: '20 mins',
-          successRate: '85%',
-          premium: false
-        },
-        {
-          id: 'figure-series',
-          title: 'Figure Series',
-          description: 'Visual pattern recognition and shape sequences',
-          subtopics: ['Shape Rotation', 'Element Addition', 'Size Variation', 'Color Changes', 'Complex Patterns'],
-          questions: 30,
-          difficulty: 'Medium',
-          avgTime: '30 mins',
-          successRate: '75%',
-          premium: true
-        }
-      ]
+      id: 'number-series',
+      title: 'Number Series',
+      description: 'Complete numerical sequences using arithmetic, geometric, and special patterns',
+      questions: 45,
+      difficulty: 'Easy to Medium',
+      avgTime: '25 mins',
+      successRate: '82%',
+      premium: false
     },
     {
-      id: 'coding-decoding',
-      title: 'Coding & Decoding',
-      description: 'Cipher techniques and code pattern analysis',
-      color: 'from-purple-500 to-indigo-500',
-      icon: Eye,
-      topics: [
-        {
-          id: 'letter-coding',
-          title: 'Letter Coding',
-          description: 'Alphabetical substitution and letter-based coding systems',
-          subtopics: ['Simple Substitution', 'Reverse Coding', 'Number Coding', 'Position Coding', 'Mixed Coding'],
-          questions: 40,
-          difficulty: 'Easy to Hard',
-          avgTime: '28 mins',
-          successRate: '78%',
-          premium: false
-        },
-        {
-          id: 'number-coding',
-          title: 'Number Coding',
-          description: 'Numerical codes and mathematical encoding patterns',
-          subtopics: ['Direct Coding', 'Sum Coding', 'Product Coding', 'Difference Coding', 'Complex Operations'],
-          questions: 35,
-          difficulty: 'Medium',
-          avgTime: '25 mins',
-          successRate: '80%',
-          premium: false
-        },
-        {
-          id: 'symbol-coding',
-          title: 'Symbol Coding',
-          description: 'Symbol substitution and pictorial coding systems',
-          subtopics: ['Basic Symbols', 'Conditional Coding', 'Operation Symbols', 'Mixed Symbols', 'Advanced Patterns'],
-          questions: 25,
-          difficulty: 'Medium to Hard',
-          avgTime: '32 mins',
-          successRate: '70%',
-          premium: true
-        }
-      ]
+      id: 'letter-series',
+      title: 'Letter Series',
+      description: 'Alphabetical patterns and letter sequence completions',
+      questions: 35,
+      difficulty: 'Easy to Medium',
+      avgTime: '20 mins',
+      successRate: '85%',
+      premium: false
     },
     {
-      id: 'relationships',
-      title: 'Relationships & Classifications',
-      description: 'Blood relations, analogies, and logical groupings',
-      color: 'from-purple-500 to-indigo-500',
-      icon: TreePine,
-      topics: [
-        {
-          id: 'blood-relations',
-          title: 'Blood Relations',
-          description: 'Family relationships and genealogical reasoning',
-          subtopics: ['Direct Relations', 'Indirect Relations', 'Complex Family Trees', 'Gender Based', 'Multi-Generation'],
-          questions: 50,
-          difficulty: 'Easy to Hard',
-          avgTime: '35 mins',
-          successRate: '72%',
-          premium: false
-        },
-        {
-          id: 'analogies',
-          title: 'Analogies',
-          description: 'Word relationships and logical comparisons',
-          subtopics: ['Word Analogies', 'Number Analogies', 'Letter Analogies', 'Mixed Analogies', 'Reverse Analogies'],
-          questions: 40,
-          difficulty: 'Medium',
-          avgTime: '22 mins',
-          successRate: '83%',
-          premium: false
-        },
-        {
-          id: 'classification',
-          title: 'Classification',
-          description: 'Grouping items based on common properties',
-          subtopics: ['Odd One Out', 'Group Formation', 'Category Based', 'Property Based', 'Complex Classifications'],
-          questions: 35,
-          difficulty: 'Easy to Medium',
-          avgTime: '20 mins',
-          successRate: '87%',
-          premium: false
-        }
-      ]
+      id: 'figure-series',
+      title: 'Figure Series',
+      description: 'Visual pattern recognition and shape sequences',
+      questions: 30,
+      difficulty: 'Medium',
+      avgTime: '30 mins',
+      successRate: '75%',
+      premium: true
     },
     {
-      id: 'spatial-reasoning',
-      title: 'Spatial & Visual Reasoning',
-      description: 'Direction sense, spatial arrangements, and visual logic',
-      color: 'from-purple-500 to-indigo-500',
-      icon: Lightbulb,
-      topics: [
-        {
-          id: 'direction-sense',
-          title: 'Direction Sense',
-          description: 'Navigation, compass directions, and spatial orientation',
-          subtopics: ['Basic Directions', 'Left-Right Movements', 'Distance Calculations', 'Shadow Problems', 'Complex Routes'],
-          questions: 30,
-          difficulty: 'Easy to Medium',
-          avgTime: '25 mins',
-          successRate: '79%',
-          premium: false
-        },
-        {
-          id: 'seating-arrangement',
-          title: 'Seating Arrangement',
-          description: 'Linear and circular seating problems with constraints',
-          subtopics: ['Linear Arrangement', 'Circular Arrangement', 'Facing Problems', 'Multi-Level Seating', 'Complex Constraints'],
-          questions: 40,
-          difficulty: 'Medium to Hard',
-          avgTime: '40 mins',
-          successRate: '68%',
-          premium: true
-        },
-        {
-          id: 'mirror-water-images',
-          title: 'Mirror & Water Images',
-          description: 'Reflection patterns and image transformations',
-          subtopics: ['Mirror Images', 'Water Images', 'Clock Images', 'Paper Folding', 'Rotation Images'],
-          questions: 25,
-          difficulty: 'Medium',
-          avgTime: '28 mins',
-          successRate: '73%',
-          premium: true
-        }
-      ]
+      id: 'letter-coding',
+      title: 'Letter Coding',
+      description: 'Alphabetical substitution and letter-based coding systems',
+      questions: 40,
+      difficulty: 'Easy to Hard',
+      avgTime: '28 mins',
+      successRate: '78%',
+      premium: false
     },
     {
-      id: 'logical-puzzles',
-      title: 'Logical Puzzles & Games',
-      description: 'Complex reasoning problems and logical deductions',
-      color: 'from-purple-500 to-indigo-500',
-      icon: Puzzle,
-      topics: [
-        {
-          id: 'syllogism',
-          title: 'Syllogism',
-          description: 'Logical statements and conclusion validation',
-          subtopics: ['Basic Syllogism', 'Multiple Statements', 'Negative Conclusions', 'Possibility Cases', 'Complex Logic'],
-          questions: 45,
-          difficulty: 'Medium to Hard',
-          avgTime: '35 mins',
-          successRate: '65%',
-          premium: true
-        },
-        {
-          id: 'logical-games',
-          title: 'Logical Games',
-          description: 'Strategy games and rule-based problem solving',
-          subtopics: ['Ranking Games', 'Tournament Problems', 'Conditional Games', 'Strategy Puzzles', 'Multi-Player Games'],
-          questions: 30,
-          difficulty: 'Hard',
-          avgTime: '45 mins',
-          successRate: '60%',
-          premium: true
-        },
-        {
-          id: 'input-output',
-          title: 'Input-Output',
-          description: 'Machine input-output and step-by-step operations',
-          subtopics: ['Basic Operations', 'Number Rearrangement', 'Word Rearrangement', 'Mixed Operations', 'Complex Patterns'],
-          questions: 35,
-          difficulty: 'Medium to Hard',
-          avgTime: '38 mins',
-          successRate: '67%',
-          premium: true
-        }
-      ]
+      id: 'number-coding',
+      title: 'Number Coding',
+      description: 'Numerical codes and mathematical encoding patterns',
+      questions: 35,
+      difficulty: 'Medium',
+      avgTime: '25 mins',
+      successRate: '80%',
+      premium: false
+    },
+    {
+      id: 'symbol-coding',
+      title: 'Symbol Coding',
+      description: 'Symbol substitution and pictorial coding systems',
+      questions: 25,
+      difficulty: 'Medium to Hard',
+      avgTime: '32 mins',
+      successRate: '70%',
+      premium: true
+    },
+    {
+      id: 'blood-relations',
+      title: 'Blood Relations',
+      description: 'Family relationships and genealogical reasoning',
+      questions: 50,
+      difficulty: 'Easy to Hard',
+      avgTime: '35 mins',
+      successRate: '72%',
+      premium: false
+    },
+    {
+      id: 'analogies',
+      title: 'Analogies',
+      description: 'Word relationships and logical comparisons',
+      questions: 40,
+      difficulty: 'Medium',
+      avgTime: '22 mins',
+      successRate: '83%',
+      premium: false
+    },
+    {
+      id: 'classification',
+      title: 'Classification',
+      description: 'Grouping items based on common properties',
+      questions: 35,
+      difficulty: 'Easy to Medium',
+      avgTime: '20 mins',
+      successRate: '87%',
+      premium: false
+    },
+    {
+      id: 'direction-sense',
+      title: 'Direction Sense',
+      description: 'Navigation, compass directions, and spatial orientation',
+      questions: 30,
+      difficulty: 'Easy to Medium',
+      avgTime: '25 mins',
+      successRate: '79%',
+      premium: false
+    },
+    {
+      id: 'seating-arrangement',
+      title: 'Seating Arrangement',
+      description: 'Linear and circular seating problems with constraints',
+      questions: 40,
+      difficulty: 'Medium to Hard',
+      avgTime: '40 mins',
+      successRate: '68%',
+      premium: true
+    },
+    {
+      id: 'mirror-water-images',
+      title: 'Mirror & Water Images',
+      description: 'Reflection patterns and image transformations',
+      questions: 25,
+      difficulty: 'Medium',
+      avgTime: '28 mins',
+      successRate: '73%',
+      premium: true
+    },
+    {
+      id: 'syllogism',
+      title: 'Syllogism',
+      description: 'Logical statements and conclusion validation',
+      questions: 45,
+      difficulty: 'Medium to Hard',
+      avgTime: '35 mins',
+      successRate: '65%',
+      premium: true
+    },
+    {
+      id: 'logical-games',
+      title: 'Logical Games',
+      description: 'Strategy games and rule-based problem solving',
+      questions: 30,
+      difficulty: 'Hard',
+      avgTime: '45 mins',
+      successRate: '60%',
+      premium: true
+    },
+    {
+      id: 'input-output',
+      title: 'Input-Output',
+      description: 'Machine input-output and step-by-step operations',
+      questions: 35,
+      difficulty: 'Medium to Hard',
+      avgTime: '38 mins',
+      successRate: '67%',
+      premium: true
     }
   ];
 
-  // Calculate total stats from all categories
-  const totalQuestions = logicalCategories.reduce((total, category) => 
-    total + category.topics.reduce((catTotal, topic) => catTotal + topic.questions, 0), 0);
-  
-  const totalTopics = logicalCategories.reduce((total, category) => 
-    total + category.topics.length, 0);
+  // Calculate total stats from all topics
+  const totalQuestions = logicalTopics.reduce((total, topic) => total + topic.questions, 0);
+  const totalTopics = logicalTopics.length;
 
   const featuredStats = [
     { icon: Brain, value: `${totalQuestions}+`, label: 'Practice Questions' },
