@@ -184,10 +184,17 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
     }
   ];
 
+  // Calculate total stats from all categories
+  const totalQuestions = quantitativeCategories.reduce((total, category) => 
+    total + category.topics.reduce((catTotal, topic) => catTotal + topic.questions, 0), 0);
+  
+  const totalTopics = quantitativeCategories.reduce((total, category) => 
+    total + category.topics.length, 0);
+
   const featuredStats = [
-    { icon: Calculator, value: '260+', label: 'Practice Questions' },
+    { icon: Calculator, value: `${totalQuestions}+`, label: 'Practice Questions' },
     { icon: Users, value: '15K+', label: 'Students Enrolled' },
-    { icon: Target, value: '78%', label: 'Average Score' },
+    { icon: Target, value: `${totalTopics}`, label: 'Topics Covered' },
     { icon: TrendingUp, value: '92%', label: 'Success Rate' }
   ];
 
