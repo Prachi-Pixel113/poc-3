@@ -105,10 +105,10 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
         </div>
       </div>
 
-      <main className="max-w-5xl mx-auto px-6 py-6">
+      <main className="max-w-4xl mx-auto px-6 py-8">
 
-        {/* Scrollable Questions */}
-        <div className="space-y-12">
+        {/* Questions */}
+        <div className="space-y-16">
           {questions.map((question, index) => {
             const isSubmitted = submittedAnswers.has(question.id);
             const selectedIndex = selectedAnswers[question.id];
@@ -116,70 +116,53 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
             const isWrong = isSubmitted && !isCorrect;
 
             return (
-              <div key={question.id} className="space-y-4 pb-8 border-b border-slate-200 last:border-b-0">
+              <div key={question.id} className="space-y-6">
                 {/* Question Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg ${
-                      isCorrect ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
-                      isWrong ? 'bg-gradient-to-r from-red-500 to-pink-500' :
-                      'bg-gradient-to-r from-blue-500 to-indigo-500'
-                    }`}>
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 mb-1">
-                        Question {index + 1}
-                      </h3>
-                      <div className="flex items-center gap-3">
-                        <span className="text-sm text-slate-600">{question.topic}</span>
-                        <Badge className={`text-xs ${getDifficultyColor(question.difficulty)}`}>
-                          {question.difficulty}
-                        </Badge>
-                      </div>
-                    </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold">
+                    {index + 1}
                   </div>
-                  
-                  <div className="flex items-center gap-2">
-                    {isSubmitted && isCorrect && (
-                      <div className="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-1 rounded-full">
-                        <CheckCircle className="h-4 w-4" />
-                        <span className="text-xs font-medium">Correct</span>
-                      </div>
-                    )}
-                    {isSubmitted && isWrong && (
-                      <div className="flex items-center gap-1 text-red-600 bg-red-50 px-2 py-1 rounded-full">
-                        <XCircle className="h-4 w-4" />
-                        <span className="text-xs font-medium">Incorrect</span>
-                      </div>
-                    )}
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-sm text-slate-600">{question.topic}</span>
+                      <span className={`text-xs px-2 py-1 rounded ${
+                        question.difficulty === 'Easy' ? 'bg-green-100 text-green-700' :
+                        question.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-red-100 text-red-700'
+                      }`}>
+                        {question.difficulty}
+                      </span>
+                      {isSubmitted && (
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                        }`}>
+                          {isCorrect ? 'Correct' : 'Incorrect'}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-lg text-slate-900 leading-relaxed">
+                      {question.question}
+                    </p>
                   </div>
-                </div>
-                
-                {/* Question Text */}
-                <div className="ml-16 mb-6">
-                  <p className="text-lg text-slate-800 leading-relaxed">
-                    {question.question}
-                  </p>
                 </div>
 
                 {/* Answer Options */}
-                <div className="ml-16 space-y-3 mb-6">
+                <div className="ml-14 space-y-3">
                   {question.options.map((option, optionIndex) => {
-                    let buttonClass = 'w-full p-4 text-left border-2 rounded-lg transition-all duration-200 ';
+                    let className = 'w-full p-3 text-left border rounded-lg transition-colors ';
                     
                     if (isSubmitted) {
                       if (optionIndex === question.correctAnswer) {
-                        buttonClass += 'border-green-400 bg-green-50 text-green-800';
+                        className += 'border-green-500 bg-green-50 text-green-800';
                       } else if (optionIndex === selectedIndex && optionIndex !== question.correctAnswer) {
-                        buttonClass += 'border-red-400 bg-red-50 text-red-800';
+                        className += 'border-red-500 bg-red-50 text-red-800';
                       } else {
-                        buttonClass += 'border-gray-200 bg-gray-50 text-gray-600';
+                        className += 'border-gray-200 bg-gray-50 text-gray-600';
                       }
                     } else if (selectedIndex === optionIndex) {
-                      buttonClass += 'border-blue-400 bg-blue-50 text-blue-800';
+                      className += 'border-blue-500 bg-blue-50 text-blue-800';
                     } else {
-                      buttonClass += 'border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50 text-slate-700';
+                      className += 'border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-slate-700';
                     }
 
                     return (
@@ -187,24 +170,18 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
                         key={optionIndex}
                         onClick={() => handleAnswerSelect(question.id, optionIndex)}
                         disabled={isSubmitted}
-                        className={buttonClass}
+                        className={className}
                       >
-                        <div className="flex items-center gap-4">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
-                            isSubmitted && optionIndex === question.correctAnswer ? 'bg-green-600' :
-                            isSubmitted && optionIndex === selectedIndex && optionIndex !== question.correctAnswer ? 'bg-red-600' :
-                            selectedIndex === optionIndex ? 'bg-blue-600' : 'bg-gray-400'
-                          }`}>
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 bg-slate-600 text-white rounded-full flex items-center justify-center text-sm font-medium">
                             {String.fromCharCode(65 + optionIndex)}
-                          </div>
-                          <span className="flex-1 font-medium">{option}</span>
-                          
-                          {/* Result Icons */}
+                          </span>
+                          <span>{option}</span>
                           {isSubmitted && optionIndex === question.correctAnswer && (
-                            <CheckCircle className="h-5 w-5 text-green-600" />
+                            <CheckCircle className="h-4 w-4 text-green-600 ml-auto" />
                           )}
                           {isSubmitted && optionIndex === selectedIndex && selectedIndex !== question.correctAnswer && (
-                            <XCircle className="h-5 w-5 text-red-600" />
+                            <XCircle className="h-4 w-4 text-red-600 ml-auto" />
                           )}
                         </div>
                       </button>
@@ -213,35 +190,26 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="ml-16 mb-6">
-                  {!isSubmitted && selectedIndex !== undefined ? (
+                {!isSubmitted && (
+                  <div className="ml-14">
                     <Button
                       onClick={() => handleSubmitAnswer(question.id)}
-                      className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-6 py-2 rounded-lg font-medium"
+                      disabled={selectedIndex === undefined}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg disabled:opacity-50"
                     >
-                      Submit Answer
+                      {selectedIndex === undefined ? 'Select an answer' : 'Submit Answer'}
                     </Button>
-                  ) : !isSubmitted ? (
-                    <Button
-                      disabled
-                      variant="outline"
-                      className="px-6 py-2 rounded-lg opacity-50 cursor-not-allowed"
-                    >
-                      Select an answer to submit
-                    </Button>
-                  ) : null}
-                </div>
+                  </div>
+                )}
 
-                {/* Explanation (show only after submission) */}
+                {/* Explanation */}
                 {isSubmitted && question.explanation && (
-                  <div className="ml-16 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                  <div className="ml-14 p-4 bg-slate-50 rounded-lg border-l-4 border-slate-400">
                     <div className="flex items-center gap-2 mb-2">
-                      <Lightbulb className="h-5 w-5 text-amber-600" />
-                      <h4 className="font-semibold text-slate-800">Explanation</h4>
+                      <Lightbulb className="h-4 w-4 text-slate-600" />
+                      <span className="font-medium text-slate-800">Explanation</span>
                     </div>
-                    <div className="text-slate-700 leading-relaxed">
-                      {question.explanation}
-                    </div>
+                    <p className="text-slate-700 leading-relaxed">{question.explanation}</p>
                   </div>
                 )}
               </div>
