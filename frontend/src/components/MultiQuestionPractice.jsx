@@ -60,18 +60,15 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
 
   if (!questions || questions.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 flex items-center justify-center">
-        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-          <CardContent className="p-8 text-center">
-            <BookOpen className="h-12 w-12 text-slate-400 mx-auto mb-4" />
-            <h2 className="text-xl font-semibold text-slate-800 mb-2">No questions available</h2>
-            <p className="text-slate-600 mb-4">This topic doesn't have any practice questions yet.</p>
-            <Button onClick={onBack} className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Go Back
-            </Button>
-          </CardContent>
-        </Card>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-slate-800 mb-2">No questions available</h2>
+          <p className="text-slate-600 mb-4">This topic doesn't have any practice questions yet.</p>
+          <Button onClick={onBack} className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Go Back
+          </Button>
+        </div>
       </div>
     );
   }
