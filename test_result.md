@@ -161,9 +161,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Enhance QuantitativeLanding.jsx with detailed subtopic organization"
-    - "Create LogicalLanding.jsx for detailed logical reasoning subtopics"
-    - "Create VerbalLanding.jsx for detailed verbal reasoning subtopics"
+    - "Test enhanced QuantitativeLanding.jsx with categorized subtopic structure"
+    - "Test new LogicalLanding.jsx comprehensive subtopic organization"
+    - "Test new VerbalLanding.jsx detailed subtopic sections"
+    - "Test navigation flow between main aptitude page and new subtopic pages"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
