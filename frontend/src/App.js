@@ -123,6 +123,20 @@ function App() {
         />
       )}
 
+      {currentView === 'logical-landing' && (
+        <LogicalLanding 
+          onNavigate={handleNavigate}
+          onBack={handleBack}
+        />
+      )}
+
+      {currentView === 'verbal-landing' && (
+        <VerbalLanding 
+          onNavigate={handleNavigate}
+          onBack={handleBack}
+        />
+      )}
+
       {currentView === 'questions-list' && (
         <QuestionsList 
           topicId={selectedTopic}
