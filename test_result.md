@@ -216,6 +216,34 @@ test_plan:
   test_all: false
   test_priority: "high_first"
 
+backend:
+  - task: "Backend server health and basic endpoints"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ BACKEND CORE FUNCTIONALITY WORKING: Server health check passed, basic status endpoints (GET/POST /api/status) working correctly with proper data persistence to MongoDB. CORS configuration has minor issues but doesn't affect core functionality. Input validation working properly (returns 422 for invalid data)."
+
+  - task: "Question-related API endpoints for aptitude platform"
+    implemented: false
+    working: false
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: false
+        agent: "testing"
+        comment: "❌ MISSING CRITICAL ENDPOINTS: Backend lacks question-related endpoints expected for aptitude platform (/api/questions, /api/questions/quantitative, /api/questions/logical, /api/questions/verbal, /api/categories, /api/subtopics). Frontend currently uses hardcoded local data from /app/frontend/src/data/questions.js instead of fetching from backend. This is a significant architectural gap for a production aptitude platform."
+
 agent_communication:
   - agent: "main"
     message: "✅ SUCCESSFULLY COMPLETED: Converted practice mode from single question view to multi-question scrollable view (Indiabix-style)! Changes: 1) CREATED MultiQuestionPractice.jsx: Shows all questions in scrollable format with individual submission and immediate feedback, 2) INDIVIDUAL ANSWERS: Each question can be answered separately with instant explanation display, 3) PROGRESS TRACKING: Real-time statistics showing answered/correct counts and accuracy percentage, 4) NAVIGATION: Added 'Start Practice Mode' button to QuestionsList.jsx, 5) ROUTING: Updated App.js with proper navigation flow, 6) PRESERVED: Original QuestionDetail.jsx for individual question review. Perfect Indiabix-style practice experience implemented! Ready for comprehensive testing."
+  
+  - agent: "testing"
+    message: "🔍 BACKEND TESTING COMPLETED: Core backend functionality is working (server health, basic CRUD operations, database connectivity). However, discovered critical architectural gap - backend lacks question-related endpoints that would be expected for an aptitude test platform. Frontend currently uses hardcoded local question data instead of fetching from backend APIs. While current implementation works for demo purposes, this needs to be addressed for a production-ready aptitude platform. Minor CORS header issue detected but doesn't affect functionality."
