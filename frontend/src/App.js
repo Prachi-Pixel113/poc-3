@@ -174,6 +174,14 @@ function App() {
         />
       )}
 
+      {currentView === 'multi-question-practice' && (
+        <MultiQuestionPractice 
+          topicId={selectedTopic}
+          onNavigate={handleNavigate}
+          onBack={handleBack}
+        />
+      )}
+
       {currentView === 'score-summary' && (
         <ScoreSummary 
           topicId={selectedTopic}
