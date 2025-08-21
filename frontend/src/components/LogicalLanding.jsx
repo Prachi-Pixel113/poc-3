@@ -112,7 +112,7 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
       id: 'relationships',
       title: 'Relationships & Classifications',
       description: 'Blood relations, analogies, and logical groupings',
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-purple-500 to-indigo-500',
       icon: TreePine,
       topics: [
         {
