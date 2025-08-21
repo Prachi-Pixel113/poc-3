@@ -123,7 +123,15 @@ const AptitudeLanding = ({ onNavigate, onBack }) => {
               <Card 
                 key={topic.id}
                 className="bg-white/90 backdrop-blur-sm border-0 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden relative"
-                onClick={() => topic.id === 'quantitative' ? onNavigate('question-practice') : null}
+                onClick={() => {
+                  if (topic.id === 'quantitative') {
+                    onNavigate('quantitative-landing');
+                  } else if (topic.id === 'logical') {
+                    onNavigate('logical-landing');
+                  } else if (topic.id === 'verbal') {
+                    onNavigate('verbal-landing');
+                  }
+                }}
               >
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
