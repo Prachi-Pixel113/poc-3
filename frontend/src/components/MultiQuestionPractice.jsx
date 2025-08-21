@@ -36,14 +36,6 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
       ...prev,
       [questionId]: answerIndex
     }));
-
-    // Track when user first interacts with a question
-    if (!questionStartTimes[questionId]) {
-      setQuestionStartTimes(prev => ({
-        ...prev,
-        [questionId]: Date.now()
-      }));
-    }
   };
 
   const handleSubmitAnswer = (questionId) => {
