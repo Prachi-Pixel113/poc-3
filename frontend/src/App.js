@@ -8,6 +8,8 @@ import Signup from './components/Signup';
 import Home from './components/Home';
 import AptitudeLanding from './components/AptitudeLanding';
 import QuantitativeLanding from './components/QuantitativeLanding';
+import LogicalLanding from './components/LogicalLanding';
+import VerbalLanding from './components/VerbalLanding';
 import QuestionsList from './components/QuestionsList';
 import QuestionDetail from './components/QuestionDetail';
 import QuestionPractice from './components/QuestionPractice';
