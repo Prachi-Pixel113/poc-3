@@ -234,13 +234,13 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
         </div>
       </div>
 
-      <div className="h-full max-w-7xl mx-auto px-6 py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+      <div className="h-full max-w-7xl mx-auto px-6 py-4 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" style={{height: 'calc(100vh - 120px)'}}>
           
           {/* Question Section */}
-          <div className="lg:col-span-2">
-            <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg h-full">
-              <CardHeader className="pb-3">
+          <div className="lg:col-span-2 flex flex-col">
+            <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg flex-1 flex flex-col">
+              <CardHeader className="pb-3 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center">
@@ -255,13 +255,13 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="flex flex-col h-full">
-                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
+              <CardContent className="flex flex-col flex-1 min-h-0">
+                <p className="text-lg text-slate-700 mb-4 leading-relaxed flex-shrink-0">
                   {currentQ.question}
                 </p>
                 
                 {/* Answer Options */}
-                <div className="space-y-2 mb-4 flex-grow">
+                <div className="space-y-2 mb-4 flex-1 min-h-0 overflow-y-auto">
                   {currentQ.options.map((option) => {
                     let buttonClass = "w-full text-left p-3 rounded-lg border-2 transition-all duration-200 ";
                     
@@ -304,19 +304,19 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3 justify-end mt-auto">
+                <div className="flex gap-3 justify-end flex-shrink-0 pt-4 border-t border-slate-200">
                   {!isAnswered ? (
                     <Button
                       onClick={handleSubmitAnswer}
                       disabled={!selectedAnswer}
-                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6"
+                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
                     >
                       Submit Answer
                     </Button>
                   ) : (
                     <Button
                       onClick={handleNextQuestion}
-                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6"
+                      className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2"
                     >
                       {currentQuestion < questions.length - 1 ? (
                         <>
@@ -337,16 +337,16 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
           </div>
 
           {/* Explanation Section - Moved to Sidebar */}
-          <div>
+          <div className="flex flex-col">
             {showExplanation ? (
-              <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg h-full">
-                <CardHeader className="pb-3">
+              <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg flex-1 flex flex-col min-h-0">
+                <CardHeader className="pb-3 flex-shrink-0">
                   <CardTitle className="text-lg font-bold text-slate-800 flex items-center gap-2">
                     <Lightbulb className="h-5 w-5 text-yellow-500" />
                     Explanation
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 overflow-y-auto">
+                <CardContent className="space-y-4 overflow-y-auto flex-1 min-h-0">
                   
                   {/* Solution */}
                   <div>
@@ -391,7 +391,7 @@ const QuestionPractice = ({ onNavigate, onBack }) => {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg h-full flex items-center justify-center">
+              <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-lg flex-1 flex items-center justify-center">
                 <CardContent className="text-center">
                   <Lightbulb className="h-12 w-12 text-slate-300 mx-auto mb-4" />
                   <p className="text-slate-500">Submit your answer to see the detailed explanation</p>
