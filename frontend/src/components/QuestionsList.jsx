@@ -152,7 +152,7 @@ const QuestionsList = ({ topicId, onNavigate, onBack }) => {
                   <div 
                     key={question.id}
                     className="flex items-center justify-between p-4 hover:bg-slate-50 border-b border-slate-100 last:border-b-0 cursor-pointer transition-colors duration-200"
-                    onClick={() => onNavigate('multi-question-practice', topicId)}
+                    onClick={() => onNavigate('question-detail', topicId, question.id)}
                   >
                     <div className="flex items-center gap-4 flex-1">
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
