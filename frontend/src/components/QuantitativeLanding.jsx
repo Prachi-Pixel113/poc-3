@@ -55,7 +55,7 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
       id: 'arithmetic',
       title: 'Arithmetic Applications',
       description: 'Practical mathematical applications in real-world scenarios',
-      color: 'from-blue-500 to-indigo-500',
+      color: 'from-emerald-500 to-teal-500',
       topics: [
         {
           id: 'percentages',
