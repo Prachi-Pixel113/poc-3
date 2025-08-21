@@ -196,7 +196,7 @@ const LogicalLanding = ({ onNavigate, onBack }) => {
       id: 'logical-puzzles',
       title: 'Logical Puzzles & Games',
       description: 'Complex reasoning problems and logical deductions',
-      color: 'from-teal-500 to-purple-500',
+      color: 'from-purple-500 to-indigo-500',
       icon: Puzzle,
       topics: [
         {
