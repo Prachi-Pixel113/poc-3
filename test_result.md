@@ -205,6 +205,17 @@ test_plan:
   test_all: false
   test_priority: "high_first"
 
+test_plan:
+  current_focus:
+    - "Test simplified QuantitativeLanding.jsx without subtopic organization and header stats"
+    - "Test simplified LogicalLanding.jsx without subtopic organization and header stats"
+    - "Test simplified VerbalLanding.jsx without subtopic organization and header stats"
+    - "Test scrollable questions format in QuestionsList.jsx"
+    - "Verify clean layouts and scrollable question functionality work correctly"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
 agent_communication:
   - agent: "main"
-    message: "✅ SUCCESSFULLY COMPLETED: Removed subtopics organization AND header stats from ALL aptitude sections! Changes across all three components: 1) QUANTITATIVE: Removed categories + stats → ultra-clean 11 topics grid, 2) LOGICAL: Removed categories + stats → ultra-clean 15 topics grid, 3) VERBAL: Removed categories + stats → ultra-clean 15 topics grid. All sections now have minimal headers with just title + description, followed by clean topic cards. Removed all stats overview sections (Practice Questions, Students Enrolled, Topics Covered, Success Rate icons/numbers). Perfect minimalist format achieved across all 41 topics. Ready for testing to verify the ultra-clean layouts!"
+    message: "✅ SUCCESSFULLY COMPLETED: Removed subtopics organization + header stats from ALL aptitude sections AND implemented scrollable questions format! Changes: 1) ALL THREE SECTIONS: Ultra-clean headers with just title + description, 2) QUESTIONS: Converted from grid layout to space-efficient scrollable format with max-h-96 container, 3) SCROLLABLE FORMAT: Each question shows as compact row with number badge, title, difficulty, preview text, topic/time info, and solve button, 4) MAINTAINED: All filtering, completion tracking, and navigation functionality. Perfect ultra-minimal design achieved across all components with efficient scrollable question display. Ready for comprehensive testing!"
