@@ -356,6 +356,13 @@ const QuantitativeLanding = ({ onNavigate, onBack }) => {
                       <Button 
                         className={`w-full bg-gradient-to-r ${category.color} hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm`}
                         disabled={topic.premium}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!topic.premium) {
+                            // Navigate to arithmetic-aptitude questions for all quantitative topics
+                            onNavigate('practice', 'arithmetic-aptitude');
+                          }
+                        }}
                       >
                         {topic.premium ? (
                           <>
