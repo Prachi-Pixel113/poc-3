@@ -1,0 +1,477 @@
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
+import { 
+  ArrowLeft, 
+  Brain, 
+  Puzzle, 
+  Network,
+  ArrowRight,
+  Target,
+  TrendingUp,
+  Users,
+  Clock,
+  Award,
+  CheckCircle,
+  Lightbulb,
+  Eye,
+  TreePine
+} from 'lucide-react';
+
+const LogicalLanding = ({ onNavigate, onBack }) => {
+  const [selectedTopic, setSelectedTopic] = useState(null);
+
+  // Organized logical reasoning subtopics by categories for better structure
+  const logicalCategories = [
+    {
+      id: 'sequences-patterns',
+      title: 'Sequences & Patterns',
+      description: 'Number series, letter series, and pattern recognition',
+      color: 'from-purple-500 to-indigo-500',
+      icon: Network,
+      topics: [
+        {
+          id: 'number-series',
+          title: 'Number Series',
+          description: 'Complete numerical sequences using arithmetic, geometric, and special patterns',
+          subtopics: ['Arithmetic Series', 'Geometric Series', 'Square Series', 'Cube Series', 'Mixed Patterns'],
+          questions: 45,
+          difficulty: 'Easy to Medium',
+          avgTime: '25 mins',
+          successRate: '82%',
+          premium: false
+        },
+        {
+          id: 'letter-series',
+          title: 'Letter Series',
+          description: 'Alphabetical patterns and letter sequence completions',
+          subtopics: ['Forward Series', 'Backward Series', 'Skip Letters', 'Mixed Series', 'Reverse Patterns'],
+          questions: 35,
+          difficulty: 'Easy to Medium',
+          avgTime: '20 mins',
+          successRate: '85%',
+          premium: false
+        },
+        {
+          id: 'figure-series',
+          title: 'Figure Series',
+          description: 'Visual pattern recognition and shape sequences',
+          subtopics: ['Shape Rotation', 'Element Addition', 'Size Variation', 'Color Changes', 'Complex Patterns'],
+          questions: 30,
+          difficulty: 'Medium',
+          avgTime: '30 mins',
+          successRate: '75%',
+          premium: true
+        }
+      ]
+    },
+    {
+      id: 'coding-decoding',
+      title: 'Coding & Decoding',
+      description: 'Cipher techniques and code pattern analysis',
+      color: 'from-blue-500 to-cyan-500',
+      icon: Eye,
+      topics: [
+        {
+          id: 'letter-coding',
+          title: 'Letter Coding',
+          description: 'Alphabetical substitution and letter-based coding systems',
+          subtopics: ['Simple Substitution', 'Reverse Coding', 'Number Coding', 'Position Coding', 'Mixed Coding'],
+          questions: 40,
+          difficulty: 'Easy to Hard',
+          avgTime: '28 mins',
+          successRate: '78%',
+          premium: false
+        },
+        {
+          id: 'number-coding',
+          title: 'Number Coding',
+          description: 'Numerical codes and mathematical encoding patterns',
+          subtopics: ['Direct Coding', 'Sum Coding', 'Product Coding', 'Difference Coding', 'Complex Operations'],
+          questions: 35,
+          difficulty: 'Medium',
+          avgTime: '25 mins',
+          successRate: '80%',
+          premium: false
+        },
+        {
+          id: 'symbol-coding',
+          title: 'Symbol Coding',
+          description: 'Symbol substitution and pictorial coding systems',
+          subtopics: ['Basic Symbols', 'Conditional Coding', 'Operation Symbols', 'Mixed Symbols', 'Advanced Patterns'],
+          questions: 25,
+          difficulty: 'Medium to Hard',
+          avgTime: '32 mins',
+          successRate: '70%',
+          premium: true
+        }
+      ]
+    },
+    {
+      id: 'relationships',
+      title: 'Relationships & Classifications',
+      description: 'Blood relations, analogies, and logical groupings',
+      color: 'from-green-500 to-emerald-500',
+      icon: TreePine,
+      topics: [
+        {
+          id: 'blood-relations',
+          title: 'Blood Relations',
+          description: 'Family relationships and genealogical reasoning',
+          subtopics: ['Direct Relations', 'Indirect Relations', 'Complex Family Trees', 'Gender Based', 'Multi-Generation'],
+          questions: 50,
+          difficulty: 'Easy to Hard',
+          avgTime: '35 mins',
+          successRate: '72%',
+          premium: false
+        },
+        {
+          id: 'analogies',
+          title: 'Analogies',
+          description: 'Word relationships and logical comparisons',
+          subtopics: ['Word Analogies', 'Number Analogies', 'Letter Analogies', 'Mixed Analogies', 'Reverse Analogies'],
+          questions: 40,
+          difficulty: 'Medium',
+          avgTime: '22 mins',
+          successRate: '83%',
+          premium: false
+        },
+        {
+          id: 'classification',
+          title: 'Classification',
+          description: 'Grouping items based on common properties',
+          subtopics: ['Odd One Out', 'Group Formation', 'Category Based', 'Property Based', 'Complex Classifications'],
+          questions: 35,
+          difficulty: 'Easy to Medium',
+          avgTime: '20 mins',
+          successRate: '87%',
+          premium: false
+        }
+      ]
+    },
+    {
+      id: 'spatial-reasoning',
+      title: 'Spatial & Visual Reasoning',
+      description: 'Direction sense, spatial arrangements, and visual logic',
+      color: 'from-orange-500 to-red-500',
+      icon: Lightbulb,
+      topics: [
+        {
+          id: 'direction-sense',
+          title: 'Direction Sense',
+          description: 'Navigation, compass directions, and spatial orientation',
+          subtopics: ['Basic Directions', 'Left-Right Movements', 'Distance Calculations', 'Shadow Problems', 'Complex Routes'],
+          questions: 30,
+          difficulty: 'Easy to Medium',
+          avgTime: '25 mins',
+          successRate: '79%',
+          premium: false
+        },
+        {
+          id: 'seating-arrangement',
+          title: 'Seating Arrangement',
+          description: 'Linear and circular seating problems with constraints',
+          subtopics: ['Linear Arrangement', 'Circular Arrangement', 'Facing Problems', 'Multi-Level Seating', 'Complex Constraints'],
+          questions: 40,
+          difficulty: 'Medium to Hard',
+          avgTime: '40 mins',
+          successRate: '68%',
+          premium: true
+        },
+        {
+          id: 'mirror-water-images',
+          title: 'Mirror & Water Images',
+          description: 'Reflection patterns and image transformations',
+          subtopics: ['Mirror Images', 'Water Images', 'Clock Images', 'Paper Folding', 'Rotation Images'],
+          questions: 25,
+          difficulty: 'Medium',
+          avgTime: '28 mins',
+          successRate: '73%',
+          premium: true
+        }
+      ]
+    },
+    {
+      id: 'logical-puzzles',
+      title: 'Logical Puzzles & Games',
+      description: 'Complex reasoning problems and logical deductions',
+      color: 'from-teal-500 to-purple-500',
+      icon: Puzzle,
+      topics: [
+        {
+          id: 'syllogism',
+          title: 'Syllogism',
+          description: 'Logical statements and conclusion validation',
+          subtopics: ['Basic Syllogism', 'Multiple Statements', 'Negative Conclusions', 'Possibility Cases', 'Complex Logic'],
+          questions: 45,
+          difficulty: 'Medium to Hard',
+          avgTime: '35 mins',
+          successRate: '65%',
+          premium: true
+        },
+        {
+          id: 'logical-games',
+          title: 'Logical Games',
+          description: 'Strategy games and rule-based problem solving',
+          subtopics: ['Ranking Games', 'Tournament Problems', 'Conditional Games', 'Strategy Puzzles', 'Multi-Player Games'],
+          questions: 30,
+          difficulty: 'Hard',
+          avgTime: '45 mins',
+          successRate: '60%',
+          premium: true
+        },
+        {
+          id: 'input-output',
+          title: 'Input-Output',
+          description: 'Machine input-output and step-by-step operations',
+          subtopics: ['Basic Operations', 'Number Rearrangement', 'Word Rearrangement', 'Mixed Operations', 'Complex Patterns'],
+          questions: 35,
+          difficulty: 'Medium to Hard',
+          avgTime: '38 mins',
+          successRate: '67%',
+          premium: true
+        }
+      ]
+    }
+  ];
+
+  // Calculate total stats from all categories
+  const totalQuestions = logicalCategories.reduce((total, category) => 
+    total + category.topics.reduce((catTotal, topic) => catTotal + topic.questions, 0), 0);
+  
+  const totalTopics = logicalCategories.reduce((total, category) => 
+    total + category.topics.length, 0);
+
+  const featuredStats = [
+    { icon: Brain, value: `${totalQuestions}+`, label: 'Practice Questions' },
+    { icon: Users, value: '18K+', label: 'Students Enrolled' },
+    { icon: Target, value: `${totalTopics}`, label: 'Topics Covered' },
+    { icon: TrendingUp, value: '89%', label: 'Success Rate' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+      {/* Header */}
+      <div className="bg-white/70 backdrop-blur-sm shadow-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={onBack}
+                className="hover:bg-purple-100"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Aptitude
+              </Button>
+              <div className="h-6 w-px bg-slate-300"></div>
+              <div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Logical Reasoning
+                </h1>
+                <Badge className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-3 py-1">
+                  Analytical Thinking
+                </Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        {/* Stats Overview */}
+        <div className="mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {featuredStats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300">
+                  <stat.icon className="h-6 w-6 text-white" />
+                </div>
+                <p className="text-2xl font-bold text-slate-800 mb-1">{stat.value}</p>
+                <p className="text-sm text-slate-600 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Section Title */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+            Develop Logical Thinking
+          </h2>
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+            Enhance your analytical and logical reasoning abilities with comprehensive practice in pattern recognition, 
+            coding-decoding, relationships, and complex problem-solving techniques.
+          </p>
+        </div>
+
+        {/* Categorized Topics Sections */}
+        <div className="space-y-12 mb-16">
+          {logicalCategories.map((category, categoryIndex) => {
+            const CategoryIcon = category.icon;
+            return (
+              <div key={category.id} className="space-y-6">
+                {/* Category Header */}
+                <div className="text-center">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r ${category.color} mb-4 mx-auto shadow-lg`}>
+                    <CategoryIcon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className={`text-2xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent mb-2`}>
+                    {category.title}
+                  </h3>
+                  <p className="text-slate-600 max-w-2xl mx-auto">
+                    {category.description}
+                  </p>
+                </div>
+
+                {/* Topics Grid for this category */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.topics.map((topic) => (
+                    <Card 
+                      key={topic.id}
+                      className="bg-white/90 backdrop-blur-sm border-0 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group overflow-hidden relative"
+                      onClick={() => setSelectedTopic(topic)}
+                    >
+                      {/* Premium Badge */}
+                      {topic.premium && (
+                        <div className="absolute top-4 right-4 z-10">
+                          <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs">
+                            Premium
+                          </Badge>
+                        </div>
+                      )}
+
+                      {/* Background Pattern */}
+                      <div className="absolute inset-0 opacity-5">
+                        <div className={`absolute -right-3 -top-3 w-12 h-12 bg-gradient-to-br ${category.color} to-transparent rounded-full`}></div>
+                        <div className={`absolute -left-3 -bottom-3 w-16 h-16 bg-gradient-to-tr ${category.color} to-transparent rounded-full`}></div>
+                      </div>
+
+                      <CardHeader className="pb-3 relative">
+                        <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mb-3 shadow-md`}>
+                          <CategoryIcon className="h-5 w-5 text-white" />
+                        </div>
+                        
+                        <CardTitle className="text-lg font-bold text-slate-800 mb-2">
+                          {topic.title}
+                        </CardTitle>
+                        
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          {topic.description}
+                        </p>
+                      </CardHeader>
+
+                      <CardContent className="pt-0 relative space-y-3">
+                        {/* Subtopics */}
+                        <div className="space-y-2">
+                          <p className="text-xs font-semibold text-slate-700">Key Areas:</p>
+                          <div className="flex flex-wrap gap-1">
+                            {topic.subtopics.slice(0, 3).map((subtopic, index) => (
+                              <Badge 
+                                key={index}
+                                variant="secondary" 
+                                className="bg-slate-100 text-slate-600 text-xs px-2 py-0.5"
+                              >
+                                {subtopic}
+                              </Badge>
+                            ))}
+                            {topic.subtopics.length > 3 && (
+                              <Badge 
+                                variant="secondary" 
+                                className="bg-slate-100 text-slate-600 text-xs px-2 py-0.5"
+                              >
+                                +{topic.subtopics.length - 3}
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 gap-3 text-center">
+                          <div className="bg-purple-50 rounded-lg p-2">
+                            <p className="text-sm font-bold text-purple-600">{topic.questions}</p>
+                            <p className="text-xs text-slate-600">Questions</p>
+                          </div>
+                          <div className="bg-indigo-50 rounded-lg p-2">
+                            <p className="text-sm font-bold text-indigo-600">{topic.successRate}</p>
+                            <p className="text-xs text-slate-600">Success Rate</p>
+                          </div>
+                        </div>
+
+                        {/* Additional Info */}
+                        <div className="flex justify-between text-xs text-slate-600 bg-slate-50 rounded-lg p-2">
+                          <span><Clock className="h-3 w-3 inline mr-1" />{topic.avgTime}</span>
+                          <span><Target className="h-3 w-3 inline mr-1" />{topic.difficulty}</span>
+                        </div>
+
+                        {/* Action Button */}
+                        <Button 
+                          className={`w-full bg-gradient-to-r ${category.color} hover:from-purple-600 hover:to-indigo-600 text-white border-0 shadow-md transition-all duration-300 py-2 rounded-lg font-semibold text-sm`}
+                          disabled={topic.premium}
+                        >
+                          {topic.premium ? (
+                            <>
+                              <Award className="h-3 w-3 mr-2" />
+                              Upgrade to Access
+                            </>
+                          ) : (
+                            <>
+                              <span className="mr-2">Start Practice</span>
+                              <ArrowRight className="h-3 w-3" />
+                            </>
+                          )}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Category Divider (except for last category) */}
+                {categoryIndex < logicalCategories.length - 1 && (
+                  <div className="flex justify-center py-6">
+                    <div className="w-32 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Call to Action */}
+        <Card className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white border-0 shadow-2xl">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Brain className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="text-3xl font-bold mb-4">Ready to Master Logical Reasoning?</h3>
+            <p className="text-purple-100 mb-6 max-w-2xl mx-auto text-lg">
+              Challenge yourself with complex logical puzzles, pattern recognition, and analytical reasoning. 
+              Develop critical thinking skills essential for competitive exams and problem-solving.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => onNavigate('topic-practice')}
+                className="bg-white text-purple-600 hover:bg-purple-50 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+              >
+                <CheckCircle className="h-5 w-5 mr-2" />
+                Start Free Practice
+              </Button>
+              <Button
+                onClick={() => onNavigate('premium-dashboard')}
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+              >
+                <Award className="h-5 w-5 mr-2" />
+                Unlock Premium Topics
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </main>
+    </div>
+  );
+};
+
+export default LogicalLanding;
