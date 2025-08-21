@@ -86,31 +86,20 @@ const MultiQuestionPractice = ({ topicId, onNavigate, onBack }) => {
               <Button 
                 variant="outline" 
                 onClick={onBack}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold border-2 hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Topics
               </Button>
               
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold text-slate-900">
                   {topicNames[topicId]} Practice
                 </h1>
                 <p className="text-slate-600 text-sm">
-                  {questions.length} Questions • Answer each individually
+                  Practice questions with instant feedback
                 </p>
               </div>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <Badge className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 py-1 text-xs">
-                {getAnsweredCount()}/{questions.length} Answered
-              </Badge>
-              {submittedAnswers.size > 0 && (
-                <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 text-xs">
-                  {accuracy}% Accuracy
-                </Badge>
-              )}
             </div>
           </div>
         </div>
