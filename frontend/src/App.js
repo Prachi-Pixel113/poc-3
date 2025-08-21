@@ -13,6 +13,7 @@ import VerbalLanding from './components/VerbalLanding';
 import QuestionsList from './components/QuestionsList';
 import QuestionDetail from './components/QuestionDetail';
 import QuestionPractice from './components/QuestionPractice';
+import MultiQuestionPractice from './components/MultiQuestionPractice';
 import ScoreSummary from './components/ScoreSummary';
 import PremiumDashboard from './components/PremiumDashboard';
 import AIInterview from './components/AIInterview';
